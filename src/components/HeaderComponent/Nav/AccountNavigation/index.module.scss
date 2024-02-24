@@ -1,0 +1,16 @@
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  gap: 0.1rem;
+  transition: color 0.2s ease-in-out;
+}
+
+.link:hover {
+  color: #e9560c;
+  text-decoration: underline;
+  text-underline-offset: 0.25rem;
+}
