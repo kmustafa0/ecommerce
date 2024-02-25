@@ -1,4 +1,11 @@
-import { IoPersonOutline, IoHeartOutline, IoCartOutline } from 'react-icons/io5';
+import {
+  IoPersonOutline,
+  IoHeartOutline,
+  IoCartOutline,
+  IoSettingsOutline,
+  IoLogOutOutline,
+} from 'react-icons/io5';
+import { MdOutlineLocalShipping } from 'react-icons/md';
 
 export const HEADERLINKS = [
   {
@@ -9,14 +16,22 @@ export const HEADERLINKS = [
       {
         href: '/account/profile',
         label: 'Profile',
+        icon: <IoPersonOutline size={15} />,
       },
       {
         href: '/account/orders',
         label: 'Orders',
+        icon: <MdOutlineLocalShipping size={15} />,
       },
       {
         href: '/account/settings',
         label: 'Settings',
+        icon: <IoSettingsOutline size={15} />,
+      },
+      {
+        href: '/logout',
+        label: 'Logout',
+        icon: <IoLogOutOutline size={15} />,
       },
     ],
   },
@@ -29,5 +44,15 @@ export const HEADERLINKS = [
     href: '/cart',
     label: 'Cart',
     icon: <IoCartOutline size={20} />,
+    subItems: [
+      {
+        href: '/cart',
+        label: 'Go to cart',
+      },
+      {
+        href: '/cart/checkout',
+        label: 'Go to checkout',
+      },
+    ],
   },
 ];

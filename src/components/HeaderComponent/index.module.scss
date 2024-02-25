@@ -1,14 +1,13 @@
 // TODO scss dosyalarını ayır renk vs diye
 @import '../../../src/app/scss/breakpoints.scss';
 .header {
-  max-width: 90rem;
   width: 100%;
   padding: 2.5rem 0;
   margin: 0 auto;
   .container {
     padding: 0 1rem;
     margin: 0 auto;
-    max-width: 1400px;
+    max-width: 1760px;
     width: 100%;
     .navbarWrapper {
       display: flex;
@@ -16,17 +15,20 @@
       align-items: center;
       justify-content: space-between;
       .headerInputWrapper {
-        flex: 1 1 0%;
         margin: 0 1rem;
+        width: 40%;
+        position: relative;
         input {
-          height: 2.5rem;
           width: 100%;
-          border-radius: 0.5rem;
           border: 1px solid #e0e0e0;
-          background-color: #f3f3f3;
-          padding: 0.75rem 0.5rem;
-          font-size: 0.875rem;
+          padding: 0.5rem 1.25rem 0.5rem 3.125rem;
+          height: 40px;
+          border-radius: 100px;
+          background-color: #f6f5f5;
+          font-size: 0.8rem;
+          line-height: 50px;
           transition: border-color 0.2s ease-in-out;
+          letter-spacing: 0.32px;
           &::placeholder {
             color: #6b7280;
           }
@@ -34,6 +36,15 @@
             outline: none;
             border-color: #f89f72;
           }
+        }
+        .icon {
+          width: 22px;
+          height: 20px;
+          position: absolute;
+          top: 11px;
+          left: 18px;
+          fill: #787878;
+          overflow: hidden;
         }
       }
       .accountNavigationWrapper {
@@ -53,7 +64,8 @@
   .header {
     padding: 0.5rem 0;
     input,
-    span {
+    span,
+    .icon {
       display: none;
     }
     .container {
@@ -65,7 +77,8 @@
   .header {
     padding: 0.5rem 0;
     input,
-    span {
+    span,
+    .icon {
       display: none;
     }
     .container {
@@ -76,7 +89,8 @@
 @include media('>=600px', '<=tablet') {
   .header {
     padding: 0.8rem 0;
-    input {
+    input,
+    .icon {
       display: none;
     }
     span {
@@ -87,7 +101,8 @@
 @include media('>=tablet') {
   .header {
     padding: 1rem 0.5rem;
-    input {
+    input,
+    .icon {
       display: none;
     }
     span {
@@ -103,7 +118,8 @@
   .header {
     padding: 1.5rem 0.75rem;
     span,
-    input {
+    input,
+    .icon {
       display: block;
     }
     .container {
@@ -120,7 +136,8 @@
 
 @media only screen and (min-width: 950px) {
   .header {
-    input {
+    input,
+    .icon {
       display: block;
     }
   }
