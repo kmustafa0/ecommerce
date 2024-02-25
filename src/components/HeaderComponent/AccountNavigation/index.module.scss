@@ -60,3 +60,35 @@
   display: block;
   padding: 0 0.5rem 0 1rem;
 }
+
+// TODO butonlar birleştirilip indent içerisinde yazılabilir ve hoverdaki bg rengi silinsin
+
+.loginBtn {
+  box-sizing: border-box;
+  color: #fff;
+  background-color: #f27a1a;
+  width: 100%;
+  padding: 0;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 6px;
+}
+
+.registerBtn {
+  box-sizing: border-box;
+  color: #666;
+  border: solid 1px #dedede;
+  padding: 0;
+  width: 100%;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 6px;
+  font-size: 14px;
+}
