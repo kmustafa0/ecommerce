@@ -14,11 +14,17 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+      .logoWrapper {
+        position: relative;
+        width: 170px;
+        min-width: 60px;
+        height: 50px;
+      }
       .headerInputWrapper {
         margin: 0 1rem;
         width: 40%;
         position: relative;
-        input {
+        .searchInput {
           width: 100%;
           border: 1px solid #e0e0e0;
           padding: 0.5rem 1.25rem 0.5rem 3.125rem;
@@ -38,10 +44,10 @@
           }
         }
         .icon {
-          width: 22px;
+          width: 20px;
           height: 20px;
           position: absolute;
-          top: 11px;
+          top: 10px;
           left: 18px;
           fill: #787878;
           overflow: hidden;
@@ -58,12 +64,26 @@
       }
     }
   }
+  .tabletInputWrapper {
+    position: relative;
+    display: none;
+    padding: 15px 20px;
+    .icon {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      top: 25px;
+      left: 35px;
+      fill: #787878;
+      overflow: hidden;
+    }
+  }
 }
 
 @include media('<=phone') {
   .header {
     padding: 0.5rem 0;
-    input,
+    .headerInputWrapper,
     span,
     .icon {
       display: none;
@@ -76,7 +96,7 @@
 @include media('>phone', '<=600px') {
   .header {
     padding: 0.5rem 0;
-    input,
+    .headerInputWrapper,
     span,
     .icon {
       display: none;
@@ -89,9 +109,15 @@
 @include media('>=600px', '<=tablet') {
   .header {
     padding: 0.8rem 0;
-    input,
+    .headerInputWrapper,
     .icon {
       display: none;
+    }
+    .tabletInputWrapper {
+      display: block;
+    }
+    .tabletInputIcon {
+      display: block;
     }
     span {
       display: block;
@@ -101,10 +127,17 @@
 @include media('>=tablet') {
   .header {
     padding: 1rem 0.5rem;
-    input,
+    .headerInputWrapper,
     .icon {
       display: none;
     }
+    .tabletInputWrapper {
+      display: block;
+    }
+    .tabletInputIcon {
+      display: block;
+    }
+
     span {
       display: block;
     }
@@ -118,7 +151,7 @@
   .header {
     padding: 1.5rem 0.75rem;
     span,
-    input,
+    .headerInputWrapper,
     .icon {
       display: block;
     }
@@ -136,9 +169,15 @@
 
 @media only screen and (min-width: 950px) {
   .header {
-    input,
+    .headerInputWrapper,
     .icon {
       display: block;
+    }
+    .tabletInputWrapper {
+      display: none;
+    }
+    .tabletInputIcon {
+      display: none;
     }
   }
 }

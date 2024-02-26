@@ -5,7 +5,7 @@ import {
   IoSettingsOutline,
   IoLogOutOutline,
 } from 'react-icons/io5';
-import { MdOutlineLocalShipping } from 'react-icons/md';
+import { MdOutlineLocalShipping, MdCreditCard } from 'react-icons/md';
 
 export const HEADERLINKS = [
   {
@@ -48,10 +48,12 @@ export const HEADERLINKS = [
       {
         href: '/cart',
         label: 'Go to cart',
+        icon: <IoCartOutline size={15} />,
       },
       {
         href: '/cart/checkout',
         label: 'Go to checkout',
+        icon: <MdCreditCard size={15} />,
       },
     ],
   },

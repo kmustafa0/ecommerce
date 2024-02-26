@@ -22,7 +22,7 @@ const AccountNavigation = ({ href, icon, label, subItems }) => {
       return (
         <div className={styles.subMenu}>
           {subItems.map((subItem) => (
-            <Link href={subItem.href} key={subItem.label}>
+            <Link href={subItem.href} key={subItem.label} className={styles.subMenuItem}>
               {subItem.icon}
               <p className={styles.subItem}>{subItem.label}</p>
             </Link>
@@ -43,7 +43,7 @@ const AccountNavigation = ({ href, icon, label, subItems }) => {
         ) : (
           <Link href={href} className={styles.link}>
             {icon}
-            <span>Login</span>
+            <span>Loginasd</span>
           </Link>
         )
       ) : (

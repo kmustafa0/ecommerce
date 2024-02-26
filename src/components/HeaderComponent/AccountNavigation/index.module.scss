@@ -35,7 +35,7 @@
   /* padding: 1rem; */
   padding: 8px;
   width: 177px;
-  a {
+  .subMenuItem {
     font-size: 12px;
     display: flex;
     align-items: center;
@@ -71,6 +71,7 @@
   padding: 0;
   height: 34px;
   line-height: 34px;
+  margin-bottom: 10px;
   text-align: center;
   cursor: pointer;
   font-weight: 600;
