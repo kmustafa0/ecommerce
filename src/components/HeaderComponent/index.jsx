@@ -6,13 +6,17 @@ import AccountNavigation from './AccountNavigation';
 import Link from 'next/link';
 import { IoSearchOutline } from 'react-icons/io5';
 import Input from '../ui/Input';
+import HamburgerMenu from './HamburgerMenu';
 
 const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <div className={styles.navbarWrapper}>
-          {/*  <HamburgerMenu /> */}
+          <div className={styles.hamburgerMenu}>
+            <HamburgerMenu />
+          </div>
+
           <div className={styles.logoWrapper}>
             <Link href={'/'}>
               <Image src={`/logo-black.svg`} alt='logo' width={170} height={50} />

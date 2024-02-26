@@ -47,7 +47,11 @@ const AccountNavigation = ({ href, icon, label, subItems }) => {
           </Link>
         )
       ) : (
-        <Link href={href} className={styles.link}>
+        <Link
+          href={href}
+          className={`${styles.link} ${
+            label.toLowerCase() === 'favorites' ? styles.favorites : ''
+          }`}>
           {icon}
           <span>{label}</span>
         </Link>
