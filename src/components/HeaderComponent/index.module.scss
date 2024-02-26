@@ -24,25 +24,7 @@
         margin: 0 1rem;
         width: 40%;
         position: relative;
-        .searchInput {
-          width: 100%;
-          border: 1px solid #e0e0e0;
-          padding: 0.5rem 1.25rem 0.5rem 3.125rem;
-          height: 40px;
-          border-radius: 100px;
-          background-color: #f6f5f5;
-          font-size: 0.8rem;
-          line-height: 50px;
-          transition: border-color 0.2s ease-in-out;
-          letter-spacing: 0.32px;
-          &::placeholder {
-            color: #6b7280;
-          }
-          &:focus-visible {
-            outline: none;
-            border-color: #f89f72;
-          }
-        }
+
         .icon {
           width: 20px;
           height: 20px;
