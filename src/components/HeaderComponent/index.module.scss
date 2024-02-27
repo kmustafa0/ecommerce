@@ -2,12 +2,12 @@
 @import '../../../src/app/scss/breakpoints.scss';
 .header {
   width: 100%;
-  padding: 2.5rem 0;
+  padding: 0 0 2.5rem 0;
   margin: 0 auto;
+  max-width: 1200px;
   .container {
     padding: 0 1rem;
     margin: 0 auto;
-    max-width: 1760px;
     width: 100%;
     .navbarWrapper {
       display: flex;
@@ -79,6 +79,12 @@
   padding: 2em 0 0 1.5em;
 }
 
+.topLinks {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 1rem;
+}
+
 /* MEDIA QUERIES */
 @include media('<=phone') {
   .header {
@@ -91,7 +97,8 @@
     .hamburgerMenu {
       display: block;
     }
-    .container {
+    .container,
+    .topLinks {
       padding: 0 0.5rem !important;
     }
   }
@@ -107,7 +114,8 @@
     .hamburgerMenu {
       display: block;
     }
-    .container {
+    .container,
+    .topLinks {
       padding: 0 0.5rem !important;
     }
   }
@@ -147,7 +155,8 @@
     span {
       display: block;
     }
-    .container {
+    .container,
+    .topLinks {
       padding: 0.5rem 1rem !important;
     }
   }
@@ -161,7 +170,8 @@
     .icon {
       display: block;
     }
-    .container {
+    .container,
+    .topLinks {
       padding: 0.5rem 1rem !important;
     }
   }
@@ -169,7 +179,7 @@
 
 @include media('>=desktop', '>=LGdesktop') {
   .header {
-    padding: 2.5rem 0.75rem;
+    padding: 0 0 2.5rem 0;
   }
 }
 

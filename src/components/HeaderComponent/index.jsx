@@ -9,6 +9,7 @@ import { IoSearchOutline } from 'react-icons/io5';
 import Input from '../ui/Input';
 import HamburgerMenu from './HamburgerMenu';
 import { RiCloseLine, RiMenu2Line } from 'react-icons/ri';
+import TopLinks from './TopLinks/page';
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
@@ -18,6 +19,9 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
+      <div className={styles.topLinks}>
+        <TopLinks />
+      </div>
       <div className={styles.container}>
         <div className={styles.navbarWrapper}>
           <div className={styles.hamburgerMenu}>
@@ -64,10 +68,12 @@ const Header = () => {
           </div>
         </div>
       </div>
+      {/* TABLET INPUT */}
       <div className={`${styles.tabletInputWrapper} ${styles.searchInput}`}>
         <input type='text' name='' id='' placeholder='Type any product name here...' />
         <IoSearchOutline className={`${styles.icon} ${styles.tabletInputIcon}`} />
       </div>
+      {/* HAMBURGER MENU */}
       <div className={`${!isOpen ? styles.open : styles.close}`}>
         <div className={styles.hamburgerContainer}>
           <ul>

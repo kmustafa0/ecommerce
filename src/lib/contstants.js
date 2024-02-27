@@ -62,34 +62,73 @@ export const HEADERLINKS = [
 export const HAMBURGER_MENU_LINKS = [
   {
     label: 'Clothes',
-    href: '/clothes',
+    href: '/cat/clothes',
   },
   {
     label: 'Electronics',
-    href: '/electronics',
+    href: '/cat/electronics',
   },
   {
     label: 'Furniture',
-    href: '/furniture',
+    href: '/cat/furniture',
   },
   {
     label: 'Shoes',
-    href: '/shoes',
+    href: '/cat/shoes',
   },
   {
     label: 'Miscellaneous',
-    href: '/miscellaneous',
+    href: '/cat/miscellaneous',
   },
   {
     label: 'Smart Home',
-    href: '/smart-home',
+    href: '/cat/smart-home',
   },
   {
     label: 'Arts & Crafts',
-    href: '/arts-crafts',
+    href: '/cat/arts-crafts',
   },
   {
     label: 'Pet supplies',
-    href: '/pet-supplies',
+    href: '/cat/pet-supplies',
+  },
+];
+
+export const TOP_LINKS = [
+  {
+    label: 'Corporate',
+    href: '/corporate',
+  },
+  {
+    label: 'About Us',
+    href: '/about',
+  },
+  {
+    label: 'Corporate',
+    href: '/corporate',
+  },
+  {
+    label: 'Contact',
+    href: '/contact',
+  },
+  {
+    label: 'Partners',
+    href: '/partners',
+  },
+  {
+    label: 'Customer Service',
+    href: '/customer-service',
+  },
+  {
+    label: 'Corporate',
+    href: '/corporate',
+  },
+  {
+    label: 'Protection of Personal Data',
+    href: '/kvkk',
+  },
+  {
+    label: '0531 668 81 22',
+    href: 'telto:05316688122',
   },
 ];

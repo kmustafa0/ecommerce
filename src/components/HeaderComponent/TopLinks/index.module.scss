@@ -1,0 +1,22 @@
+.topLinkList {
+  display: flex;
+  flex-direction: row;
+  gap: 1.2rem;
+  li {
+    a {
+      font-size: 12px;
+      color: #999;
+      &:hover {
+        color: #666;
+      }
+    }
+  }
+  .highlight {
+    a {
+      color: #e9560cd3;
+      &:hover {
+        color: #e9560c;
+      }
+    }
+  }
+}

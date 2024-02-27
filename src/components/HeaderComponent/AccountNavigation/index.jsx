@@ -43,7 +43,7 @@ const AccountNavigation = ({ href, icon, label, subItems }) => {
         ) : (
           <Link href={href} className={styles.link}>
             {icon}
-            <span>Loginasd</span>
+            <span>Login</span>
           </Link>
         )
       ) : (
