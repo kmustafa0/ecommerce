@@ -75,8 +75,9 @@
   color: #212121;
   position: absolute;
   left: 0;
-  bottom: 0;
-  padding: 2em 0 0 1.5em;
+  /* bottom: 0; */
+  top: 66px;
+  padding: 2em 1.5em;
 }
 
 .topLinks {
@@ -97,8 +98,10 @@
     .hamburgerMenu {
       display: block;
     }
-    .container,
     .topLinks {
+      display: none;
+    }
+    .container {
       padding: 0 0.5rem !important;
     }
   }
@@ -114,15 +117,17 @@
     .hamburgerMenu {
       display: block;
     }
-    .container,
     .topLinks {
+      display: none;
+    }
+    .container {
       padding: 0 0.5rem !important;
     }
   }
 }
 @include media('>=600px', '<=tablet') {
   .header {
-    padding: 0.8rem 0;
+    /* padding: 0.8rem 0; */
     .headerInputWrapper,
     .icon {
       display: none;
@@ -132,6 +137,9 @@
     }
     .tabletInputIcon {
       display: block;
+    }
+    .topLinks {
+      display: none;
     }
     span {
       display: block;
@@ -140,7 +148,7 @@
 }
 @include media('>=tablet') {
   .header {
-    padding: 1rem 0.5rem;
+    /* padding: 1rem 0.5rem; */
     .headerInputWrapper,
     .icon {
       display: none;
@@ -151,12 +159,13 @@
     .tabletInputIcon {
       display: block;
     }
-
+    .topLinks {
+      display: none;
+    }
     span {
       display: block;
     }
-    .container,
-    .topLinks {
+    .container {
       padding: 0.5rem 1rem !important;
     }
   }
@@ -164,7 +173,7 @@
 
 @include media('>=tablet', '>=desktop') {
   .header {
-    padding: 1.5rem 0.75rem;
+    /* padding: 1.5rem 0.75rem; */
     span,
     .headerInputWrapper,
     .icon {
@@ -194,6 +203,9 @@
     }
     .tabletInputIcon {
       display: none;
+    }
+    .topLinks {
+      display: flex;
     }
   }
 }

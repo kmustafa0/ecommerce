@@ -20,12 +20,12 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.topLinks}>
+        {/* TODO tablet input display block olduğu zaman gizlenecek */}
         <TopLinks />
       </div>
       <div className={styles.container}>
         <div className={styles.navbarWrapper}>
           <div className={styles.hamburgerMenu}>
-            {/* <HamburgerMenu /> */}{' '}
             {isOpen ? (
               <RiCloseLine
                 size={35}
