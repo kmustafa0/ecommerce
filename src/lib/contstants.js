@@ -58,3 +58,38 @@ export const HEADERLINKS = [
     ],
   },
 ];
+
+export const HAMBURGER_MENU_LINKS = [
+  {
+    label: 'Clothes',
+    href: '/clothes',
+  },
+  {
+    label: 'Electronics',
+    href: '/electronics',
+  },
+  {
+    label: 'Furniture',
+    href: '/furniture',
+  },
+  {
+    label: 'Shoes',
+    href: '/shoes',
+  },
+  {
+    label: 'Miscellaneous',
+    href: '/miscellaneous',
+  },
+  {
+    label: 'Smart Home',
+    href: '/smart-home',
+  },
+  {
+    label: 'Arts & Crafts',
+    href: '/arts-crafts',
+  },
+  {
+    label: 'Pet supplies',
+    href: '/pet-supplies',
+  },
+];

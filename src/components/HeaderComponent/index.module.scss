@@ -64,6 +64,22 @@
 .hamburgerMenu {
   display: none;
 }
+
+.open {
+  display: none;
+}
+.close {
+  height: calc(100vh - 66px);
+  width: 100vw;
+  background-color: #f1f2f3;
+  color: #212121;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 2em 0 0 1.5em;
+}
+
+/* MEDIA QUERIES */
 @include media('<=phone') {
   .header {
     padding: 0.5rem 0;

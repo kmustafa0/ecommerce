@@ -1,18 +1,15 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './index.module.scss';
-import { RiMenu2Line } from 'react-icons/ri';
+import Link from 'next/link';
 
-const HamburgerMenu = () => {
-  const [isOpen, setOpen] = useState(false);
-  const handleHamburgerMenu = () => {
-    setOpen((prev) => !prev);
-  };
-  console.log(isOpen);
-
+const HamburgerMenu = ({ href, icon, label, subItems }) => {
   return (
-    <div onClick={handleHamburgerMenu} className={`${!isOpen ? '' : styles.close}`}>
-      <RiMenu2Line size={35} style={{ verticalAlign: 'bottom', cursor: 'pointer' }} />
+    <div>
+      <Link href={href} className={styles.test}>
+        {icon}
+        {label}
+      </Link>
     </div>
   );
 };

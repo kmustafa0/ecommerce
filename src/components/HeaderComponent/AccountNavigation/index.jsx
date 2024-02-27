@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './index.module.scss';
 
-const user = true;
+const user = false;
 
 const AccountNavigation = ({ href, icon, label, subItems }) => {
   const renderSubItems = () => {
