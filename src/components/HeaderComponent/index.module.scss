@@ -138,6 +138,9 @@
     .tabletInputIcon {
       display: block;
     }
+    .hamburgerMenu {
+      display: block;
+    }
     .topLinks {
       display: none;
     }
@@ -157,6 +160,9 @@
       display: block;
     }
     .tabletInputIcon {
+      display: block;
+    }
+    .hamburgerMenu {
       display: block;
     }
     .topLinks {
@@ -191,7 +197,7 @@
     padding: 0 0 2.5rem 0;
   }
 }
-
+/* TODO satır azalt. aynı özellik farklı sınıflara verilio / display none gibi */
 @media only screen and (min-width: 950px) {
   .header {
     .headerInputWrapper,
@@ -202,6 +208,9 @@
       display: none;
     }
     .tabletInputIcon {
+      display: none;
+    }
+    .hamburgerMenu {
       display: none;
     }
     .topLinks {
