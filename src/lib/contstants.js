@@ -132,3 +132,18 @@ export const TOP_LINKS = [
     href: 'telto:05316688122',
   },
 ];
+
+export const CAROUSEL_IMAGES = [
+  {
+    path: '/slider/1.webp',
+    alt: 'slider image',
+  },
+  {
+    path: '/slider/2.webp',
+    alt: 'slider image',
+  },
+  {
+    path: '/slider/3.webp',
+    alt: 'slider image',
+  },
+];
