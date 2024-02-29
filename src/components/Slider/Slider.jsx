@@ -8,7 +8,7 @@ import Autoplay from 'embla-carousel-autoplay';
 import { NextButton, PrevButton, usePrevNextButtons } from './ArrowButtons';
 
 export function EmblaCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 2000 })]);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 2500 })]);
 
   const scrollPrev = useCallback(() => {
     if (emblaApi) emblaApi.scrollPrev();
@@ -46,18 +46,18 @@ export function EmblaCarousel() {
             </div>
           ))}
         </div>
-      </div>
-      <div className='embla__controls'>
-        <div className='embla__buttons'>
-          <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-          <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-        </div>
+        <div className='embla__controls'>
+          <div className='embla__buttons'>
+            <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+            <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+          </div>
 
-        <div className='embla__progress'>
-          <div
-            className='embla__progress__bar'
-            style={{ transform: `translate3d(${scrollProgress}%,0px,0px)` }}
-          />
+          <div className='embla__progress'>
+            <div
+              className='embla__progress__bar'
+              style={{ transform: `translate3d(${scrollProgress}%,0px,0px)` }}
+            />
+          </div>
         </div>
       </div>
     </div>

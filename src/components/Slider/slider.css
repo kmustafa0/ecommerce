@@ -1,33 +1,39 @@
 .embla__viewport {
   overflow: hidden;
   height: 70vh;
+  position: relative;
 }
 .embla__container {
   display: flex;
   height: 100%;
+  width: 100%;
 }
 .embla__slide {
   flex: 0 0 100%;
   min-width: 0;
   position: relative;
+  width: 100%;
 }
 .embla__slide img {
   object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .embla__controls {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  justify-content: space-between;
+  display: flex;
   gap: 1.2rem;
-  margin-top: 1rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }
 /* TODO css düzenle */
 .embla__buttons {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.6rem;
+  display: flex;
   align-items: center;
+  gap: 1rem;
 }
 
 .embla__button {
@@ -36,21 +42,17 @@
   appearance: none;
   background-color: transparent;
   touch-action: manipulation;
-  display: inline-flex;
   text-decoration: none;
   cursor: pointer;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  box-shadow: inset 0 0 0 0.2rem rgb(234, 234, 234);
-  width: 3.6rem;
-  height: 3.6rem;
-  z-index: 1;
-  border-radius: 50%;
-  color: var(--text-body);
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.5s ease-out;
+}
+.embla__button:hover {
+  border-radius: 26%;
 }
 .embla__button:disabled {
   color: rgb(192, 192, 192);
@@ -61,18 +63,18 @@
 }
 .embla__progress {
   border-radius: 1.8rem;
-  box-shadow: inset 0 0 0 0.2rem rgb(234, 234, 234);
   background-color: rgb(249, 249, 249);
+  border: 1px solid #666;
   position: relative;
   height: 0.6rem;
   justify-self: flex-end;
   align-self: center;
-  width: 13rem;
+  width: 6rem;
   max-width: 90%;
   overflow: hidden;
 }
 .embla__progress__bar {
-  background-color: rgb(54, 49, 61);
+  background-color: #333;
   position: absolute;
   width: 100%;
   top: 0;
