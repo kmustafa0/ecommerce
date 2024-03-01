@@ -104,10 +104,6 @@ export const TOP_LINKS = [
     href: '/about',
   },
   {
-    label: 'Corporate',
-    href: '/corporate',
-  },
-  {
     label: 'Contact',
     href: '/contact',
   },
@@ -118,10 +114,6 @@ export const TOP_LINKS = [
   {
     label: 'Customer Service',
     href: '/customer-service',
-  },
-  {
-    label: 'Corporate',
-    href: '/corporate',
   },
   {
     label: 'Protection of Personal Data',

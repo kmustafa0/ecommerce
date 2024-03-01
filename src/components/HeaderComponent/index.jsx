@@ -6,7 +6,6 @@ import Image from 'next/image';
 import AccountNavigation from './AccountNavigation';
 import Link from 'next/link';
 import { IoSearchOutline } from 'react-icons/io5';
-import Input from '../ui/Input';
 import HamburgerMenu from './HamburgerMenu';
 import { RiCloseLine, RiMenu2Line } from 'react-icons/ri';
 import TopLinks from './TopLinks/page';
@@ -20,7 +19,6 @@ const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.topLinks}>
-        {/* TODO tablet input display block olduğu zaman gizlenecek */}
         <TopLinks />
       </div>
       <div className={styles.container}>
@@ -43,11 +41,16 @@ const Header = () => {
 
           <div className={styles.logoWrapper}>
             <Link href={'/'}>
-              <Image src={`/logo-black.svg`} alt='logo' width={170} height={50} />
+              <Image src={`/logo-black.svg`} alt='logo' width={170} height={50} priority />
             </Link>
           </div>
           <div className={styles.headerInputWrapper}>
-            <Input />
+            <input
+              type='text'
+              name='search'
+              id='search'
+              placeholder='Type any product name here...'
+            />
             <IoSearchOutline className={styles.icon} />
           </div>
           <div className={styles.accountNavigationWrapper}>
@@ -70,7 +73,12 @@ const Header = () => {
       </div>
       {/* TABLET INPUT */}
       <div className={`${styles.tabletInputWrapper} ${styles.searchInput}`}>
-        <input type='text' name='' id='' placeholder='Type any product name here...' />
+        <input
+          type='text'
+          name='tabletSearch'
+          id='tabletSearch'
+          placeholder='Type any product name here...'
+        />
         <IoSearchOutline className={`${styles.icon} ${styles.tabletInputIcon}`} />
       </div>
       {/* HAMBURGER MENU */}

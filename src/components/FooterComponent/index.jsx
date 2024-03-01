@@ -1,8 +1,8 @@
 import React from 'react';
 import styles from './index.module.scss';
 
-const FooterComponent = () => {
-  return <div>FooterComponent</div>;
+const Footer = () => {
+  return <footer>FooterComponent</footer>;
 };
 
-export default FooterComponent;
+export default Footer;

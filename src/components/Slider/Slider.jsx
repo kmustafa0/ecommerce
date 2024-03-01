@@ -10,14 +10,6 @@ import { NextButton, PrevButton, usePrevNextButtons } from './ArrowButtons';
 export function EmblaCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 2500 })]);
 
-  const scrollPrev = useCallback(() => {
-    if (emblaApi) emblaApi.scrollPrev();
-  }, [emblaApi]);
-
-  const scrollNext = useCallback(() => {
-    if (emblaApi) emblaApi.scrollNext();
-  }, [emblaApi]);
-
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } =
@@ -42,7 +34,7 @@ export function EmblaCarousel() {
         <div className='embla__container'>
           {CAROUSEL_IMAGES.map((image) => (
             <div key={image.path} className='embla__slide'>
-              <Image src={image.path} alt={image.alt} fill />
+              <Image src={image.path} alt={image.alt} fill priority />
             </div>
           ))}
         </div>
