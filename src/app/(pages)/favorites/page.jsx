@@ -1,7 +1,11 @@
 import React from 'react';
 
-const Favorites = () => {
+export const metadata = {
+  title: 'Favorites',
+};
+
+const FavoritesPage = () => {
   return <div>Favorites</div>;
 };
 
-export default Favorites;
+export default FavoritesPage;
