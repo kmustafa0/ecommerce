@@ -9,6 +9,7 @@ import { IoSearchOutline } from 'react-icons/io5';
 import HamburgerMenu from './HamburgerMenu';
 import { RiCloseLine, RiMenu2Line } from 'react-icons/ri';
 import TopLinks from './TopLinks/page';
+import { Logo } from '../Logo';
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
@@ -41,7 +42,7 @@ const Header = () => {
 
           <div className={styles.logoWrapper}>
             <Link href={'/'}>
-              <Image src={`/logo-black.svg`} alt='logo' width={170} height={50} priority />
+              <Logo />
             </Link>
           </div>
           <div className={styles.headerInputWrapper}>
