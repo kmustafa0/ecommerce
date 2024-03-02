@@ -29,7 +29,7 @@ export function EmblaCarousel() {
   }, [emblaApi, onScroll]);
 
   return (
-    <div className='embla'>
+    <section className='embla'>
       <div className='embla__viewport' ref={emblaRef}>
         <div className='embla__container'>
           {CAROUSEL_IMAGES.map((image) => (
@@ -52,6 +52,6 @@ export function EmblaCarousel() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
