@@ -10,7 +10,9 @@ const TopLinks = () => {
           <li
             key={item.href}
             className={`${item.href.startsWith('telto') ? styles.highlight : ''}`}>
-            <Link href={item.href}>{item.label}</Link>
+            <Link href={item.href} aria-label={item.label}>
+              {item.label}
+            </Link>
           </li>
         ))}
       </ul>

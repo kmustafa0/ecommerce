@@ -40,7 +40,7 @@ const Header = () => {
           </div>
 
           <div className={styles.logoWrapper}>
-            <Link href={'/'}>
+            <Link href={'/'} aria-label='Home'>
               <Logo />
             </Link>
           </div>

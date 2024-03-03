@@ -10,10 +10,10 @@ const AccountNavigation = ({ href, icon, label, subItems }) => {
     if (label === 'Account' && !user) {
       return (
         <div className={styles.subMenu}>
-          <Link href='/login'>
+          <Link href='/login' aria-label='Login'>
             <p className={`${styles.subItem} ${styles.loginBtn}`}>Login</p>
           </Link>
-          <Link href='/register'>
+          <Link href='/register' aria-label='Register'>
             <p className={`${styles.subItem} ${styles.registerBtn}`}>Register</p>
           </Link>
         </div>
@@ -22,7 +22,11 @@ const AccountNavigation = ({ href, icon, label, subItems }) => {
       return (
         <div className={styles.subMenu}>
           {subItems.map((subItem) => (
-            <Link href={subItem.href} key={subItem.label} className={styles.subMenuItem}>
+            <Link
+              href={subItem.href}
+              key={subItem.label}
+              className={styles.subMenuItem}
+              aria-label={subItem.label}>
               {subItem.icon}
               <p className={styles.subItem}>{subItem.label}</p>
             </Link>
@@ -36,12 +40,12 @@ const AccountNavigation = ({ href, icon, label, subItems }) => {
     <div className={styles.container}>
       {label === 'Account' ? (
         user ? (
-          <Link href={href} className={styles.link}>
+          <Link href={href} className={styles.link} aria-label={label}>
             {icon}
             <span>{label}</span>
           </Link>
         ) : (
-          <Link href={href} className={styles.link}>
+          <Link href={href} className={styles.link} aria-label='Login'>
             {icon}
             <span>Login</span>
           </Link>
@@ -51,7 +55,8 @@ const AccountNavigation = ({ href, icon, label, subItems }) => {
           href={href}
           className={`${styles.link} ${
             label.toLowerCase() === 'favorites' ? styles.favorites : ''
-          }`}>
+          }`}
+          aria-label={label}>
           {icon}
           <span>{label}</span>
         </Link>

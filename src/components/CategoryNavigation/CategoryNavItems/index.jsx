@@ -9,7 +9,11 @@ const CategoryNavItems = ({ label, href, subItems }) => {
         <div className={styles.subMenu}>
           {subItems &&
             subItems.map((subItem) => (
-              <Link href={subItem.href} key={subItem.label} className={styles.subMenuItem}>
+              <Link
+                href={subItem.href}
+                key={subItem.label}
+                className={styles.subMenuItem}
+                aria-label={subItem.label}>
                 <p className={styles.subItem}>{subItem.label}</p>
               </Link>
             ))}
@@ -21,7 +25,7 @@ const CategoryNavItems = ({ label, href, subItems }) => {
   return (
     <>
       <div className={styles.categoryWrapper}>
-        <Link href={href} className={styles.categoryItems}>
+        <Link href={href} className={styles.categoryItems} aria-label={label}>
           <p>{label}</p>
           {subItems && <RiArrowDownSLine />}
         </Link>
