@@ -1,0 +1,29 @@
+@import 'src/app/scss/breakpoints.scss';
+@import 'src/app/scss/layout.scss';
+
+.wrapper {
+  @extend %section;
+  .container {
+    @extend %container;
+    display: flex;
+    justify-content: center;
+  }
+  .navbar {
+    ul {
+      display: flex;
+      flex-direction: row;
+      gap: 1.8rem;
+      li {
+        font-size: 14px;
+        color: #333;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 950px) {
+  .wrapper {
+    display: none;
+  }
+}

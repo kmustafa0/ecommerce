@@ -2,7 +2,6 @@
 import React, { useState } from 'react';
 import styles from './index.module.scss';
 import { HAMBURGER_MENU_LINKS, HEADERLINKS } from '@/lib/contstants';
-import Image from 'next/image';
 import AccountNavigation from './AccountNavigation';
 import Link from 'next/link';
 import { IoSearchOutline } from 'react-icons/io5';
@@ -18,7 +17,7 @@ const Header = () => {
   };
 
   return (
-    <header className={styles.header}>
+    <header className={styles.section}>
       <div className={styles.topLinks}>
         <TopLinks />
       </div>
@@ -88,7 +87,7 @@ const Header = () => {
           <ul>
             {HAMBURGER_MENU_LINKS.map((item) => (
               <li key={item.href}>
-                <HamburgerMenu label={item.label} href={item.href} />
+                <HamburgerMenu label={item.label} href={item.href} subItems={item.subItems} />
               </li>
             ))}
           </ul>

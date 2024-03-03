@@ -2,7 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import styles from './index.module.scss';
-const HamburgerMenu = ({ label, href, subItems }) => {
+const CategoryNavItems = ({ label, href, subItems }) => {
   const renderSubItems = () => {
     if (subItems && subItems.length > 0) {
       return (
@@ -19,10 +19,9 @@ const HamburgerMenu = ({ label, href, subItems }) => {
   };
 
   return (
-    /* TODO eğer subItem varsa href tıklandığında bir yere yönlendirme yapılmayacak subMenu gösterilecek */
     <>
       <div className={styles.categoryWrapper}>
-        <Link href={href} className={styles.catgoryItem}>
+        <Link href={href} className={styles.categoryItems}>
           <p>{label}</p>
           {subItems && <RiArrowDownSLine />}
         </Link>
@@ -32,4 +31,4 @@ const HamburgerMenu = ({ label, href, subItems }) => {
   );
 };
 
-export default HamburgerMenu;
+export default CategoryNavItems;

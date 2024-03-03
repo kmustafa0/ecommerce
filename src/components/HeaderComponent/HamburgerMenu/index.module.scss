@@ -1,8 +1,32 @@
-.test {
+.catgoryItem {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   font-weight: 500;
   padding: 15px 20px;
   font-size: 1rem;
+}
+.categoryItems {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.subMenu {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  width: max-content;
+  border-radius: 4px;
+  padding: 8px;
+  margin-left: 1rem;
+  width: 177px;
+  a {
+    font-size: 12px;
+    border-radius: 8px;
+    transition: color 0.2s ease-in-out;
+    padding: 8px;
+  }
 }

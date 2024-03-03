@@ -1,30 +1,28 @@
-// TODO scss dosyalarını ayır renk vs diye ve colors.scss oluştur sitenin tüm renklerini ayarlar :root .dark şeklinde
 @import '../../../src/app/scss/breakpoints.scss';
-.header {
-  width: 100%;
-  padding: 0;
-  margin: 0 auto;
-  max-width: 1200px;
+@import '../../../src/app/scss/layout.scss';
+.section {
+  @extend %section;
   .topLinks {
     display: flex;
     justify-content: flex-end;
     padding: 0 1rem;
   }
+
   .container {
-    padding: 0 1rem;
-    margin: 0 auto;
-    width: 100%;
+    @extend %container;
     .navbarWrapper {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+
       .logoWrapper {
         position: relative;
         width: 170px;
         min-width: 60px;
         height: 50px;
       }
+
       .headerInputWrapper {
         margin: 0 1rem;
         width: 40%;
@@ -40,6 +38,7 @@
           overflow: hidden;
         }
       }
+
       .accountNavigationWrapper {
         ul {
           display: flex;
@@ -51,10 +50,12 @@
       }
     }
   }
+
   .tabletInputWrapper {
     position: relative;
     display: none;
     padding: 15px 20px;
+
     .icon {
       width: 20px;
       height: 20px;
@@ -66,6 +67,7 @@
     }
   }
 }
+
 .hamburgerMenu,
 .open {
   display: none;
@@ -78,14 +80,13 @@
   color: #212121;
   position: absolute;
   left: 0;
-  top: 66px;
+  top: 50px;
   padding: 2em 1.5em;
   z-index: 999999;
 }
 
-/* MEDIA QUERIES */
 @include media('<=phone') {
-  .header {
+  .section {
     padding: 0.5rem 0;
     .headerInputWrapper,
     span,
@@ -96,13 +97,11 @@
     .hamburgerMenu {
       display: block;
     }
-    .container {
-      padding: 0 0.5rem !important;
-    }
   }
 }
+
 @include media('>phone', '<=600px') {
-  .header {
+  .section {
     padding: 0.5rem 0;
     .headerInputWrapper,
     span,
@@ -115,13 +114,11 @@
     .tabletInputIcon {
       display: block;
     }
-    .container {
-      padding: 0 0.5rem !important;
-    }
   }
 }
+
 @include media('>=600px', '<=tablet') {
-  .header {
+  .section {
     .headerInputWrapper,
     .icon,
     .topLinks {
@@ -132,14 +129,12 @@
     .hamburgerMenu,
     span {
       display: block;
-    }
-    .container {
-      padding: 0.5rem 0 !important;
     }
   }
 }
+
 @include media('>=tablet') {
-  .header {
+  .section {
     .headerInputWrapper,
     .icon,
     .topLinks {
@@ -150,21 +145,18 @@
     .hamburgerMenu,
     span {
       display: block;
-    }
-    .container {
-      padding: 0.5rem 1rem !important;
     }
   }
 }
 
 @include media('>=tablet', '>=desktop') {
-  .header {
+  .section {
     span,
     .headerInputWrapper,
     .icon {
       display: block;
     }
-    .container,
+
     .topLinks {
       padding: 0.5rem 1rem !important;
     }
@@ -172,13 +164,13 @@
 }
 
 @include media('>=desktop', '>=LGdesktop') {
-  .header {
+  .section {
     padding: 0;
   }
 }
-/* TODO satır azalt. aynı özellik farklı sınıflara verilio / display none gibi */
+
 @media only screen and (min-width: 950px) {
-  .header {
+  .section {
     .headerInputWrapper,
     .icon {
       display: block;

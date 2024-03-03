@@ -1,0 +1,54 @@
+@import './breakpoints.scss';
+
+%section {
+  width: 100%;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1200px;
+
+  @include media('<=phone') {
+    padding: 0 0.5rem !important;
+  }
+
+  @include media('>phone', '<=600px') {
+    padding: 0 0.5rem !important;
+  }
+
+  @include media('>=600px', '<=tablet') {
+    padding: 0.5rem 0 !important;
+  }
+
+  @include media('>=tablet') {
+    padding: 0.5rem 1rem !important;
+  }
+
+  @include media('>=tablet', '>=desktop') {
+    padding: 0.5rem 1rem !important;
+  }
+}
+
+%container {
+  padding: 0 1rem;
+  margin: 0 auto;
+  width: 100%;
+
+  @include media('<=phone') {
+    padding: 0 0.5rem !important;
+  }
+
+  @include media('>phone', '<=600px') {
+    padding: 0 0.5rem !important;
+  }
+
+  @include media('>=600px', '<=tablet') {
+    padding: 0.5rem 0 !important;
+  }
+
+  @include media('>=tablet') {
+    padding: 0.5rem 1rem !important;
+  }
+
+  @include media('>=tablet', '>=desktop') {
+    padding: 0.5rem 1rem !important;
+  }
+}

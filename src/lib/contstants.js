@@ -61,37 +61,56 @@ export const HEADERLINKS = [
 
 export const HAMBURGER_MENU_LINKS = [
   {
-    label: 'Clothes',
-    href: '/cat/clothes',
+    label: 'Women',
+    href: '/cat/women',
+    subItems: [
+      { href: '/cat/women/dresses', label: 'Dresses' },
+      { href: '/cat/women/tops', label: 'Tops' },
+      { href: '/cat/women/skirts', label: 'Skirts' },
+      { href: '/cat/women/pants', label: 'Pants' },
+      { href: '/cat/women/jackets-coats', label: 'Jackets & Coats' },
+      { href: '/cat/women/accessories', label: 'Accessories' },
+      { href: '/cat/women', label: 'See all' },
+    ],
   },
   {
-    label: 'Electronics',
-    href: '/cat/electronics',
-  },
-  {
-    label: 'Furniture',
-    href: '/cat/furniture',
+    label: 'Men',
+    href: '/cat/men',
+    subItems: [
+      { href: '/cat/men/suits', label: 'Suits' },
+      { href: '/cat/men/shirts', label: 'Shirts' },
+      { href: '/cat/men/pants', label: 'Pants' },
+      { href: '/cat/men/knitwear', label: 'Knitwear' },
+      { href: '/cat/men/jackets-coats', label: 'Jackets & Coats' },
+      { href: '/cat/men/accessories', label: 'Accessories' },
+      { href: '/cat/men', label: 'See all' },
+    ],
   },
   {
     label: 'Shoes',
     href: '/cat/shoes',
+    subItems: [
+      { href: '/cat/shoes/women', label: 'Women' },
+      { href: '/cat/shoes/men', label: 'Men' },
+      { href: '/cat/shoes', label: 'See all' },
+    ],
   },
   {
-    label: 'Miscellaneous',
-    href: '/cat/miscellaneous',
+    label: 'Accessories',
+    href: '/cat/accessories',
+    subItems: [
+      { href: '/cat/accessories/bags', label: 'Bags' },
+      { href: '/cat/accessories/jewelry', label: 'Jewelry' },
+      { href: '/cat/accessories/scarves', label: 'Scarves' },
+      { href: '/cat/accessories/belts', label: 'Belts' },
+      { href: '/cat/accessories/other', label: 'Other Accessories' },
+      { href: '/cat/accessories', label: 'See all' },
+    ],
   },
-  {
-    label: 'Smart Home',
-    href: '/cat/smart-home',
-  },
-  {
-    label: 'Arts & Crafts',
-    href: '/cat/arts-crafts',
-  },
-  {
-    label: 'Pet supplies',
-    href: '/cat/pet-supplies',
-  },
+  { label: 'New Arrivals', href: '/cat/new-arrivals' },
+  { label: 'Sale', href: '/cat/sale' },
+  { label: 'Designers', href: '/cat/designers' },
+  { label: 'Gifts', href: '/cat/gifts' },
 ];
 
 export const TOP_LINKS = [
