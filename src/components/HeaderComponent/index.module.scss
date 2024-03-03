@@ -110,7 +110,9 @@
     .topLinks {
       display: none;
     }
-    .hamburgerMenu {
+    .hamburgerMenu,
+    .tabletInputWrapper,
+    .tabletInputIcon {
       display: block;
     }
     .container {
@@ -130,6 +132,9 @@
     .hamburgerMenu,
     span {
       display: block;
+    }
+    .container {
+      padding: 0.5rem 0 !important;
     }
   }
 }

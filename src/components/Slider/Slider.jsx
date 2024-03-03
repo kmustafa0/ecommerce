@@ -6,6 +6,7 @@ import { CAROUSEL_IMAGES } from '@/lib/contstants';
 import Image from 'next/image';
 import Autoplay from 'embla-carousel-autoplay';
 import { NextButton, PrevButton, usePrevNextButtons } from './ArrowButtons';
+import { DotButton, useDotButton } from './DotButtons';
 
 export function EmblaCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 2500 })]);
@@ -14,6 +15,8 @@ export function EmblaCarousel() {
 
   const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } =
     usePrevNextButtons(emblaApi);
+
+  const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 
   const onScroll = useCallback((emblaApi) => {
     const progress = Math.max(0, Math.min(1, emblaApi.scrollProgress()));
@@ -44,11 +47,16 @@ export function EmblaCarousel() {
             <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
           </div>
 
-          <div className='embla__progress'>
-            <div
-              className='embla__progress__bar'
-              style={{ transform: `translate3d(${scrollProgress}%,0px,0px)` }}
-            />
+          <div className='embla__dots'>
+            {scrollSnaps.map((_, index) => (
+              <DotButton
+                key={index}
+                onClick={() => onDotButtonClick(index)}
+                className={'embla__dot'.concat(
+                  index === selectedIndex ? ' embla__dot--selected' : ''
+                )}
+              />
+            ))}
           </div>
         </div>
       </div>
