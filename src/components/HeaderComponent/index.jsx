@@ -72,7 +72,7 @@ const Header = () => {
         </div>
       </div>
       {/* TABLET INPUT */}
-      <div className={`${styles.tabletInputWrapper} ${styles.searchInput}`}>
+      <div className={styles.tabletInputWrapper}>
         <input
           type='text'
           name='tabletSearch'

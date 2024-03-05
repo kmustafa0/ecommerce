@@ -74,7 +74,7 @@
 }
 
 .close {
-  height: calc(100vh - 66px);
+  min-height: calc(100vh - 66px);
   width: 100vw;
   background-color: #f1f2f3;
   color: #212121;
@@ -94,8 +94,23 @@
     .topLinks {
       display: none;
     }
-    .hamburgerMenu {
+    .hamburgerMenu,
+    .tabletInputWrapper,
+    .tabletInputIcon {
       display: block;
+    }
+    .tabletInputWrapper {
+      padding: 5px 10px;
+      input {
+        padding-left: 2.5rem;
+      }
+    }
+    .tabletInputIcon {
+      top: 15px !important;
+      left: 25px !important;
+    }
+    .close {
+      top: 50px;
     }
   }
 }
@@ -113,6 +128,13 @@
     .tabletInputWrapper,
     .tabletInputIcon {
       display: block;
+    }
+    .tabletInputWrapper {
+      padding: 10px 15px;
+    }
+    .tabletInputIcon {
+      top: 20px !important;
+      left: 30px !important;
     }
     .close {
       top: 50px;

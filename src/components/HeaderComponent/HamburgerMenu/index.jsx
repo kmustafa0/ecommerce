@@ -1,12 +1,23 @@
 import Link from 'next/link';
-import React from 'react';
-import { RiArrowDownSLine } from 'react-icons/ri';
+import React, { useState } from 'react';
+import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import styles from './index.module.scss';
+
 const HamburgerMenu = ({ label, href, subItems }) => {
+  const [isSubMenuVisible, setSubMenuVisible] = useState(false);
+
+  const handleCategoryClick = () => {
+    if (subItems && subItems.length > 0) {
+      setSubMenuVisible(!isSubMenuVisible);
+    } else {
+      window.location.href = href;
+    }
+  };
+
   const renderSubItems = () => {
     if (subItems && subItems.length > 0) {
       return (
-        <div className={styles.subMenu}>
+        <div className={`${styles.subMenu} ${isSubMenuVisible ? styles.visible : ''}`}>
           {subItems &&
             subItems.map((subItem) => (
               <Link
@@ -23,13 +34,16 @@ const HamburgerMenu = ({ label, href, subItems }) => {
   };
 
   return (
-    /* TODO eğer subItem varsa href tıklandığında bir yere yönlendirme yapılmayacak subMenu gösterilecek */
     <>
       <div className={styles.categoryWrapper}>
-        <Link href={href} className={styles.catgoryItem} aria-label={label}>
+        <div
+          className={styles.catgoryItem}
+          onClick={handleCategoryClick}
+          aria-label={label}
+          role='button'>
           <p>{label}</p>
-          {subItems && <RiArrowDownSLine />}
-        </Link>
+          {subItems && (isSubMenuVisible ? <RiArrowUpSLine /> : <RiArrowDownSLine />)}
+        </div>
         {renderSubItems()}
       </div>
     </>

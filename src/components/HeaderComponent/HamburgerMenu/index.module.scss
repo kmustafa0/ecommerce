@@ -5,6 +5,11 @@
   font-weight: 500;
   padding: 15px 20px;
   font-size: 1rem;
+  -webkit-tap-highlight-color: rgba(255, 0, 0, 0.5);
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  touch-action: manipulation;
 }
 .categoryItems {
   display: flex;
@@ -24,9 +29,12 @@
   margin-left: 1rem;
   width: 177px;
   a {
-    font-size: 12px;
+    font-size: 14px;
     border-radius: 8px;
     transition: color 0.2s ease-in-out;
     padding: 8px;
+  }
+  &.visible {
+    display: flex;
   }
 }
