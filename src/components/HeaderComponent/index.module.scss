@@ -74,7 +74,7 @@
 }
 
 .close {
-  min-height: calc(100vh - 66px);
+  height: calc(100vh - 66px);
   width: 100vw;
   background-color: #f1f2f3;
   color: #212121;
@@ -83,6 +83,7 @@
   top: 66px;
   padding: 2em 1.5em;
   z-index: 999999;
+  overflow: scroll;
 }
 
 @include media('<=phone') {
@@ -111,6 +112,7 @@
     }
     .close {
       top: 50px;
+      height: calc(100vh - 50px);
     }
   }
 }
@@ -138,6 +140,7 @@
     }
     .close {
       top: 50px;
+      height: calc(100vh - 50px);
     }
   }
 }
