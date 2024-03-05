@@ -80,7 +80,7 @@
   color: #212121;
   position: absolute;
   left: 0;
-  top: 50px;
+  top: 66px;
   padding: 2em 1.5em;
   z-index: 999999;
 }
@@ -113,6 +113,9 @@
     .tabletInputWrapper,
     .tabletInputIcon {
       display: block;
+    }
+    .close {
+      top: 50px;
     }
   }
 }
