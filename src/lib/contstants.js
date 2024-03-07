@@ -161,4 +161,12 @@ export const CAROUSEL_IMAGES = [
     path: '/slider/4.webp',
     alt: 'slider image',
   },
+  {
+    path: '/slider/5.webp',
+    alt: 'slider image',
+  },
+  {
+    path: '/slider/6.webp',
+    alt: 'slider image',
+  },
 ];
