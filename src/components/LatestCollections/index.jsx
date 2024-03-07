@@ -24,7 +24,7 @@ const LatestCollections = () => {
           <div className={styles.imageContainer}>
             <Image src={'/collection1.jpg'} alt='image' fill />
           </div>
-          <Link href={'#'}></Link>
+          <Link href={'#'} aria-label='Go to category'></Link>
         </div>
       </div>
     </section>

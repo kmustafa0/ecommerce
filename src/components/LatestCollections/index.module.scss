@@ -1,45 +1,53 @@
 @import 'src/app/scss/breakpoints.scss';
 @import 'src/app/scss/layout.scss';
 
+$background-color: #f5f5f3;
+$button-border-color: #000;
+
 .wrapper {
   @extend %section;
-  background-color: #f5f5f3;
+  background-color: $background-color;
   margin-top: 30px;
   padding: 0 !important;
+
   .container {
     @extend %container;
     padding: 0 !important;
     position: relative;
     overflow: hidden;
+
     .textContainer {
-      max-width: 49%;
       position: absolute;
+      top: -34px;
+      left: 0;
       width: 100%;
       height: 100%;
-      top: 0;
-      left: 0;
       z-index: 2;
       padding: 5rem;
-      @include media('<=tablet') {
-        padding: 3.5rem !important;
-        max-width: 100% !important;
+      max-width: 50%;
+
+      @include media('<=tablet', '>phone', '<=600px') {
+        padding: 2.8rem !important;
         top: 111px;
       }
+
       @include media('<=phone') {
         padding: 2.8rem !important;
-        top: 0;
+        top: 33px;
       }
 
       @include media('>phone', '<=600px') {
         padding: 2.8rem !important;
-        top: 0;
+        top: 111px;
       }
 
       @include media('>=600px', '<=tablet') {
         padding: 2.5rem !important;
       }
+
       @include media('<1000px') {
         max-width: 100%;
+        top: 30px;
       }
 
       h4 {
@@ -49,7 +57,9 @@
         letter-spacing: 1px;
         margin-bottom: 0.65rem;
         line-height: 1.2;
+        color: $button-border-color;
       }
+
       h2 {
         font-size: clamp(2rem, 5vw, 3rem);
         font-weight: 400;
@@ -57,14 +67,16 @@
         line-height: 1.2;
         letter-spacing: 0;
       }
+
       p {
         font-size: clamp(0.5rem, 5vw, 1rem);
         margin-bottom: 2.25rem;
         color: #666;
       }
+
       button {
         height: 2.875rem;
-        border: 1px solid #000;
+        border: 1px solid $button-border-color;
         cursor: pointer;
         transition: background-color 0.6s ease;
         border-radius: 4px;
@@ -73,11 +85,13 @@
         align-items: center;
         padding: 1.5rem 1.5rem 1.5rem 2.5rem;
         gap: 1.5rem;
+
         @include media('>=tablet') {
           padding: 1rem 1rem 1rem 2rem;
         }
       }
     }
+
     .imageContainer {
       position: relative;
       width: 100%;
@@ -87,13 +101,16 @@
       @include media('<1000px') {
         min-height: 500px !important;
       }
+
       @include media('<tablet') {
         min-height: 600px !important;
       }
+
       img {
         object-fit: cover;
       }
     }
+
     a {
       position: absolute;
       width: 100%;
