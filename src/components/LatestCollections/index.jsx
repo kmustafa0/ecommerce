@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 const LatestCollections = () => {
   return (
-    <section>
+    <section className='latestCollection'>
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.textContainer}>

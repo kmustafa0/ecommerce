@@ -3,10 +3,12 @@ import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { NextButton, PrevButton, usePrevNextButtons } from '@/components/Slider/ArrowButtons';
 import { DotButton, useDotButton } from '@/components/Slider/DotButtons';
+import { PRODUCT_CAROUSEL_IMAGES } from '@/lib/contstants';
+import ProductCard from '../Card';
+import './slider.css';
 
-const PopularProductsSlider = (props) => {
-  const { slides, options } = props;
-  const [emblaRef, emblaApi] = useEmblaCarousel(options);
+const PopularProductsSlider = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 
@@ -14,22 +16,27 @@ const PopularProductsSlider = (props) => {
     usePrevNextButtons(emblaApi);
 
   return (
-    <section className='popular-products'>
-      <div className='popular-products__viewport' ref={emblaRef}>
-        <div className='popular-products__container'>
-          {slides.map((index) => (
-            <div className='popular-products__slide' key={index}>
-              <div className='popular-products__slide__number'>{index + 1}</div>
+    <section className={'popularProducts'}>
+      <div className={'popularProductsViewport'} ref={emblaRef}>
+        <div className={'popularProductsContainer'}>
+          {PRODUCT_CAROUSEL_IMAGES.map((item, index) => (
+            <div className={'popularProductsSlide'} key={index}>
+              <ProductCard
+                title={item.title}
+                img={item.path}
+                price={item.price}
+                discountedPrice={item.discountedPrice}
+              />
             </div>
           ))}
         </div>
-        <div className='popular-products__controls'>
-          <div className='popular-products__buttons'>
+        <div className={'popularProductsControls'}>
+          <div className={'popularProductsButtons'}>
             <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
             <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
           </div>
 
-          <div className='popular-products__dots'>
+          <div className={'popularProductsDots'}>
             {scrollSnaps.map((_, index) => (
               <DotButton
                 key={index}

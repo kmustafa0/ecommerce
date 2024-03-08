@@ -24,7 +24,7 @@ html {
 body {
   margin: 0;
   line-height: inherit;
-  background-color: #fefefe;
+  background-color: #f5f5f3;
 }
 ul,
 ol {
@@ -65,6 +65,14 @@ input:focus-visible {
   outline: none;
   border-color: #f89f72;
 }
+
+section:not(.embla):not(.latestCollection) {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

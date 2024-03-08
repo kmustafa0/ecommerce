@@ -1,13 +1,16 @@
 @import 'src/app/scss/breakpoints.scss';
 @import 'src/app/scss/layout.scss';
 
-$background-color: #f5f5f3;
 $button-border-color: #000;
 
 .section {
-  background-color: $background-color;
+  margin: 30px 0;
+
   .wrapper {
     @extend %section;
+    width: 100%;
+    max-width: 1200px;
+    padding: 1rem;
   }
   .container {
     @extend %container;
