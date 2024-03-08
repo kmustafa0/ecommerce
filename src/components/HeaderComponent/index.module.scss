@@ -2,6 +2,7 @@
 @import '../../../src/app/scss/layout.scss';
 .section {
   @extend %section;
+  margin-top: 0;
   .topLinks {
     display: flex;
     justify-content: flex-end;

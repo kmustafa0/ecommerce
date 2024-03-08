@@ -3,6 +3,7 @@
 
 .wrapper {
   @extend %section;
+  margin-top: 0px;
   .container {
     @extend %container;
     display: flex;
