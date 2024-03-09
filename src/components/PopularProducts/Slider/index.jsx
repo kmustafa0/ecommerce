@@ -16,7 +16,7 @@ const PopularProductsSlider = () => {
     usePrevNextButtons(emblaApi);
 
   return (
-    <section className={'popularProducts'}>
+    <div className={'popularProducts'}>
       <div className={'popularProductsViewport'} ref={emblaRef}>
         <div className={'popularProductsContainer'}>
           {PRODUCT_CAROUSEL_IMAGES.map((item, index) => (
@@ -49,7 +49,7 @@ const PopularProductsSlider = () => {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   );
 };
 

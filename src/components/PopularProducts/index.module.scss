@@ -9,8 +9,9 @@ $button-border-color: #000;
   .wrapper {
     @extend %section;
     width: 100%;
-    max-width: 1200px;
+    max-width: 100vw;
     padding: 1rem;
+    margin: auto 0;
   }
   .container {
     @extend %container;
