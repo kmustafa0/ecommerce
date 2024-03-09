@@ -23,6 +23,8 @@ const PopularProductsSlider = () => {
             <div className={'popularProductsSlide'} key={index}>
               <ProductCard
                 title={item.title}
+                link={item.link}
+                alt={item.alt}
                 img={item.path}
                 price={item.price}
                 discountedPrice={item.discountedPrice}

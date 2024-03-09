@@ -147,26 +147,32 @@ export const TOP_LINKS = [
 export const HERO_CAROUSEL_IMAGES = [
   {
     path: '/slider/1.webp',
+    link: '#',
     alt: 'slider image',
   },
   {
     path: '/slider/2.webp',
+    link: '#',
     alt: 'slider image',
   },
   {
     path: '/slider/3.webp',
+    link: '#',
     alt: 'slider image',
   },
   {
     path: '/slider/4.webp',
+    link: '#',
     alt: 'slider image',
   },
   {
     path: '/slider/5.webp',
+    link: '#',
     alt: 'slider image',
   },
   {
     path: '/slider/6.webp',
+    link: '#',
     alt: 'slider image',
   },
 ];
@@ -174,6 +180,7 @@ export const HERO_CAROUSEL_IMAGES = [
 export const PRODUCT_CAROUSEL_IMAGES = [
   {
     title: 'AXOLO R-SKIN® MONOCHROME Khaki',
+    link: '#',
     path: '/product/shoes-1.jpg',
     alt: 'product image',
     price: '170',
@@ -181,6 +188,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Black',
+    link: '#',
     path: '/product/shoes-2.jpg',
     alt: 'product image',
     price: '170',
@@ -188,6 +196,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME White',
+    link: '#',
     path: '/product/shoes-3.jpg',
     alt: 'product image',
     price: '170',
@@ -195,6 +204,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Blue',
+    link: '#',
     path: '/product/shoes-4.jpg',
     alt: 'product image',
     price: '170',
@@ -202,6 +212,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Gray',
+    link: '#',
     path: '/product/shoes-5.jpg',
     alt: 'product image',
     price: '170',
@@ -209,6 +220,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Khaki',
+    link: '#',
     path: '/product/shoes-1.jpg',
     alt: 'product image',
     price: '170',
@@ -216,6 +228,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Black',
+    link: '#',
     path: '/product/shoes-2.jpg',
     alt: 'product image',
     price: '170',
@@ -223,6 +236,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME White',
+    link: '#',
     path: '/product/shoes-3.jpg',
     alt: 'product image',
     price: '170',
@@ -230,6 +244,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Blue',
+    link: '#',
     path: '/product/shoes-4.jpg',
     alt: 'product image',
     price: '170',
@@ -237,6 +252,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Gray',
+    link: '#',
     path: '/product/shoes-5.jpg',
     alt: 'product image',
     price: '170',
@@ -244,6 +260,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Khaki',
+    link: '#',
     path: '/product/shoes-1.jpg',
     alt: 'product image',
     price: '170',
@@ -251,6 +268,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Black',
+    link: '#',
     path: '/product/shoes-2.jpg',
     alt: 'product image',
     price: '170',
@@ -258,6 +276,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME White',
+    link: '#',
     path: '/product/shoes-3.jpg',
     alt: 'product image',
     price: '170',
@@ -265,6 +284,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Blue',
+    link: '#',
     path: '/product/shoes-4.jpg',
     alt: 'product image',
     price: '170',
@@ -272,6 +292,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Gray',
+    link: '#',
     path: '/product/shoes-5.jpg',
     alt: 'product image',
     price: '170',

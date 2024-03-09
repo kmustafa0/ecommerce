@@ -7,6 +7,7 @@ import Image from 'next/image';
 import Autoplay from 'embla-carousel-autoplay';
 import { NextButton, PrevButton, usePrevNextButtons } from './ArrowButtons';
 import { DotButton, useDotButton } from './DotButtons';
+import Link from 'next/link';
 
 export function EmblaCarousel() {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 2500 })]);
@@ -37,7 +38,9 @@ export function EmblaCarousel() {
         <div className='embla__container'>
           {HERO_CAROUSEL_IMAGES.map((image) => (
             <div key={image.path} className='embla__slide'>
-              <Image src={image.path} alt={image.alt} fill priority />
+              <Link href={image.link} aria-label={image.alt}>
+                <Image src={image.path} alt={image.alt} fill priority />
+              </Link>
             </div>
           ))}
         </div>
