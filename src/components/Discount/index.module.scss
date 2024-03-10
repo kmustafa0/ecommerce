@@ -1,0 +1,162 @@
+@import 'src/app/scss/breakpoints.scss';
+@import 'src/app/scss/layout.scss';
+
+$button-border-color: #000;
+
+.wrapper {
+  @extend %section;
+  padding: 0 !important;
+  max-width: 100vw;
+
+  .container {
+    @extend %container;
+    padding: 0 !important;
+    position: relative;
+    overflow: hidden;
+
+    .textContainer {
+      position: absolute;
+      top: 70px;
+      right: 0;
+      width: 100%;
+      z-index: 2;
+      padding: 5rem;
+      max-width: 50%;
+
+      @include media('<=tablet', '>phone', '<=600px') {
+        padding: 2.8rem !important;
+        top: 111px !important;
+      }
+
+      @include media('<=phone') {
+        padding: 2.8rem !important;
+        top: 33px !important;
+      }
+
+      @include media('>phone', '<=600px') {
+        padding: 2.8rem !important;
+        top: 22px !important;
+      }
+
+      @include media('>=600px', '<=tablet') {
+        padding: 2.5rem !important;
+        top: 0px !important;
+      }
+
+      @include media('<1000px') {
+        max-width: 100%;
+        top: -45px;
+      }
+
+      h4 {
+        font-size: clamp(0.5rem, 5vw, 0.75rem);
+        font-style: italic;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.65rem;
+        line-height: 1.2;
+        color: $button-border-color;
+      }
+
+      h2 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 200;
+        margin-bottom: 0.95rem;
+        line-height: 1.125;
+        letter-spacing: 0;
+      }
+
+      p {
+        font-size: clamp(0.5rem, 5vw, 1rem);
+        margin: 2.25rem 0;
+        color: #666;
+        max-width: 670px;
+      }
+      .timer {
+        .dateItem {
+          display: -webkit-inline-box;
+          display: -ms-inline-flexbox;
+          display: inline-flex;
+          -webkit-box-align: end;
+          -ms-flex-align: end;
+          align-items: flex-end;
+          font-size: 1.25rem;
+          line-height: 0.7;
+          margin-right: 0.9375rem;
+          .date {
+            font-size: 2.125rem;
+            font-weight: 300;
+          }
+          .dateLabel {
+            font-size: 55%;
+            margin-left: 4px;
+          }
+        }
+        span {
+          font-size: 1.25rem;
+          margin-right: 0.9375rem;
+        }
+      }
+
+      button {
+        height: 2.875rem;
+        border: 1px solid $button-border-color;
+        cursor: pointer;
+        transition: background-color 0.6s ease;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem;
+        margin: 2rem 0;
+        gap: 1.5rem;
+      }
+      .endDate {
+        position: absolute;
+        bottom: 3rem;
+        b {
+          background-color: #fff;
+          color: #f27a1a;
+          padding: 0.5rem;
+          letter-spacing: 1.25px;
+        }
+
+        @include media('>=600px', '<=tablet') {
+          bottom: 1rem;
+        }
+        @include media('>phone', '<=600px') {
+          bottom: 0.5rem;
+        }
+      }
+    }
+
+    .imageContainer {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      min-height: 758px !important;
+
+      @include media('<1000px') {
+        min-height: 500px !important;
+      }
+
+      @include media('<tablet') {
+        min-height: 600px !important;
+      }
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    a {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+  }
+}
