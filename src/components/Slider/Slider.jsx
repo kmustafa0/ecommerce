@@ -8,9 +8,13 @@ import Autoplay from 'embla-carousel-autoplay';
 import { NextButton, PrevButton, usePrevNextButtons } from './ArrowButtons';
 import { DotButton, useDotButton } from './DotButtons';
 import Link from 'next/link';
+import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 
 export function EmblaCarousel() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [Autoplay({ delay: 2500 })]);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
+    Autoplay({ delay: 2500 }),
+    WheelGesturesPlugin(),
+  ]);
 
   const [scrollProgress, setScrollProgress] = useState(0);
 
