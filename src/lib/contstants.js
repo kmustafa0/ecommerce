@@ -299,3 +299,66 @@ export const PRODUCT_CAROUSEL_IMAGES = [
     discountedPrice: '120',
   },
 ];
+
+export const SOCIAL_MEDIA_CAROUSEL_IMAGES = [
+  {
+    title: 'AXOLO R-SKIN® MONOCHROME',
+    link: '#',
+    path: '/social-media/1.jpg',
+    alt: 'social media image',
+  },
+  {
+    title: 'AXOLO R-SKIN® MONOCHROME',
+    link: '#',
+    path: '/social-media/2.jpg',
+    alt: 'social media image',
+  },
+  {
+    title: 'AXOLO R-SKIN® MONOCHROME',
+    link: '#',
+    path: '/social-media/3.jpg',
+    alt: 'social media image',
+  },
+  {
+    title: 'AXOLO R-SKIN® MONOCHROME',
+    link: '#',
+    path: '/social-media/4.jpg',
+    alt: 'social media image',
+  },
+  {
+    title: 'AXOLO R-SKIN® MONOCHROME',
+    link: '#',
+    path: '/social-media/5.jpg',
+    alt: 'social media image',
+  },
+  {
+    title: 'AXOLO R-SKIN® MONOCHROME',
+    link: '#',
+    path: '/social-media/6.jpg',
+    alt: 'social media image',
+  },
+  {
+    title: 'AXOLO R-SKIN® MONOCHROME',
+    link: '#',
+    path: '/social-media/7.jpg',
+    alt: 'social media image',
+  },
+  {
+    title: 'AXOLO R-SKIN® MONOCHROME',
+    link: '#',
+    path: '/social-media/8.jpg',
+    alt: 'social media image',
+  },
+  {
+    title: 'AXOLO R-SKIN® MONOCHROME',
+    link: '#',
+    path: '/social-media/9.jpg',
+    alt: 'social media image',
+  },
+  {
+    title: 'AXOLO R-SKIN® MONOCHROME',
+    link: '#',
+    path: '/social-media/10.jpg',
+    alt: 'social media image',
+  },
+];

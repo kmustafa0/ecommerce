@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const Discount = () => {
   return (
-    <section>
+    <section className='discount'>
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.imageContainer}>

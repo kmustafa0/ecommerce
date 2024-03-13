@@ -66,7 +66,7 @@ input:focus-visible {
   border-color: #f89f72;
 }
 
-section:not(.embla):not(.latestCollection) {
+section:not(.embla):not(.latestCollection):not(.discount) {
   height: 100vh;
   display: flex;
   align-items: center;
