@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './index.module.scss';
 import PopularProductsSlider from './Slider';
-import './Slider/slider.css';
+import './Slider/slider.scss';
 
 const PopularProducts = () => {
   const SLIDE_COUNT = 6;

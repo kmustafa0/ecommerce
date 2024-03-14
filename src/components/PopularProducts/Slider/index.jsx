@@ -5,7 +5,7 @@ import { NextButton, PrevButton, usePrevNextButtons } from '@/components/Slider/
 import { DotButton, useDotButton } from '@/components/Slider/DotButtons';
 import { PRODUCT_CAROUSEL_IMAGES } from '@/lib/contstants';
 import ProductCard from '../Card';
-import './slider.css';
+import './slider.scss';
 import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 
 const PopularProductsSlider = () => {
