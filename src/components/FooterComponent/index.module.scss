@@ -1,0 +1,263 @@
+@import '../../../src/app/scss/breakpoints.scss';
+@import '../../../src/app/scss/layout.scss';
+
+$container-max-width: 1200px;
+
+.wrapper {
+  @extend %section;
+  border-top: 1px solid #e6e6e6;
+  padding-top: 3.5rem !important;
+  .container {
+    @extend %container;
+  }
+}
+
+.top-row-container {
+  max-width: $container-max-width;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.column-container {
+  display: flex;
+  flex-basis: 100%;
+  margin: 0;
+}
+
+.down-icon-footer {
+  width: 14px;
+  height: 14px;
+}
+
+.middle-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding-bottom: 2rem;
+  max-width: $container-max-width;
+  width: 100%;
+  margin: 0 auto;
+
+  .left-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    margin-right: 3%;
+    position: relative;
+    width: 170px;
+    min-width: 60px;
+    height: 50px;
+  }
+
+  .middle-side,
+  .right-side {
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .middle-side p {
+    line-height: 24px;
+    letter-spacing: -0.011em;
+    color: #454e80;
+  }
+
+  .right-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 185px;
+    padding: 10px;
+
+    select {
+      box-sizing: border-box;
+      width: 100%;
+      max-width: none;
+      font-size: 16px;
+      color: #0a1551;
+      border: 1px solid #d5ddf9;
+      padding: 5px 10px;
+      border-radius: 4px;
+      line-height: 24px;
+      letter-spacing: -0.011em;
+    }
+  }
+}
+
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 0.7% 0 0.7% 1.4%;
+  max-width: $container-max-width;
+  width: 100%;
+  margin: 0 auto;
+  gap: 1rem;
+
+  ul {
+    list-style-type: none;
+  }
+}
+
+.links {
+  display: flex;
+
+  ul {
+    display: flex;
+    padding: 0;
+
+    li {
+      margin-right: 3em;
+      position: relative;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: -0.011em;
+      color: #454e80;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      text-align: center;
+
+      &:hover {
+        color: #000;
+      }
+
+      &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: -1.5em;
+        transform: translateY(-50%);
+        height: 89%;
+        width: 1px;
+        background-color: #afb2cc;
+      }
+    }
+  }
+}
+
+.social-medias {
+  display: flex;
+
+  ul {
+    display: flex;
+    padding: 0;
+
+    li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-right: 12px;
+      cursor: pointer;
+      transition: color 0.2s ease;
+      color: #0c174e;
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}
+
+.column {
+  flex-basis: 100%;
+  padding: 0 30px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  list-style-type: none;
+
+  h3.column-header {
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: -0.014em;
+    color: #0c174e;
+  }
+
+  li:not(:first-child) {
+    margin: 8px 0;
+    font-size: 0.75rem;
+    cursor: pointer;
+    line-height: 24px;
+    letter-spacing: -0.011em;
+    color: #454e80;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
+
+.images {
+  flex-direction: row;
+  justify-content: center;
+
+  img {
+    margin-bottom: 5px;
+    margin-right: 4%;
+  }
+}
+
+@media (max-width: 990px) {
+  .column {
+    flex-basis: 33.33%;
+  }
+
+  .column-container {
+    flex-basis: 20%;
+    max-width: 133px;
+  }
+
+  .top-row-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 2rem;
+  }
+
+  .images {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 1000px) {
+  .bottom-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 770px) {
+  .middle-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .bottom-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .links {
+      ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      ul li::after {
+        display: none;
+      }
+    }
+  }
+}

@@ -6,6 +6,7 @@ import {
   IoLogOutOutline,
 } from 'react-icons/io5';
 import { MdOutlineLocalShipping, MdCreditCard } from 'react-icons/md';
+import { FaFacebookSquare, FaTwitter, FaLinkedinIn, FaGithubSquare } from 'react-icons/fa';
 
 export const HEADERLINKS = [
   {
@@ -361,4 +362,51 @@ export const SOCIAL_MEDIA_CAROUSEL_IMAGES = [
     path: '/social-media/10.jpg',
     alt: 'social media image',
   },
+];
+
+export const FOOTER_LINKS = [
+  {
+    label: 'Can we help you?',
+    items: ['Call us +90 2123738880', 'Write us on WhatsApp', 'Contacts', 'FAQ', 'Sitemap'],
+  },
+  {
+    label: 'Help',
+    items: ['Shop online', 'Payment', 'Delivery', 'Returns', 'Gift Card', 'Guest purchase'],
+  },
+  {
+    label: 'We are Lusso Attire',
+    items: ['About Lusso Attire', 'Sustainability', 'Work with us', 'Press', 'Our stores'],
+  },
+  {
+    label: 'You might be interested',
+    items: [
+      'Dresses',
+      'Jackets',
+      'Coats',
+      'Sweaters and cardigans',
+      'Baggy jeans',
+      'Trousers',
+      'Skirts & Shorts',
+    ],
+  },
+];
+
+export const MIDDLE_ROW_INFO = {
+  address: '95216 Will Branch Suite 164 Washington/USA',
+  languages: ['English', 'Türkçe', 'Deutsch', 'Русский'],
+};
+
+export const BOTTOM_LINKS = [
+  'Terms and conditions of purchase',
+  'Privacy Policy',
+  'Cookies policy',
+  'Security',
+  'Accessibility Statement',
+];
+
+export const SOCIAL_MEDIA_ICONS = [
+  { icon: <FaFacebookSquare size={32} /> },
+  { icon: <FaTwitter size={32} /> },
+  { icon: <FaLinkedinIn size={32} /> },
+  { icon: <FaGithubSquare size={32} /> },
 ];

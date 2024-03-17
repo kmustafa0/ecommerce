@@ -50,7 +50,11 @@ const SocialMediaPostSlider = () => {
           ))}
         </div>
         <div className={styles.controls}>
-          <button onClick={toggleAutoplay} className={styles.togglePlay} type='button'>
+          <button
+            onClick={toggleAutoplay}
+            className={styles.togglePlay}
+            type='button'
+            aria-label='slider-control-button'>
             {isPlaying ? <SlControlPause size={25} /> : <SlControlPlay size={25} />}
           </button>
         </div>

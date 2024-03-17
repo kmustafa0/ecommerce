@@ -16,25 +16,10 @@ export function EmblaCarousel() {
     WheelGesturesPlugin(),
   ]);
 
-  const [scrollProgress, setScrollProgress] = useState(0);
-
   const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } =
     usePrevNextButtons(emblaApi);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
-
-  const onScroll = useCallback((emblaApi) => {
-    const progress = Math.max(0, Math.min(1, emblaApi.scrollProgress()));
-    setScrollProgress(progress * 100);
-  }, []);
-
-  useEffect(() => {
-    if (!emblaApi) return;
-
-    onScroll(emblaApi);
-    emblaApi.on('reInit', onScroll);
-    emblaApi.on('scroll', onScroll);
-  }, [emblaApi, onScroll]);
 
   return (
     <section className='embla'>
