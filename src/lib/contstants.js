@@ -405,8 +405,8 @@ export const BOTTOM_LINKS = [
 ];
 
 export const SOCIAL_MEDIA_ICONS = [
-  { icon: <FaFacebookSquare size={32} /> },
-  { icon: <FaTwitter size={32} /> },
-  { icon: <FaLinkedinIn size={32} /> },
-  { icon: <FaGithubSquare size={32} /> },
+  { icon: <FaFacebookSquare size={26} /> },
+  { icon: <FaTwitter size={26} /> },
+  { icon: <FaLinkedinIn size={26} /> },
+  { icon: <FaGithubSquare size={26} /> },
 ];
