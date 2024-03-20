@@ -1,0 +1,77 @@
+@mixin srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+.infoContainer {
+  display: flex;
+  justify-content: space-between;
+  h1,
+  p {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+    color: rgb(17 24 39);
+  }
+}
+.reviewsContainer {
+  margin-top: 1rem;
+  h2 {
+    @include srOnly;
+  }
+  .reviewInfo {
+    display: flex;
+    align-items: center;
+    .averageRating {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      color: #666;
+      span {
+        @include srOnly;
+      }
+    }
+    .stars {
+      margin-left: 0.25rem;
+      display: flex;
+      align-items: center;
+      .starIcon {
+        height: 1.25rem;
+        width: 1.25rem;
+        flex-shrink: 0;
+      }
+      .yellowStar {
+        color: #facc15;
+      }
+      .grayStar {
+        color: #e5e7eb;
+      }
+    }
+    .reviewCount {
+      margin-left: 1rem;
+      display: flex;
+      a {
+        font-size: 0.875rem;
+        line-height: 1.25rem;
+        font-weight: 500;
+        color: #666;
+        transition: color 0.4s ease;
+        &:hover {
+          text-decoration: underline;
+          span {
+            text-decoration: underline;
+          }
+        }
+        span {
+          color: #333;
+          transition: color 0.4s ease;
+        }
+      }
+    }
+  }
+}

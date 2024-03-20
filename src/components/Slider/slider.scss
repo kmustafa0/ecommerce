@@ -43,11 +43,13 @@ $embla-dot-selected-size: 1rem;
         width: 100%;
 
         .embla__slide {
+          display: flex;
           flex: 0 0 100%;
           min-width: 0;
-          position: relative;
-          width: 100%;
-
+          a {
+            position: relative;
+            width: 100%;
+          }
           img {
             object-fit: cover;
           }

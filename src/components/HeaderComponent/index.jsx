@@ -9,6 +9,7 @@ import HamburgerMenu from './HamburgerMenu';
 import { RiCloseLine, RiMenu2Line } from 'react-icons/ri';
 import TopLinks from './TopLinks/page';
 import { Logo } from '../Logo';
+import CategoryNavigation from '../CategoryNavigation';
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
@@ -100,6 +101,7 @@ const Header = () => {
           </ul>
         </div>
       </div>
+      <CategoryNavigation />
     </header>
   );
 };

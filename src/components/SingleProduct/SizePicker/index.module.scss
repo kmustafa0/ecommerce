@@ -1,0 +1,42 @@
+.sizeContainer {
+  margin-bottom: 2rem;
+  margin-top: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  button {
+    display: flex;
+    padding: 0.75rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 6px;
+    border: 1px solid #212322;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.4s ease;
+
+    &:hover {
+      background-color: rgb(249 250 251);
+    }
+
+    &.selected {
+      background-color: #333;
+      color: #fff;
+      &:hover {
+        background-color: #333333e0;
+      }
+    }
+    &.outOfStock {
+      cursor: not-allowed;
+      opacity: 0.5;
+      background-color: white;
+    }
+    @media (min-width: 640px) {
+      flex: 1 1 0%;
+    }
+  }
+}

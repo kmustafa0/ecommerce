@@ -73,6 +73,13 @@ section:not(.embla):not(.latestCollection):not(.discount) {
   justify-content: center;
 }
 
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: space-between;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

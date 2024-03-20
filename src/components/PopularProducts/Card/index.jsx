@@ -9,7 +9,7 @@ const ProductCard = ({ title, link, img, alt, price, discountedPrice }) => {
       <Link href={link} aria-label={alt}>
         {img && (
           <div className={styles.imageWrapper}>
-            <Image src={img} alt={`product ${img}`} fill />
+            <Image src={img} alt={`product ${img}`} fill sizes='550' />
           </div>
         )}
         <div className={styles.textWrapper}>

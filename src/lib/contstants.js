@@ -181,7 +181,7 @@ export const HERO_CAROUSEL_IMAGES = [
 export const PRODUCT_CAROUSEL_IMAGES = [
   {
     title: 'AXOLO R-SKIN® MONOCHROME Khaki',
-    link: '#',
+    link: '/product/shoes-1',
     path: '/product/shoes-1.jpg',
     alt: 'product image',
     price: '170',
@@ -189,7 +189,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Black',
-    link: '#',
+    link: '/product/shoes-2',
     path: '/product/shoes-2.jpg',
     alt: 'product image',
     price: '170',
@@ -197,7 +197,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME White',
-    link: '#',
+    link: '/product/shoes-3',
     path: '/product/shoes-3.jpg',
     alt: 'product image',
     price: '170',
@@ -205,7 +205,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Blue',
-    link: '#',
+    link: '/product/shoes-4',
     path: '/product/shoes-4.jpg',
     alt: 'product image',
     price: '170',
@@ -213,7 +213,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Gray',
-    link: '#',
+    link: '/product/shoes-5',
     path: '/product/shoes-5.jpg',
     alt: 'product image',
     price: '170',
@@ -221,7 +221,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Khaki',
-    link: '#',
+    link: '/product/shoes-1',
     path: '/product/shoes-1.jpg',
     alt: 'product image',
     price: '170',
@@ -229,7 +229,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Black',
-    link: '#',
+    link: '/product/shoes-2',
     path: '/product/shoes-2.jpg',
     alt: 'product image',
     price: '170',
@@ -237,7 +237,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME White',
-    link: '#',
+    link: '/product/shoes-3',
     path: '/product/shoes-3.jpg',
     alt: 'product image',
     price: '170',
@@ -245,7 +245,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Blue',
-    link: '#',
+    link: '/product/shoes-4',
     path: '/product/shoes-4.jpg',
     alt: 'product image',
     price: '170',
@@ -253,7 +253,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Gray',
-    link: '#',
+    link: '/product/shoes-5',
     path: '/product/shoes-5.jpg',
     alt: 'product image',
     price: '170',
@@ -261,7 +261,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Khaki',
-    link: '#',
+    link: '/product/shoes-1',
     path: '/product/shoes-1.jpg',
     alt: 'product image',
     price: '170',
@@ -269,7 +269,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Black',
-    link: '#',
+    link: '/product/shoes-2',
     path: '/product/shoes-2.jpg',
     alt: 'product image',
     price: '170',
@@ -277,7 +277,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME White',
-    link: '#',
+    link: '/product/shoes-3',
     path: '/product/shoes-3.jpg',
     alt: 'product image',
     price: '170',
@@ -285,7 +285,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Blue',
-    link: '#',
+    link: '/product/shoes-4',
     path: '/product/shoes-4.jpg',
     alt: 'product image',
     price: '170',
@@ -293,7 +293,7 @@ export const PRODUCT_CAROUSEL_IMAGES = [
   },
   {
     title: 'AXOLO R-SKIN® MONOCHROME Gray',
-    link: '#',
+    link: '/product/shoes-5',
     path: '/product/shoes-5.jpg',
     alt: 'product image',
     price: '170',
@@ -410,3 +410,84 @@ export const SOCIAL_MEDIA_ICONS = [
   { icon: <FaLinkedinIn size={26} /> },
   { icon: <FaGithubSquare size={26} /> },
 ];
+
+export const PRODUCT = {
+  name: 'AXOLO LINEN SNEAKERS',
+  price: '$165',
+  href: '#',
+  breadcrumbs: [
+    { id: 1, name: 'Women', href: '#' },
+    { id: 2, name: 'Clothing', href: '#' },
+  ],
+  images: [
+    {
+      id: 1,
+      imageSrc: '/product/shoes-1.jpg',
+      imageAlt: "Back of women's Basic Tee in black.",
+      primary: true,
+    },
+    {
+      id: 2,
+      imageSrc: '/product/shoes-1-3.jpg',
+      imageAlt: "Side profile of women's Basic Tee in black.",
+      primary: false,
+    },
+    {
+      id: 3,
+      imageSrc: '/product/shoes-1-2.jpg',
+      imageAlt: "Front of women's Basic Tee in black.",
+      primary: false,
+    },
+  ],
+  colors: [
+    {
+      name: 'Beige',
+      bgColor: '#e6dac6',
+      selectedColor: '#e6dac6',
+    },
+    { name: 'Black', bgColor: '#111827', selectedColor: '#111827' },
+    {
+      name: 'Heather Grey',
+      bgColor: '#9CA3AF',
+      selectedColor: '#9CA3AF',
+    },
+  ],
+  sizes: [
+    { name: '35', inStock: false },
+    { name: '36', inStock: true },
+    { name: '37', inStock: true },
+    { name: '38', inStock: true },
+    { name: '39', inStock: true },
+    { name: '40', inStock: false },
+    { name: '41', inStock: true },
+  ],
+  description: `
+    <p>The Basic tee is an honest new take on a classic. The tee uses super soft, pre-shrunk cotton for true comfort and a dependable fit. They are hand cut and sewn locally, with a special dye technique that gives each tee it's own look.</p>
+    <p>Looking to stock your closet? The Basic tee also comes in a 3-pack or 5-pack at a bundle discount.</p>
+  `,
+  details: [
+    'Only the best materials',
+    'Ethically and locally made',
+    'Pre-washed and pre-shrunk',
+    'Machine wash cold with similar colors',
+  ],
+};
+
+export const REVIEWS = {
+  average: 3.9,
+  totalCount: 512,
+  featured: [
+    {
+      id: 1,
+      title: "Can't say enough good things",
+      rating: 5,
+      content: `
+        <p>I had an amazing shopping experience. My order even came with a small, personal handwritten note, which made me really happy!</p>
+<p>The product quality is outstanding, it looks and feels even better than I expected. Brilliant stuff! I would gladly recommend this store to my friends. And come to think of it... I actually have, many times!</p>
+      `,
+      author: 'Mustafa K.',
+      date: 'March 20, 2024',
+      datetime: '2024-03-20',
+    },
+  ],
+};

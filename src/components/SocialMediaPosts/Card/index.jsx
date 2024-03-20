@@ -6,7 +6,7 @@ const SocialMediaCard = ({ img, text, alt, link }) => {
   return (
     <Link className={styles.imageWrapper} href={link}>
       <span>{text}</span>
-      <Image src={img} alt={alt} fill />
+      <Image src={img} alt={alt} fill sizes='550' />
     </Link>
   );
 };
