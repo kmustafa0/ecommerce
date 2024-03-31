@@ -6,7 +6,14 @@ import {
   IoLogOutOutline,
 } from 'react-icons/io5';
 import { MdOutlineLocalShipping, MdCreditCard } from 'react-icons/md';
-import { FaFacebookSquare, FaTwitter, FaLinkedinIn, FaGithubSquare } from 'react-icons/fa';
+import {
+  FaFacebookSquare,
+  FaTwitter,
+  FaLinkedinIn,
+  FaGithubSquare,
+  FaDollarSign,
+  FaGlobe,
+} from 'react-icons/fa';
 
 export const HEADERLINKS = [
   {
@@ -180,120 +187,40 @@ export const HERO_CAROUSEL_IMAGES = [
 
 export const PRODUCT_CAROUSEL_IMAGES = [
   {
-    title: 'AXOLO R-SKIN® MONOCHROME Khaki',
-    link: '/product/shoes-1',
+    title: 'AXOLO LINEN Beige',
+    link: '/product/axolo-lin/beige',
     path: '/product/shoes-1.jpg',
     alt: 'product image',
     price: '170',
     discountedPrice: '',
   },
   {
-    title: 'AXOLO R-SKIN® MONOCHROME Black',
-    link: '/product/shoes-2',
+    title: 'AXOLO LINEN Green-Black',
+    link: '/product/axolo-lin/green-black',
     path: '/product/shoes-2.jpg',
     alt: 'product image',
     price: '170',
     discountedPrice: '150',
   },
   {
-    title: 'AXOLO R-SKIN® MONOCHROME White',
-    link: '/product/shoes-3',
+    title: 'AXOLO LINEN Camel',
+    link: '/product/axolo-lin/camel',
     path: '/product/shoes-3.jpg',
     alt: 'product image',
     price: '170',
     discountedPrice: '140',
   },
   {
-    title: 'AXOLO R-SKIN® MONOCHROME Blue',
-    link: '/product/shoes-4',
+    title: 'AXOLO LINEN Turquoise',
+    link: '/product/axolo-lin/turquoise',
     path: '/product/shoes-4.jpg',
     alt: 'product image',
     price: '170',
     discountedPrice: '',
   },
   {
-    title: 'AXOLO R-SKIN® MONOCHROME Gray',
-    link: '/product/shoes-5',
-    path: '/product/shoes-5.jpg',
-    alt: 'product image',
-    price: '170',
-    discountedPrice: '120',
-  },
-  {
-    title: 'AXOLO R-SKIN® MONOCHROME Khaki',
-    link: '/product/shoes-1',
-    path: '/product/shoes-1.jpg',
-    alt: 'product image',
-    price: '170',
-    discountedPrice: '',
-  },
-  {
-    title: 'AXOLO R-SKIN® MONOCHROME Black',
-    link: '/product/shoes-2',
-    path: '/product/shoes-2.jpg',
-    alt: 'product image',
-    price: '170',
-    discountedPrice: '150',
-  },
-  {
-    title: 'AXOLO R-SKIN® MONOCHROME White',
-    link: '/product/shoes-3',
-    path: '/product/shoes-3.jpg',
-    alt: 'product image',
-    price: '170',
-    discountedPrice: '140',
-  },
-  {
-    title: 'AXOLO R-SKIN® MONOCHROME Blue',
-    link: '/product/shoes-4',
-    path: '/product/shoes-4.jpg',
-    alt: 'product image',
-    price: '170',
-    discountedPrice: '',
-  },
-  {
-    title: 'AXOLO R-SKIN® MONOCHROME Gray',
-    link: '/product/shoes-5',
-    path: '/product/shoes-5.jpg',
-    alt: 'product image',
-    price: '170',
-    discountedPrice: '120',
-  },
-  {
-    title: 'AXOLO R-SKIN® MONOCHROME Khaki',
-    link: '/product/shoes-1',
-    path: '/product/shoes-1.jpg',
-    alt: 'product image',
-    price: '170',
-    discountedPrice: '',
-  },
-  {
-    title: 'AXOLO R-SKIN® MONOCHROME Black',
-    link: '/product/shoes-2',
-    path: '/product/shoes-2.jpg',
-    alt: 'product image',
-    price: '170',
-    discountedPrice: '150',
-  },
-  {
-    title: 'AXOLO R-SKIN® MONOCHROME White',
-    link: '/product/shoes-3',
-    path: '/product/shoes-3.jpg',
-    alt: 'product image',
-    price: '170',
-    discountedPrice: '140',
-  },
-  {
-    title: 'AXOLO R-SKIN® MONOCHROME Blue',
-    link: '/product/shoes-4',
-    path: '/product/shoes-4.jpg',
-    alt: 'product image',
-    price: '170',
-    discountedPrice: '',
-  },
-  {
-    title: 'AXOLO R-SKIN® MONOCHROME Gray',
-    link: '/product/shoes-5',
+    title: 'AXOLO LINEN Pink',
+    link: '/product/axolo-lin/pink',
     path: '/product/shoes-5.jpg',
     alt: 'product image',
     price: '170',
@@ -445,12 +372,10 @@ export const PRODUCT = {
       bgColor: '#e6dac6',
       selectedColor: '#e6dac6',
     },
-    { name: 'Black', bgColor: '#111827', selectedColor: '#111827' },
-    {
-      name: 'Heather Grey',
-      bgColor: '#9CA3AF',
-      selectedColor: '#9CA3AF',
-    },
+    { name: 'Camel', bgColor: '#bf8a3d', selectedColor: '#bf8a3d' },
+    { name: 'Vert Brun', bgColor: '#251e18', selectedColor: '#251e18' },
+    { name: 'Pink', bgColor: '#e44d95', selectedColor: '#e44d95' },
+    { name: 'Turqoise', bgColor: '#28acea', selectedColor: '#28acea' },
   ],
   sizes: [
     { name: '35', inStock: false },
@@ -462,14 +387,12 @@ export const PRODUCT = {
     { name: '41', inStock: true },
   ],
   description: `
-    <p>The Basic tee is an honest new take on a classic. The tee uses super soft, pre-shrunk cotton for true comfort and a dependable fit. They are hand cut and sewn locally, with a special dye technique that gives each tee it's own look.</p>
-    <p>Looking to stock your closet? The Basic tee also comes in a 3-pack or 5-pack at a bundle discount.</p>
+   <p>Take a sustainable step forward with shoes crafted from <b>Turkish linen</b>, offering 
+breathability, comfort, and softness.</p><p>Rain or shine, our <b>handmade shoes</b>, made from natural and recycled materials, provide both comfort and style, accompanying you through any journey.</p>
   `,
   details: [
-    'Only the best materials',
-    'Ethically and locally made',
-    'Pre-washed and pre-shrunk',
-    'Machine wash cold with similar colors',
+    'We recommend hand washing in <b>warm water</b> with a soft sponge or cloth.',
+    'Before starting the cleaning, we advise you to remove the laces and the sole.',
   ],
 };
 
@@ -491,3 +414,16 @@ export const REVIEWS = {
     },
   ],
 };
+
+export const POLICIES = [
+  {
+    name: 'International delivery',
+    icon: FaGlobe,
+    description: 'Get your order in 2 years',
+  },
+  {
+    name: 'Loyalty rewards',
+    icon: FaDollarSign,
+    description: "Don't look at other tees",
+  },
+];

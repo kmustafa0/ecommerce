@@ -1,0 +1,26 @@
+.descriptionContainer {
+  margin-top: 2.5rem;
+  .description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 1rem;
+    color: #6b7280;
+  }
+}
+
+.detailsContainer {
+  padding-top: 2rem;
+  margin-top: 2rem;
+  border-top: 1px solid #e5e7eb;
+  .detailsList {
+    margin-top: 1rem;
+    color: #6b7280;
+    font-size: 14px;
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+}

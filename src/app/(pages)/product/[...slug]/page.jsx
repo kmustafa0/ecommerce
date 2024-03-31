@@ -9,8 +9,6 @@ import ProductDetails from '@/components/SingleProduct/ProductDetails';
 import Policies from '@/components/SingleProduct/Policies';
 
 const ProductPage = ({ params }) => {
-  const words = params.slug.split('-');
-  const formattedSlug = words.map((word) => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   return (
     <div className={styles.productPageWrapper}>
       <div className={styles.productPageContainer}>

@@ -4,8 +4,6 @@ import PopularProductsSlider from './Slider';
 import './Slider/slider.scss';
 
 const PopularProducts = () => {
-  const SLIDE_COUNT = 6;
-  const SLIDES = Array.from(Array(SLIDE_COUNT).keys());
   return (
     <section className={styles.popularProducts}>
       <div className={styles.wrapper}>
@@ -13,7 +11,7 @@ const PopularProducts = () => {
           <div className={styles.heading}>
             <h2>popular products</h2>
           </div>
-          <PopularProductsSlider slides={SLIDES} />
+          <PopularProductsSlider />
         </div>
       </div>
     </section>

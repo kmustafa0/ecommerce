@@ -19,4 +19,13 @@
   &:hover {
     background-color: #333333e0;
   }
+  &:last-child {
+    margin-top: 1rem;
+    background-color: transparent;
+    border: 1px solid #999;
+    color: #333;
+    &:hover {
+      border-color: #333;
+    }
+  }
 }
