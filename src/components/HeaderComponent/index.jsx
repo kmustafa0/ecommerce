@@ -83,7 +83,7 @@ const Header = () => {
       <div className={styles.tabletInputWrapper}>
         <input
           type='text'
-          name='tabletSearch'
+          name='search'
           id='tabletSearch'
           placeholder='Type any product name here...'
         />

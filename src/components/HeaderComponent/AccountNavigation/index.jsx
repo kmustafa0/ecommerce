@@ -2,12 +2,24 @@
 import React from 'react';
 import Link from 'next/link';
 import styles from './index.module.scss';
-
-const user = true;
+import { signOut, useSession } from 'next-auth/react';
 
 const AccountNavigation = ({ href, icon, label, subItems }) => {
+  const { data, status } = useSession();
+  /* console.log(status); */ //  'authenticated'
+  /* console.log(data); */
+  /*  {
+    user: {
+      name: 'User Name',
+      email: 'user@email.com',
+      image:
+      'image-url'
+    },
+    expires: '2024-05-12T13:49:41.092Z'
+  } */
+  const isAuthenticated = status === 'authenticated';
   const renderSubItems = () => {
-    if (label === 'Account' && !user) {
+    if (label === 'Account' && !isAuthenticated) {
       return (
         <div className={styles.subMenu}>
           <Link href='/login' aria-label='Login'>
@@ -21,16 +33,27 @@ const AccountNavigation = ({ href, icon, label, subItems }) => {
     } else if (subItems && subItems.length > 0) {
       return (
         <div className={styles.subMenu}>
-          {subItems.map((subItem) => (
-            <Link
-              href={subItem.href}
-              key={subItem.label}
-              className={styles.subMenuItem}
-              aria-label={subItem.label}>
-              {subItem.icon}
-              <p className={styles.subItem}>{subItem.label}</p>
-            </Link>
-          ))}
+          {subItems.map((subItem) =>
+            subItem.label.toLowerCase() === 'logout' ? (
+              <span
+                key={subItem.label}
+                className={styles.subMenuItem}
+                aria-label={subItem.label}
+                onClick={() => signOut()}>
+                {subItem.icon}
+                <p className={styles.subItem}>{subItem.label}</p>
+              </span>
+            ) : (
+              <Link
+                href={subItem.href}
+                key={subItem.label}
+                className={styles.subMenuItem}
+                aria-label={subItem.label}>
+                {subItem.icon}
+                <p className={styles.subItem}>{subItem.label}</p>
+              </Link>
+            )
+          )}
         </div>
       );
     }
@@ -39,13 +62,13 @@ const AccountNavigation = ({ href, icon, label, subItems }) => {
   return (
     <div className={styles.container}>
       {label === 'Account' ? (
-        user ? (
+        isAuthenticated ? (
           <Link href={href} className={styles.link} aria-label={label}>
             {icon}
             <span>{label}</span>
           </Link>
         ) : (
-          <Link href={href} className={styles.link} aria-label='Login'>
+          <Link href={'/login'} className={styles.link} aria-label='Login'>
             {icon}
             <span>Login</span>
           </Link>

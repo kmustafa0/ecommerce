@@ -1,0 +1,131 @@
+.login-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  padding-inline: 2rem;
+}
+
+.login-image {
+  flex: 1;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/Art.png');
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+}
+
+.login-form {
+  flex: 1;
+  padding: 40px;
+  .intro {
+    margin-bottom: 48px;
+    .heading {
+      margin-bottom: 28px;
+      font-size: 36px;
+      font-weight: 400;
+      color: #0c1421;
+      & ~ p {
+        color: #313957;
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .form-group {
+      margin-bottom: 24px;
+      label {
+        display: inline-block;
+        margin-bottom: 8px;
+        color: #0c1421;
+      }
+      input {
+        padding: 1rem 13.6875rem 1rem 1rem;
+        font-size: 16px;
+        height: 48px;
+        color: #4f4f4f;
+        &::placeholder {
+          color: #4f4f4f;
+        }
+      }
+    }
+    .forgotPassword {
+      color: #1e4ae9;
+      display: inline-block;
+      font-size: 16px;
+      text-align: right;
+      cursor: pointer;
+    }
+    .signInBtnWrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+      button {
+        cursor: pointer;
+        background: #162d3a;
+        color: #fff;
+        font-size: 20px;
+        padding: 1rem 16rem;
+        border-radius: 12px;
+        transition: background 0.4s ease;
+        &:hover {
+          background-color: #162d3ad7;
+        }
+      }
+    }
+  }
+  .oauth-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+    margin-top: 48px;
+    .or {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: 20px;
+      align-items: center;
+      color: #294957;
+      margin-bottom: 24px;
+      &::before,
+      &::after {
+        content: '';
+        height: 1px;
+        flex: 1;
+        background-color: #cfdfe2;
+      }
+    }
+    .oauthOptions {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 12px 92.5px;
+        gap: 16px;
+        background-color: #f3f9fa;
+        margin-bottom: 1rem;
+        border: 1px solid #d4d7e3;
+        border-radius: 12px;
+        color: #313957;
+        cursor: pointer;
+        min-width: 388px;
+
+        svg {
+          width: 28px;
+          height: 28px;
+        }
+      }
+    }
+  }
+}
