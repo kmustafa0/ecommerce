@@ -84,6 +84,14 @@
   padding: 2em 1.5em;
   z-index: 999999;
   overflow: scroll;
+  .sideMenuAccount {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    font-weight: 500;
+    padding: 15px 20px;
+  }
 }
 
 @include media('<=phone') {

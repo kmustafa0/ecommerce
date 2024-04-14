@@ -4,15 +4,21 @@ import styles from './index.module.scss';
 import { HAMBURGER_MENU_LINKS, HEADERLINKS } from '@/lib/contstants';
 import AccountNavigation from './AccountNavigation';
 import Link from 'next/link';
-import { IoSearchOutline } from 'react-icons/io5';
+import { IoPersonOutline, IoSearchOutline } from 'react-icons/io5';
 import HamburgerMenu from './HamburgerMenu';
 import { RiCloseLine, RiMenu2Line } from 'react-icons/ri';
 import TopLinks from './TopLinks/page';
 import { Logo } from '../Logo';
 import CategoryNavigation from '../CategoryNavigation';
+import { FaPowerOff } from 'react-icons/fa6';
+import { signOut, useSession } from 'next-auth/react';
 
 const Header = () => {
   const [isOpen, setOpen] = useState(false);
+  const { status } = useSession();
+
+  const isAuthenticated = status === 'authenticated';
+
   const handleHamburgerMenu = () => {
     setOpen((prev) => !prev);
   };
@@ -24,6 +30,10 @@ const Header = () => {
       document.body.style.overflow = 'visible';
     }
   }
+  const handleLoginClick = () => {
+    window.location.href = '/login';
+  };
+
   return (
     <header className={styles.section}>
       <div className={styles.topLinks}>
@@ -99,6 +109,19 @@ const Header = () => {
               </li>
             ))}
           </ul>
+        </div>
+        <div>
+          {isAuthenticated ? (
+            <span className={styles.sideMenuAccount} onClick={() => signOut()}>
+              <FaPowerOff size={16} />
+              Logout
+            </span>
+          ) : (
+            <span className={styles.sideMenuAccount} onClick={handleLoginClick}>
+              <IoPersonOutline size={16} />
+              Login
+            </span>
+          )}
         </div>
       </div>
       <CategoryNavigation />

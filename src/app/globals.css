@@ -50,7 +50,7 @@ img {
   user-select: none;
 }
 
-section:not(.embla):not(.latestCollection):not(.discount) {
+section:is(.popularProducts, .socialMediaPosts) {
   height: 100vh;
   display: flex;
   align-items: center;

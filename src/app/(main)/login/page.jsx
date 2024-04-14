@@ -1,8 +1,7 @@
 'use client';
 import React from 'react';
 import './loginPage.scss';
-import Link from 'next/link';
-import { FacebookLogo } from '@/components/Facebook';
+/* import { FacebookLogo } from '@/components/Facebook'; */
 import { GoogleLogo } from '@/components/Google';
 import { signIn, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
@@ -62,12 +61,12 @@ const Login = () => {
         <div className='oauth-login'>
           <div className='or'>Or</div>
           <div className='oauthOptions'>
-            <button href='#' aria-label='login with google' onClick={() => signIn('google')}>
+            <button aria-label='login with google' onClick={() => signIn('google')}>
               <GoogleLogo /> Login with Google
             </button>
-            <button href='#' aria-label='login with facebook'>
+            {/* <button aria-label='login with facebook' onClick={() => signIn('facebook')}>
               <FacebookLogo /> Login with Facebook
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

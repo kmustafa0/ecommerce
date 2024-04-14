@@ -1,0 +1,24 @@
+@import 'src/app/scss/breakpoints.scss';
+@import 'src/app/scss/layout.scss';
+
+.wrapper {
+  @extend %section;
+  max-width: 720px;
+  .container {
+    @extend %container;
+    background-color: rgb(229 229 229);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    h4 {
+      padding: 1rem;
+      font-weight: 700;
+      background-color: rgb(229 229 229);
+      border-bottom: 1px solid #000;
+    }
+    pre {
+      padding: 1.5rem 1rem;
+      word-break: break-all;
+      white-space: pre-wrap;
+    }
+  }
+}

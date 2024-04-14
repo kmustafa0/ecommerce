@@ -6,17 +6,6 @@ import { signOut, useSession } from 'next-auth/react';
 
 const AccountNavigation = ({ href, icon, label, subItems }) => {
   const { data, status } = useSession();
-  /* console.log(status); */ //  'authenticated'
-  /* console.log(data); */
-  /*  {
-    user: {
-      name: 'User Name',
-      email: 'user@email.com',
-      image:
-      'image-url'
-    },
-    expires: '2024-05-12T13:49:41.092Z'
-  } */
   const isAuthenticated = status === 'authenticated';
   const renderSubItems = () => {
     if (label === 'Account' && !isAuthenticated) {
@@ -33,6 +22,9 @@ const AccountNavigation = ({ href, icon, label, subItems }) => {
     } else if (subItems && subItems.length > 0) {
       return (
         <div className={styles.subMenu}>
+          {isAuthenticated && label === 'Account' && (
+            <p className={styles.userName}>{data.user.name}</p>
+          )}
           {subItems.map((subItem) =>
             subItem.label.toLowerCase() === 'logout' ? (
               <span

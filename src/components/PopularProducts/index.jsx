@@ -5,7 +5,7 @@ import './Slider/slider.scss';
 
 const PopularProducts = () => {
   return (
-    <section className={styles.popularProducts}>
+    <section className={`${styles.popularProducts} popularProducts`}>
       <div className={styles.wrapper}>
         <div className={styles.container}>
           <div className={styles.heading}>
