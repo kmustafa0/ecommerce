@@ -55,6 +55,9 @@
   }
 }
 @media only screen and (max-width: 500px) {
+  .socialMediaPostsContainer {
+    gap: 10px;
+  }
   .socialMediaPostsSlide {
     padding-left: 0;
   }
