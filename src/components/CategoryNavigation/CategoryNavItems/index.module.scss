@@ -1,7 +1,9 @@
 .categoryWrapper {
   position: relative;
   &:hover .subMenu {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
   }
 }
 .categoryItems {
@@ -18,7 +20,10 @@
 }
 
 .subMenu {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1rem);
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s ease-in-out;
   position: absolute;
   top: 20px;
   left: -30px;

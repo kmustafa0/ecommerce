@@ -14,7 +14,7 @@ const AccountNavigation = ({ href, icon, label, subItems }) => {
           <Link href='/login' aria-label='Login'>
             <p className={`${styles.subItem} ${styles.loginBtn}`}>Login</p>
           </Link>
-          <Link href='/register' aria-label='Register'>
+          <Link href='/login' aria-label='Register'>
             <p className={`${styles.subItem} ${styles.registerBtn}`}>Register</p>
           </Link>
         </div>
@@ -55,12 +55,12 @@ const AccountNavigation = ({ href, icon, label, subItems }) => {
     <div className={styles.container}>
       {label === 'Account' ? (
         isAuthenticated ? (
-          <Link href={href} className={styles.link} aria-label={label}>
+          <Link href={href} className={`${styles.link} hasSubMenu`} aria-label={label}>
             {icon}
             <span>{label}</span>
           </Link>
         ) : (
-          <Link href={'/login'} className={styles.link} aria-label='Login'>
+          <Link href={'/login'} className={`${styles.link} hasSubMenu`} aria-label='Login'>
             {icon}
             <span>Login</span>
           </Link>
