@@ -62,7 +62,7 @@ const Login = () => {
           <div className='or'>Or</div>
           <div className='oauthOptions'>
             <button aria-label='login with google' onClick={() => signIn('google')}>
-              <GoogleLogo /> Login with Google
+              <GoogleLogo /> <span>Login with&nbsp;</span> Google
             </button>
             {/* <button aria-label='login with facebook' onClick={() => signIn('facebook')}>
               <FacebookLogo /> Login with Facebook

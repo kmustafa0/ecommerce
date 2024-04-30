@@ -31,7 +31,10 @@ $button-border: #dedede;
 }
 
 .subMenu {
-  display: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1rem);
+  transition: opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, transform 0.2s ease-in-out;
   position: absolute;
   top: 100%;
   right: 0;
@@ -72,7 +75,9 @@ $button-border: #dedede;
 }
 
 .container:hover .subMenu {
-  display: flex;
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
   flex-direction: column;
   border: 1px solid $primary-color;
 }
