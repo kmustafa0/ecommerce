@@ -12,7 +12,7 @@ datasource db {
 
 model Account {
   id                String  @id @default(cuid()) @map("_id")
-  userId            String
+  userId            String  @db.ObjectId
   type              String
   provider          String
   providerAccountId String
@@ -38,20 +38,13 @@ model Session {
 }
 
 model User {
-  id            String    @id @default(cuid()) @map("_id")
-  name          String?
-  email         String    @unique
-  emailVerified DateTime?
-  image         String?
-  isAdmin       Boolean   @default(false)
-  accounts      Account[]
-  sessions      Session[]
-}
-
-model VerificationToken {
-  identifier String   @id @map("_id")
-  token      String   @unique
-  expires    DateTime
-
-  @@unique([identifier, token])
+  id             String    @id @default(cuid()) @map("_id")
+  name           String?
+  email          String    @unique
+  hashedPassword String?
+  emailVerified  DateTime?
+  image          String?
+  isAdmin        Boolean   @default(false)
+  accounts       Account[]
+  sessions       Session[]
 }

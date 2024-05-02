@@ -14,7 +14,7 @@ const AccountNavigation = ({ href, icon, label, subItems }) => {
           <Link href='/login' aria-label='Login'>
             <p className={`${styles.subItem} ${styles.loginBtn}`}>Login</p>
           </Link>
-          <Link href='/login' aria-label='Register'>
+          <Link href='/register' aria-label='Register'>
             <p className={`${styles.subItem} ${styles.registerBtn}`}>Register</p>
           </Link>
         </div>

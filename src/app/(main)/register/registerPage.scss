@@ -1,0 +1,172 @@
+@import '../../scss/breakpoints.scss';
+.register-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding-inline: 2rem;
+}
+
+.register-image {
+  flex: 1;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/Art3.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 24px;
+}
+
+.register-form {
+  flex: 1;
+  padding: 40px;
+  .intro {
+    margin-bottom: 48px;
+    .heading {
+      margin-bottom: 28px;
+      font-size: 36px;
+      font-weight: 400;
+      color: #0c1421;
+      & ~ p {
+        color: #313957;
+      }
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .form-group {
+      margin-bottom: 24px;
+      label {
+        display: inline-block;
+        margin-bottom: 8px;
+        color: #0c1421;
+      }
+      input {
+        padding: 1rem 13.6875rem 1rem 1rem;
+        font-size: 16px;
+        height: 48px;
+        color: #4f4f4f;
+        &::placeholder {
+          color: #c8c8d0;
+        }
+      }
+    }
+    .forgotPassword {
+      color: #1e4ae9;
+      display: inline-block;
+      font-size: 16px;
+      text-align: right;
+      cursor: pointer;
+    }
+    .signInBtnWrapper {
+      display: flex;
+      justify-content: center;
+      margin-top: 24px;
+      button {
+        cursor: pointer;
+        background: #162d3a;
+        color: #fff;
+        font-size: 20px;
+        padding: 1rem 8rem;
+        border-radius: 12px;
+        transition: background 0.4s ease;
+        &:hover {
+          background-color: #162d3ad7;
+        }
+      }
+    }
+    .login {
+      text-align: center;
+      font-size: 18px;
+      margin-top: 1rem;
+      a {
+        color: #1e4ae9;
+      }
+    }
+  }
+}
+
+@include media('>phone', '<=600px') {
+  .register-container {
+    padding: 24px;
+    .register-form {
+      padding: 0;
+      .intro {
+        margin-bottom: 24px;
+        .heading {
+          padding-top: 27px;
+          font-size: 24px;
+          & ~ p {
+            font-size: 15px;
+          }
+        }
+      }
+      .form-group {
+        label,
+        input {
+          font-size: 14px;
+        }
+        input {
+          padding: 14px;
+        }
+        margin-bottom: 1rem;
+      }
+      .forgotPassword {
+        font-size: 14px;
+      }
+      .signInBtnWrapper button {
+        font-size: 1rem;
+        max-height: 44px;
+      }
+    }
+    .oauth-register {
+      margin-top: 24px;
+    }
+    .oauthOptions button {
+      gap: 16px;
+      padding: 1rem 6.6rem;
+      max-height: 40px;
+      span {
+        display: none;
+      }
+    }
+  }
+}
+
+@include media('>600px', '<=950px') {
+  .register-container {
+    .register-form .signInBtnWrapper button {
+      padding-inline: 11rem;
+    }
+    .oauthOptions {
+      button {
+        padding: 1rem 6.6rem;
+        svg {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@include media('>950px') {
+  .register-container {
+    flex-direction: row;
+    .register-form .signInBtnWrapper button {
+      padding: 1rem 16rem;
+    }
+    .oauthOptions {
+      button {
+        padding: 1rem 12.6rem;
+        svg {
+          margin-right: 1rem;
+        }
+      }
+    }
+  }
+}
