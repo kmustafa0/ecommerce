@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import styles from './index.module.scss';
 import { signOut, useSession } from 'next-auth/react';
+import { MdOutlineAdminPanelSettings } from 'react-icons/md';
 
 const AccountNavigation = ({ href, icon, label, subItems }) => {
   const { data, status } = useSession();
@@ -45,6 +46,12 @@ const AccountNavigation = ({ href, icon, label, subItems }) => {
                 <p className={styles.subItem}>{subItem.label}</p>
               </Link>
             )
+          )}
+          {data?.user.isAdmin && (
+            <Link href={'/admin'} className={styles.subMenuItem}>
+              <MdOutlineAdminPanelSettings size={15} />
+              <p className={styles.subItem}>Admin</p>
+            </Link>
           )}
         </div>
       );

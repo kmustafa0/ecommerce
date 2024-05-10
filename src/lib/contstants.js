@@ -5,7 +5,7 @@ import {
   IoSettingsOutline,
   IoLogOutOutline,
 } from 'react-icons/io5';
-import { MdOutlineLocalShipping, MdCreditCard } from 'react-icons/md';
+import { MdOutlineLocalShipping, MdCreditCard, MdSpaceDashboard } from 'react-icons/md';
 import {
   FaFacebookSquare,
   FaTwitter,
@@ -13,6 +13,7 @@ import {
   FaGithubSquare,
   FaDollarSign,
   FaGlobe,
+  FaHashtag,
 } from 'react-icons/fa';
 
 export const HEADERLINKS = [
@@ -425,5 +426,23 @@ export const POLICIES = [
     name: 'Loyalty rewards',
     icon: FaDollarSign,
     description: "Don't look at other tees",
+  },
+];
+
+export const ADMIN_DASHBOARD_LINKS = [
+  {
+    href: '/admin',
+    label: 'Dashboard',
+    icon: <MdSpaceDashboard size={20} />,
+  },
+  {
+    href: '/admin/orders',
+    label: 'Orders',
+    icon: <IoCartOutline size={20} />,
+  },
+  {
+    href: '/admin/collections',
+    label: 'Collections',
+    icon: <FaHashtag size={20} />,
   },
 ];

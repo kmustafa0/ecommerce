@@ -11,6 +11,9 @@ export const authOptions = {
   session: {
     strategy: 'jwt',
   },
+  pages: {
+    signIn: '/login',
+  },
   secret: process.env.NEXTAUTH_SECRET,
   debug: process.env.NODE_ENV === 'development',
 
@@ -18,6 +21,9 @@ export const authOptions = {
     GoogleProdivder({
       clientId: process.env.GOOGLE_ID,
       clientSecret: process.env.GOOGLE_SECRET,
+      profile(profile) {
+        return { id: profile.sub, role: profile.role ?? 'user', ...profile };
+      },
     }),
     Credentials({
       name: 'credentials',
