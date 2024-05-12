@@ -4,6 +4,7 @@ import {
   IoCartOutline,
   IoSettingsOutline,
   IoLogOutOutline,
+  IoImages,
 } from 'react-icons/io5';
 import { MdOutlineLocalShipping, MdCreditCard, MdSpaceDashboard } from 'react-icons/md';
 import {
@@ -441,8 +442,8 @@ export const ADMIN_DASHBOARD_LINKS = [
     icon: <IoCartOutline size={20} />,
   },
   {
-    href: '/admin/collections',
-    label: 'Collections',
-    icon: <FaHashtag size={20} />,
+    href: '/admin/hero',
+    label: 'Hero Images',
+    icon: <IoImages size={20} />,
   },
 ];

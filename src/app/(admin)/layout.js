@@ -17,7 +17,11 @@ export default async function AdminLayout({ children }) {
   return (
     <main className={styles.adminWrapper}>
       <Sidebar admin={session.user} />
-      <section className={styles.content}>{children}</section>
+      <section className={styles.contentWrapper}>
+        <div className={styles.content}>
+          <div className={styles.page}>{children}</div>
+        </div>
+      </section>
     </main>
   );
 }

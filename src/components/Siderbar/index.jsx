@@ -5,7 +5,7 @@ import { ADMIN_DASHBOARD_LINKS } from '@/lib/contstants';
 import NavigationLink from './NavigationLink';
 const Sidebar = ({ admin }) => {
   return (
-    <sidebar className={styles.sidebar}>
+    <aside className={styles.sidebar}>
       <div className={styles.content}>
         <div className={styles.flexContainer}>
           <div className={`${styles.menu} ${styles.top}`}>
@@ -33,7 +33,7 @@ const Sidebar = ({ admin }) => {
           </div>
         </div>
       </div>
-    </sidebar>
+    </aside>
   );
 };
 

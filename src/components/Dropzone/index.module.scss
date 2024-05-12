@@ -1,0 +1,174 @@
+.test {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  span {
+    color: blue;
+  }
+}
+.section {
+  margin-block: 2.5rem;
+  .preview {
+    display: flex;
+    gap: 1rem;
+    h3 {
+      font-weight: 200;
+      color: #09090b;
+      font-size: 1.875rem;
+      line-height: 2.25rem;
+    }
+    button {
+      background-color: transparent;
+      margin-top: 0.25rem;
+      border-radius: 0.375rem;
+      border: 1px solid #a5f8c3d9;
+      padding-inline: 0.75rem;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #78716c;
+      transition-property: color, background-color;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
+      cursor: pointer;
+      &:hover {
+        background-color: #a5f8c3d9;
+        color: black;
+      }
+    }
+  }
+  .title {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    margin-top: 2.5rem;
+    color: #57534e;
+  }
+  .rejectedTitle {
+    margin-top: 6rem;
+  }
+  .acceptedList {
+    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2.5rem;
+    .acceptedListItem {
+      position: relative;
+      border-radius: 0.375rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      display: flex;
+      justify-content: start;
+      flex-direction: row;
+      border: 1px solid #aaa;
+      padding: 10px;
+      .acceptedImage {
+        max-width: 50px;
+        max-height: 50px;
+        margin-right: 1.125rem;
+        object-fit: cover;
+      }
+      .singleRemoveBtn {
+        cursor: pointer;
+        display: flex;
+        position: absolute;
+        top: -0.75rem;
+        right: -0.75rem;
+        justify-content: center;
+        align-items: center;
+        border-radius: 9999px;
+        border-width: 1px;
+        transition-property: color, background-color, border-color, text-decoration-color, fill,
+          stroke;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 300ms;
+        background-color: #fb7185;
+        svg {
+          width: 1.75rem;
+          height: 1.75rem;
+          transition-property: color, background-color, border-color, text-decoration-color, fill,
+            stroke;
+          fill: white;
+          transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+          transition-duration: 300ms;
+          &:hover {
+            fill: #fb7185;
+          }
+        }
+        &:hover {
+          background-color: white;
+        }
+      }
+      .acceptedFileName {
+        margin-top: 0.5rem;
+        font-weight: 500;
+        font-size: 12px;
+        color: #78716c;
+        white-space: nowrap;
+        width: 100%;
+        overflow: hidden;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+      }
+    }
+  }
+  .rejectedList {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    .rejectedFileName {
+      margin-top: 0.5rem;
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      font-weight: 500;
+      color: #78716c;
+    }
+    .errorList {
+      font-size: 12px;
+      color: #fb7185;
+    }
+    .rejectedRemoveBtn {
+      cursor: pointer;
+      margin-top: 0.25rem;
+      border-radius: 0.375rem;
+      border: 1px solid #fb7185;
+      padding: 0.25rem 0.75rem;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #78716c;
+      transition-property: color, background-color, border-color, text-decoration-color, fill,
+        stroke;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
+      &:hover {
+        background-color: #fb7185;
+        color: white;
+      }
+    }
+  }
+}
+.uploadBtn {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  margin-top: 0.25rem;
+  border-radius: 0.375rem;
+  border: 1px solid #a5f8c3d9;
+  padding-inline: 0.75rem;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #78716c;
+  transition-property: color, background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  cursor: pointer;
+  &:hover {
+    background-color: #a5f8c3ad;
+  }
+}
