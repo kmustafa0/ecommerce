@@ -3,15 +3,9 @@
   font-weight: 200;
   color: #09090b;
 }
-.uploadImages {
+.section {
   display: flex;
   flex-direction: column;
   gap: 1.125rem;
   margin-left: 1.725rem;
-  .dropzone {
-    cursor: pointer;
-    padding: 4rem;
-    margin-top: 2.5rem;
-    border: 2.5px dashed #e5e5e5;
-  }
 }

@@ -10,6 +10,7 @@ import { uploadFile } from '@/lib/actions';
 const Dropzone = ({ className }) => {
   const [files, setFiles] = useState([]);
   const [rejected, setRejected] = useState([]);
+  const [progress, setProgress] = useState(0);
 
   const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
     if (acceptedFiles?.length) {
@@ -53,35 +54,23 @@ const Dropzone = ({ className }) => {
     e.preventDefault();
     if (!files?.length) return;
 
-    let success = true;
     for (const file of files) {
       const formData = new FormData();
       formData.append('file', file);
       const fileSuccess = await uploadFile(formData);
       if (!fileSuccess) {
-        success = false;
         break;
       }
     }
-
-    if (success) {
-      alert('File(s) uploaded successfully');
-      setFiles([]);
-      setRejected([]);
-    } else {
-      alert('An error occurred during file upload');
-    }
   };
-
   return (
     <>
       <form onSubmit={handleSubmit}>
         <div
-          {...getRootProps({
-            className: className,
-          })}>
+          {...getRootProps({})}
+          className={`${styles.dropzone} ${isDragActive ? styles.dragActive : ''}`}>
           <input {...getInputProps()} name='file' id='file' />
-          <div className={styles.test}>
+          <div className={styles.textWrapper}>
             <IoCloudUploadOutline size={30} color='707070' />
             {isDragActive ? (
               <p>Drop the files here ...</p>
@@ -93,6 +82,7 @@ const Dropzone = ({ className }) => {
           </div>
         </div>
 
+        {/* TODO show if a file is attached */}
         {/* preview images */}
         <section className={styles.section}>
           <div className={styles.preview}>
@@ -103,7 +93,7 @@ const Dropzone = ({ className }) => {
           </div>
 
           {/* Accepted files */}
-          <h3 className={styles.title}>Accepted Files</h3>
+          <h2 className={styles.title}>Accepted Files</h2>
           <ul className={styles.acceptedList}>
             {files.map((file) => (
               <li key={file.name} className={styles.acceptedListItem}>
@@ -115,7 +105,7 @@ const Dropzone = ({ className }) => {
                   onLoad={() => {
                     URL.revokeObjectURL(file.preview);
                   }}
-                  className={styles.acceptedImage}
+                  style={{ objectFit: 'cover' }}
                 />
                 <p className={styles.acceptedFileName}>{file.name}</p>
                 <button
@@ -129,7 +119,7 @@ const Dropzone = ({ className }) => {
           </ul>
 
           {/* Rejected Files */}
-          <h3 className={`${styles.title} ${styles.rejectedTitle}`}>Rejected Files</h3>
+          <h2 className={`${styles.title} ${styles.rejectedTitle}`}>Rejected Files</h2>
           <ul>
             {rejected.map(({ file, errors }) => (
               <li key={file.name} className={styles.rejectedList}>
