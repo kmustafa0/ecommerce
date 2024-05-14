@@ -1,29 +1,72 @@
 'use client';
-import Image from 'next/image';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useDropzone } from 'react-dropzone';
-import { IoClose } from 'react-icons/io5';
-import styles from './index.module.scss';
 import { IoCloudUploadOutline } from 'react-icons/io5';
+import { createFilePreview, revokeFilePreviews } from '@/utils/fileHelpers';
+import styles from './Dropzone.module.scss';
 import { uploadFile } from '@/lib/actions';
+import FilePreviewList from './FilePreviewList/FilePreviewList';
+import RejectedFilesList from './RejectedFilesList/RejectedFilesList';
 
-const Dropzone = ({ className }) => {
+const turkishToEnglishMap = {
+  ç: 'c',
+  ğ: 'g',
+  ı: 'i',
+  ö: 'o',
+  ş: 's',
+  ü: 'u',
+  Ç: 'C',
+  Ğ: 'G',
+  İ: 'I',
+  Ö: 'O',
+  Ş: 'S',
+  Ü: 'U',
+};
+
+function replaceTurkishCharacters(file) {
+  let newName = file.name
+    .split('')
+    .map((char) => turkishToEnglishMap[char] || char)
+    .join('');
+  return new File([file], newName, { type: file.type });
+}
+
+const Dropzone = () => {
   const [files, setFiles] = useState([]);
   const [rejected, setRejected] = useState([]);
-  const [progress, setProgress] = useState(0);
 
-  const onDrop = useCallback((acceptedFiles, rejectedFiles) => {
-    if (acceptedFiles?.length) {
-      setFiles((previousFiles) => [
-        ...previousFiles,
-        ...acceptedFiles.map((file) => Object.assign(file, { preview: URL.createObjectURL(file) })),
-      ]);
-    }
+  const onDrop = useCallback(
+    (acceptedFiles, rejectedFiles) => {
+      const existingFilesCount = files.length;
+      const totalAcceptedFilesCount = existingFilesCount + acceptedFiles.length;
+      let finalAcceptedFiles = [];
+      let finalRejectedFiles = [];
 
-    if (rejectedFiles?.length) {
-      setRejected((previousFiles) => [...previousFiles, ...rejectedFiles]);
-    }
-  }, []);
+      if (totalAcceptedFilesCount > 10) {
+        const remainingSlots = 10 - existingFilesCount;
+        finalAcceptedFiles = acceptedFiles
+          .slice(0, remainingSlots)
+          .map((file) => replaceTurkishCharacters(file));
+        finalRejectedFiles = acceptedFiles.slice(remainingSlots);
+      } else {
+        finalAcceptedFiles = acceptedFiles.map((file) => replaceTurkishCharacters(file));
+      }
+
+      setFiles((previousFiles) => [...previousFiles, ...finalAcceptedFiles.map(createFilePreview)]);
+
+      if (rejectedFiles?.length) {
+        setRejected((previousFiles) => [...previousFiles, ...rejectedFiles]);
+      }
+
+      if (finalRejectedFiles.length) {
+        setRejected((previousFiles) => [
+          ...previousFiles,
+          ...finalRejectedFiles.map((file) => ({ file })),
+        ]);
+      }
+    },
+    [files]
+  );
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     accept: {
@@ -34,7 +77,7 @@ const Dropzone = ({ className }) => {
   });
 
   useEffect(() => {
-    return () => files.forEach((file) => URL.revokeObjectURL(file.preview));
+    return () => revokeFilePreviews(files);
   }, [files]);
 
   const removeFile = (name) => {
@@ -53,16 +96,19 @@ const Dropzone = ({ className }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!files?.length) return;
-
+    let success = true;
     for (const file of files) {
       const formData = new FormData();
       formData.append('file', file);
       const fileSuccess = await uploadFile(formData);
       if (!fileSuccess) {
+        success = false;
         break;
       }
     }
+    success && (setFiles([]), setRejected([]));
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
@@ -82,68 +128,35 @@ const Dropzone = ({ className }) => {
           </div>
         </div>
 
-        {/* TODO show if a file is attached */}
-        {/* preview images */}
         <section className={styles.section}>
           <div className={styles.preview}>
             <h3>Preview</h3>
-            <button type='button' className={styles.removeAll} onClick={removeAll}>
-              REMOVE ALL FILES
-            </button>
+            {files.length > 0 || rejected.length > 0 ? (
+              <button type='button' className={styles.removeAll} onClick={removeAll}>
+                REMOVE ALL FILES
+              </button>
+            ) : null}
           </div>
 
-          {/* Accepted files */}
-          <h2 className={styles.title}>Accepted Files</h2>
-          <ul className={styles.acceptedList}>
-            {files.map((file) => (
-              <li key={file.name} className={styles.acceptedListItem}>
-                <Image
-                  src={file.preview}
-                  alt={file.name}
-                  width={100}
-                  height={100}
-                  onLoad={() => {
-                    URL.revokeObjectURL(file.preview);
-                  }}
-                  style={{ objectFit: 'cover' }}
-                />
-                <p className={styles.acceptedFileName}>{file.name}</p>
-                <button
-                  type='button'
-                  className={styles.singleRemoveBtn}
-                  onClick={() => removeFile(file.name)}>
-                  <IoClose />
-                </button>
-              </li>
-            ))}
-          </ul>
+          {files.length > 0 && (
+            <>
+              <h2 className={styles.title}>Accepted Files</h2>
+              <FilePreviewList files={files} removeFile={removeFile} />
+            </>
+          )}
 
-          {/* Rejected Files */}
-          <h2 className={`${styles.title} ${styles.rejectedTitle}`}>Rejected Files</h2>
-          <ul>
-            {rejected.map(({ file, errors }) => (
-              <li key={file.name} className={styles.rejectedList}>
-                <div>
-                  <p className={styles.rejectedFileName}>{file.name}</p>
-                  <ul className={styles.errorList}>
-                    {errors.map((error) => (
-                      <li key={error.code}>{error.message}</li>
-                    ))}
-                  </ul>
-                </div>
-                <button
-                  type='button'
-                  className={styles.rejectedRemoveBtn}
-                  onClick={() => removeRejected(file.name)}>
-                  remove
-                </button>
-              </li>
-            ))}
-          </ul>
+          {rejected.length > 0 && (
+            <>
+              <h2 className={`${styles.title} ${styles.rejectedTitle}`}>Rejected Files</h2>
+              <RejectedFilesList rejected={rejected} removeRejected={removeRejected} />
+            </>
+          )}
         </section>
-        <button type='submit' name='submitBtn' id='submitBtn' className={styles.uploadBtn}>
-          Upload
-        </button>
+        {files.length > 0 && (
+          <button type='submit' name='submitBtn' id='submitBtn' className={styles.uploadBtn}>
+            Upload
+          </button>
+        )}
       </form>
     </>
   );

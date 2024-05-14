@@ -1,0 +1,80 @@
+.dropzone {
+  cursor: pointer;
+  padding: 4rem;
+  margin-top: 2.5rem;
+  border: 1px dashed #000000;
+  border-radius: 1.3rem;
+  transition: border-color 0.1s ease-in-out;
+  .textWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    span {
+      color: blue;
+    }
+  }
+  &.dragActive {
+    border-color: #0040ff;
+  }
+}
+
+.section {
+  margin-block: 2.5rem;
+  .preview {
+    display: flex;
+    gap: 1rem;
+    button {
+      background-color: transparent;
+      margin-top: 0.25rem;
+      border-radius: 0.375rem;
+      border: 1px solid #a5f8c3d9;
+      padding-inline: 0.75rem;
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #78716c;
+      transition-property: color, background-color;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
+      cursor: pointer;
+      &:hover {
+        background-color: #a5f8c3d9;
+        color: black;
+      }
+    }
+  }
+  .title {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    letter-spacing: 0.025em;
+    margin-top: 2.5rem;
+    color: #57534e;
+  }
+  .rejectedTitle {
+    margin-top: 6rem;
+  }
+}
+.uploadBtn {
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  margin-top: 0.25rem;
+  border-radius: 0.375rem;
+  border: 1px solid #a5f8c3d9;
+  padding-inline: 0.75rem;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #78716c;
+  transition-property: color, background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+  cursor: pointer;
+  &:hover {
+    background-color: #a5f8c3ad;
+  }
+}

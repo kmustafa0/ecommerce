@@ -1,7 +1,6 @@
 'use server';
 
-/* bu import yok ama bunu silince çalışmıyor */
-import { storage } from '@/utils/firebase';
+import { app } from '@/utils/firebase';
 import { getStorage, ref, uploadBytesResumable, getDownloadURL } from 'firebase/storage';
 
 export const uploadFile = async (formData) => {
@@ -11,7 +10,7 @@ export const uploadFile = async (formData) => {
     if (!file) throw new Error('No file provided');
     if (file.size < 1) throw new Error('File is empty');
 
-    const storage = getStorage();
+    const storage = getStorage(app);
     const storageRef = ref(storage, `${file.name}`);
 
     const uploadTask = uploadBytesResumable(storageRef, file);
