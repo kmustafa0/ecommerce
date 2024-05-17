@@ -3,6 +3,14 @@ import styles from './layout.module.scss';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/utils/auth';
 import Link from 'next/link';
+
+export const metadata = {
+  title: {
+    template: '%s | Admin Dashboard',
+    default: 'Admin Dashboard',
+  },
+};
+
 export default async function AdminLayout({ children }) {
   const session = await getServerSession(authOptions);
   //console.log(session.user);

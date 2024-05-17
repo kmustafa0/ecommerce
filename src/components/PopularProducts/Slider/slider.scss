@@ -8,7 +8,6 @@ $embla-dot-selected-size: 1rem;
   background-color: transparent;
   touch-action: manipulation;
   text-decoration: none;
-  cursor: pointer;
   width: 30px;
   height: 30px;
   display: flex;
@@ -102,7 +101,6 @@ $embla-dot-selected-size: 1rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
     background-color: transparent;
-    cursor: pointer;
     transition: background-color 0.3s ease-in-out;
 
     &:hover {
@@ -137,8 +135,8 @@ $embla-dot-selected-size: 1rem;
     height: 4px;
     background-color: #333;
     position: absolute;
-    top: 50%; // Değişiklik burada: bottom -> top
-    left: 50%; // Değişiklik burada: 0 -> 50%
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 100px;
     transition: width 0.3s ease;

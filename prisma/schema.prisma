@@ -12,7 +12,7 @@ datasource db {
 
 model Account {
   id                String  @id @default(cuid()) @map("_id")
-  userId            String  @db.ObjectId
+  userId            String
   type              String
   provider          String
   providerAccountId String
@@ -47,4 +47,13 @@ model User {
   isAdmin        Boolean   @default(false)
   accounts       Account[]
   sessions       Session[]
+}
+
+model HeroImage {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  src       String
+  alt       String?
+  link      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

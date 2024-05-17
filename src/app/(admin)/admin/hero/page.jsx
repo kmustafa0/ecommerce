@@ -2,6 +2,11 @@ import React from 'react';
 import styles from './index.module.scss';
 import Dropzone from '@/components/Dropzone/Dropzone';
 import CurrentImages from '@/components/CurrentImages/CurrentImages';
+
+export const metadata = {
+  title: 'Hero Images',
+};
+
 const HeroImages = () => {
   return (
     <>

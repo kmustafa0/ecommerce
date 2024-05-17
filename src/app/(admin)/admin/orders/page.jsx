@@ -1,5 +1,9 @@
 import React from 'react';
 
+export const metadata = {
+  title: 'Orders',
+};
+
 const OrdersPage = () => {
   return <div>OrdersPage</div>;
 };

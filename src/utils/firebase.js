@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
+import { getStorage, ref, deleteObject } from 'firebase/storage';
 
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -17,3 +18,15 @@ const firebaseConfig = {
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
+const storage = getStorage(app);
+
+export const deleteImageFromFirebase = async (filePath) => {
+  const imageRef = ref(storage, filePath);
+  try {
+    await deleteObject(imageRef);
+    console.log(`Successfully deleted ${filePath}`);
+  } catch (error) {
+    console.error('Error deleting file from Firebase:', error);
+    throw new Error('Error deleting file from Firebase');
+  }
+};

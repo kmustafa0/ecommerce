@@ -59,9 +59,11 @@ section:is(.popularProducts, .socialMediaPosts) {
 button {
   border: 0;
   outline: 0;
+  user-select: none;
+  cursor: pointer;
 }
 
-input[name='search'] {
+input {
   width: 100%;
   border: 1px solid #e0e0e0;
   padding: 0.5rem 1.25rem 0.5rem 3.125rem;

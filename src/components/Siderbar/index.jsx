@@ -10,7 +10,7 @@ const Sidebar = ({ admin }) => {
         <div className={styles.flexContainer}>
           <div className={`${styles.menu} ${styles.top}`}>
             <div className={styles.adminCard}>
-              <Image src={admin.image} alt='admin-image' width={50} height={50} />
+              {admin?.image && <Image src={admin.image} alt='admin-image' width={50} height={50} />}
               <div className={styles.adminInfo}>
                 <span className={styles.adminName}>{admin?.name}</span>
                 <span className={styles.adminEmail}>{admin?.email}</span>

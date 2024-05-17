@@ -1,3 +1,4 @@
+@import '../../app/scss/mixins.scss';
 .dropzone {
   cursor: pointer;
   padding: 4rem;
@@ -26,24 +27,7 @@
     display: flex;
     gap: 1rem;
     button {
-      background-color: transparent;
-      margin-top: 0.25rem;
-      border-radius: 0.375rem;
-      border: 1px solid #a5f8c3d9;
-      padding-inline: 0.75rem;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: #78716c;
-      transition-property: color, background-color;
-      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-      transition-duration: 150ms;
-      cursor: pointer;
-      &:hover {
-        background-color: #a5f8c3d9;
-        color: black;
-      }
+      @include dashboardPrimaryButton;
     }
   }
   .title {
@@ -59,22 +43,6 @@
   }
 }
 .uploadBtn {
-  padding: 0.5rem 1rem;
-  background-color: transparent;
-  margin-top: 0.25rem;
-  border-radius: 0.375rem;
-  border: 1px solid #a5f8c3d9;
-  padding-inline: 0.75rem;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: #78716c;
-  transition-property: color, background-color;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-  cursor: pointer;
-  &:hover {
-    background-color: #a5f8c3ad;
-  }
+  @include dashboardPrimaryButton;
+  padding-block: 0.5rem;
 }
