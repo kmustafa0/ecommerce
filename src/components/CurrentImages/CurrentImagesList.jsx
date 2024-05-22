@@ -1,40 +1,10 @@
 'use client';
-
 import React, { useState } from 'react';
-import Image from 'next/image';
 import { FaTrash } from 'react-icons/fa';
 import styles from './CurrentImages.module.scss';
-import { SlClose } from 'react-icons/sl';
-
-const ConfirmationModal = ({ isOpen, onCancel, onConfirm }) => {
-  return (
-    <>
-      {isOpen && (
-        <div className={styles.modalBackground}>
-          <div className={styles.modalContent}>
-            <SlClose onClick={onCancel} className={styles.closeButton} />
-            <h1>Are you sure?</h1>
-            <p>Are you sure want to delete this item? This action cannot be undone </p>
-            <div className={styles.buttonContainer}>
-              <button
-                type='button'
-                onClick={onCancel}
-                className={`${styles.confirmationButton} ${styles.no}`}>
-                Cancel
-              </button>
-              <button
-                type='button'
-                onClick={onConfirm}
-                className={`${styles.confirmationButton} ${styles.yes}`}>
-                Delete
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-    </>
-  );
-};
+import ConfirmationModal from '../ConfirmationModal/ConfirmationModal';
+import ImagePreview from '../shared/ImagePreview/ImagePreview';
+import InputField from '../shared/InputField/InputField';
 
 const CurrentImagesList = ({ image }) => {
   const [showConfirmation, setShowConfirmation] = useState(false);
@@ -70,12 +40,20 @@ const CurrentImagesList = ({ image }) => {
   return (
     <>
       <li key={image.id}>
-        <Image
-          src={image.src}
-          alt={`${image?.id}-image`}
-          fill
-          sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
-          priority
+        <ImagePreview src={image.src} alt={`${image?.alt}-image`} />
+        <InputField
+          label='Alt Text'
+          id={`alt_${image.id}`}
+          name={`alt_${image.id}`}
+          value={image.alt}
+          placeholder='Enter alt text'
+        />
+        <InputField
+          label='Link'
+          id={`link_${image.id}`}
+          name={`link_${image.id}`}
+          value={image.link}
+          placeholder='Enter link'
         />
         <button
           type='button'

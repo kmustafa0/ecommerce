@@ -13,8 +13,8 @@
   background-color: #f87171;
   transition: background-color 0.3s ease, color 0.3s ease;
   svg {
-    width: 1.5rem;
-    height: 1.5rem;
+    width: 1rem;
+    height: 1rem;
     color: white;
     transition: color 0.3s ease;
   }
@@ -42,5 +42,24 @@
   &:hover {
     background-color: #a5f8c3d9;
     color: black;
+  }
+}
+
+@mixin imageList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 1.5rem;
+  li {
+    border-radius: 0.375rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #e2e8f0;
+    background-color: #ffffff;
+    position: relative;
+    transition: transform 0.2s;
+    .singleRemoveBtn {
+      @include deleteButton;
+    }
   }
 }
