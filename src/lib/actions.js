@@ -42,35 +42,3 @@ export const uploadFile = async (formData) => {
     return false;
   }
 };
-
-export const saveImageUrl = async (data) => {
-  try {
-    const response = await fetch(`${process.env.NEXTAUTH_URL}/api/heroImages`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    });
-
-    if (!response.ok) {
-      throw new Error('Failed to save image URL');
-    }
-
-    const result = await response.json();
-    console.log('result: ', result);
-    return result;
-  } catch (error) {
-    console.error(error);
-    return null;
-  }
-};
-
-export const getImages = async () => {
-  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/heroImages`, { cache: 'no-store' });
-
-  if (!res.ok) {
-    throw new Error('Failed');
-  }
-  return res.json();
-};

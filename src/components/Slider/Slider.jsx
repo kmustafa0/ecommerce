@@ -1,16 +1,15 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import Image from 'next/image';
 import Autoplay from 'embla-carousel-autoplay';
 import { NextButton, PrevButton, usePrevNextButtons } from './ArrowButtons';
 import { DotButton, useDotButton } from './DotButtons';
-import Link from 'next/link';
 import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
 import './slider.scss';
-import { getImages } from '@/lib/actions';
+import SliderContent from './SliderContent';
+import { useFetchImages } from '@/hooks';
 
-export function EmblaCarousel() {
+const useEmblaCarouselSetup = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true }, [
     Autoplay({ delay: 2500 }),
     WheelGesturesPlugin(),
@@ -20,52 +19,78 @@ export function EmblaCarousel() {
     usePrevNextButtons(emblaApi);
 
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
-  const [images, setImages] = useState([]);
 
-  useEffect(() => {
-    const fetchImages = async () => {
-      const { images } = await getImages();
-      setImages(images);
-    };
+  return {
+    emblaRef,
+    prevBtnDisabled,
+    nextBtnDisabled,
+    onPrevButtonClick,
+    onNextButtonClick,
+    selectedIndex,
+    scrollSnaps,
+    onDotButtonClick,
+  };
+};
 
-    fetchImages();
-  }, []);
+export function EmblaCarousel() {
+  const { data: images = [] } = useFetchImages();
+  const {
+    emblaRef,
+    prevBtnDisabled,
+    nextBtnDisabled,
+    onPrevButtonClick,
+    onNextButtonClick,
+    selectedIndex,
+    scrollSnaps,
+    onDotButtonClick,
+  } = useEmblaCarouselSetup();
+
   return (
     <section className='embla'>
       <div className='wrapper'>
         <div className='container'>
           <div className='embla__viewport' ref={emblaRef}>
             <div className='embla__container'>
-              {images.length >= 1 &&
-                images.map((image) => (
-                  <div key={image.id} className='embla__slide'>
-                    <Link href={image.link} aria-label={image.alt}>
-                      <Image src={image.src} alt={image.alt} fill priority />
-                    </Link>
-                  </div>
-                ))}
+              <SliderContent images={images} />
             </div>
-            <div className='embla__controls'>
-              <div className='embla__buttons'>
-                <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
-                <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
-              </div>
-
-              <div className='embla__dots'>
-                {scrollSnaps.map((_, index) => (
-                  <DotButton
-                    key={index}
-                    onClick={() => onDotButtonClick(index)}
-                    className={'embla__dot'.concat(
-                      index === selectedIndex ? ' embla__dot--selected' : ''
-                    )}
-                  />
-                ))}
-              </div>
-            </div>
+            <Controls
+              prevBtnDisabled={prevBtnDisabled}
+              nextBtnDisabled={nextBtnDisabled}
+              onPrevButtonClick={onPrevButtonClick}
+              onNextButtonClick={onNextButtonClick}
+              scrollSnaps={scrollSnaps}
+              selectedIndex={selectedIndex}
+              onDotButtonClick={onDotButtonClick}
+            />
           </div>
         </div>
       </div>
     </section>
   );
 }
+
+const Controls = ({
+  prevBtnDisabled,
+  nextBtnDisabled,
+  onPrevButtonClick,
+  onNextButtonClick,
+  scrollSnaps,
+  selectedIndex,
+  onDotButtonClick,
+}) => (
+  <div className='embla__controls'>
+    <div className='embla__buttons'>
+      <PrevButton onClick={onPrevButtonClick} disabled={prevBtnDisabled} />
+      <NextButton onClick={onNextButtonClick} disabled={nextBtnDisabled} />
+    </div>
+    <div className='embla__dots'>
+      {scrollSnaps.map((_, index) => (
+        <DotButton
+          key={index}
+          onClick={() => onDotButtonClick(index)}
+          className={`embla__dot${index === selectedIndex ? ' embla__dot--selected' : ''}`}
+        />
+      ))}
+    </div>
+  </div>
+);

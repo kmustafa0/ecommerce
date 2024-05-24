@@ -2,11 +2,11 @@
 import React from 'react';
 import { IoCloudUploadOutline } from 'react-icons/io5';
 import styles from './Dropzone.module.scss';
-import useDropzoneHandlers from '@/hooks/useDropzoneHandlers';
 import { useDropzone } from 'react-dropzone';
-import { saveImageUrl, uploadFile } from '@/lib/actions';
+import { uploadFile } from '@/lib/actions';
 import FilePreviewList from './FilePreviewList/FilePreviewList';
 import RejectedFilesList from './RejectedFilesList/RejectedFilesList';
+import { useDropzoneHandlers, useSaveImageUrl } from '@/hooks';
 
 const Dropzone = () => {
   const {
@@ -27,11 +27,14 @@ const Dropzone = () => {
     maxSize: 1024 * 1000,
     onDrop,
   });
+  const { mutate: saveImage } = useSaveImageUrl();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!files?.length) return;
+
     let success = true;
+
     for (const file of files) {
       const formData = new FormData();
       formData.append('file', file);
@@ -42,16 +45,20 @@ const Dropzone = () => {
         success = false;
         break;
       }
-      const saveSuccess = await saveImageUrl({
-        src,
-        alt: formData.get('alt'),
-        link: formData.get('link'),
-      });
-      if (!saveSuccess) {
+
+      try {
+        await saveImage({
+          src,
+          alt: formData.get('alt'),
+          link: formData.get('link'),
+        });
+      } catch (error) {
         success = false;
+        console.error('Error saving image:', error);
         break;
       }
     }
+
     success && removeAll();
   };
 

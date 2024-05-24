@@ -2,4 +2,11 @@
 
 .currentImagesList {
   @include imageList;
+  .updateBtn {
+    padding: 0.5rem 1rem;
+    margin: 0 auto;
+    margin-block: 1rem;
+    opacity: 0.5;
+    @include dashboardPrimaryButton;
+  }
 }

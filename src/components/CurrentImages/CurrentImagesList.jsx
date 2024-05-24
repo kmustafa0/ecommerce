@@ -5,68 +5,99 @@ import styles from './CurrentImages.module.scss';
 import ConfirmationModal from '../ConfirmationModal/ConfirmationModal';
 import ImagePreview from '../shared/ImagePreview/ImagePreview';
 import InputField from '../shared/InputField/InputField';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import axios from 'axios';
 
-const CurrentImagesList = ({ image }) => {
+const CurrentImagesList = ({ image, deleteImage }) => {
+  const [formData, setFormData] = useState({ alt: image.alt, link: image.link });
+  const [isChanged, setIsChanged] = useState(false);
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const queryClient = useQueryClient();
 
-  const handleDelete = async (id, src) => {
+  const { mutate: updateImage } = useMutation({
+    mutationKey: ['updateHeroImages'],
+    mutationFn: async (imageData) => {
+      await axios.put('/api/updateHeroImage', imageData);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries(['heroImages']);
+      setIsChanged(false);
+    },
+    onError: (error) => {
+      console.error('Error updating image:', error);
+    },
+  });
+
+  const handleDelete = async () => {
     if (!showConfirmation) {
       setShowConfirmation(true);
       return;
     }
+    setShowConfirmation(false);
 
-    try {
-      const response = await fetch('/api/deleteHeroImage', {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ id, src }),
-      });
+    const data = { id: image.id, src: image.src };
+    await deleteImage(data);
+  };
+  const handleUpdate = async () => {
+    if (!isChanged) return;
+    await updateImage({ id: image.id, ...formData });
+  };
 
-      if (response.ok) {
-        /* TODO need to update component */
-      } else {
-        const errorMessage = await response.text();
-        console.error('Failed to delete image', errorMessage);
-      }
-    } catch (error) {
-      console.error('Error deleting image:', error);
-    } finally {
-      setShowConfirmation(false);
+  const handleInputChange = (event, type) => {
+    let value = event.target.value;
+
+    if (type === 'alt') {
+      value = value
+        .replace(/[^a-zA-Z\s]/g, '')
+        .replace(/\s+/g, ' ')
+        .trim()
+        .toLowerCase();
+    } else if (type === 'link') {
+      value = value
+        .replace(/[^a-zA-Z0-9\-/#\s]/g, '')
+        .replace(/^\s*#\s*/, '#')
+        .replace(/\s+/g, '');
     }
+
+    setFormData((prev) => ({ ...prev, [type]: value }));
+    setIsChanged(true);
   };
 
   return (
     <>
       <li key={image.id}>
-        <ImagePreview src={image.src} alt={`${image?.alt}-image`} />
+        <ImagePreview src={image.src} alt={`${formData.alt}-image`} />
         <InputField
           label='Alt Text'
           id={`alt_${image.id}`}
           name={`alt_${image.id}`}
-          value={image.alt}
+          value={formData.alt}
+          onChange={(e) => handleInputChange(e, 'alt')}
           placeholder='Enter alt text'
         />
         <InputField
           label='Link'
           id={`link_${image.id}`}
           name={`link_${image.id}`}
-          value={image.link}
+          value={formData.link}
+          onChange={(e) => handleInputChange(e, 'link')}
           placeholder='Enter link'
         />
-        <button
-          type='button'
-          className={styles.singleRemoveBtn}
-          onClick={() => setShowConfirmation(true)}>
+        <button type='button' className={styles.singleRemoveBtn} onClick={handleDelete}>
           <FaTrash />
         </button>
+        <button
+          type='button'
+          className={styles.updateBtn}
+          onClick={handleUpdate}
+          style={{ opacity: isChanged ? 1 : '' }}>
+          Update
+        </button>
       </li>
-
       <ConfirmationModal
         isOpen={showConfirmation}
         onCancel={() => setShowConfirmation(false)}
-        onConfirm={() => handleDelete(image.id, image.src)}
+        onConfirm={handleDelete}
       />
     </>
   );

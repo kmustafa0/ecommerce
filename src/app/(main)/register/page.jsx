@@ -1,10 +1,12 @@
 'use client';
 import React from 'react';
 import './registerPage.scss';
+import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
+import axios from 'axios';
 
 const Register = () => {
   const router = useRouter();
@@ -14,17 +16,27 @@ const Register = () => {
     password: '',
   });
 
+  const mutation = useMutation({
+    mutationKey: ['register'],
+    mutationFn: async (data) => {
+      const response = await axios.post('/api/register', { data });
+      return response.data;
+    },
+    onSuccess: () => {
+      router.push('/login');
+    },
+    onError: (error) => {
+      if (error.response && error.response.status === 400) {
+        alert(error.response.data.message || 'Missing name, email or password');
+      } else {
+        alert('Registration failed. Please try again later.');
+      }
+      console.error('Registration error:', error);
+    },
+  });
   const registerUser = async (e) => {
     e.preventDefault();
-    const response = await fetch('/api/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ data }),
-    });
-    const userInfo = await response.json();
-    router.push('/login');
+    mutation.mutate({ data });
   };
 
   const { status } = useSession();
