@@ -1,16 +1,13 @@
-import { PRODUCT } from '@/lib/contstants';
+//import { PRODUCT } from '@/lib/contstants';
 import styles from './index.module.scss';
 
-const ProductDetails = () => {
+const ProductDetails = ({ description, productDetails }) => {
   return (
     <>
       <div className={styles.descriptionContainer}>
         <h2>Description</h2>
 
-        <div
-          className={styles.description}
-          dangerouslySetInnerHTML={{ __html: PRODUCT.description }}
-        />
+        <div className={styles.description} dangerouslySetInnerHTML={{ __html: description }} />
       </div>
 
       <div className={styles.detailsContainer}>
@@ -18,7 +15,7 @@ const ProductDetails = () => {
 
         <div className={styles.detailsList}>
           <ul role='list'>
-            {PRODUCT.details.map((item, index) => (
+            {productDetails.map((item, index) => (
               <li key={index} dangerouslySetInnerHTML={{ __html: item }} />
             ))}
           </ul>

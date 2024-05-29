@@ -6,10 +6,10 @@ import Link from 'next/link';
 const ProductCard = ({ title, link, img, alt, price, discountedPrice }) => {
   return (
     <div className={styles.productCardWrapper}>
-      <Link href={link} aria-label={alt}>
+      <Link href={`products/${link}`} aria-label={alt}>
         {img && (
           <div className={styles.imageWrapper}>
-            <Image src={img} alt={`product ${img}`} fill sizes='550' />
+            <Image src={img} alt={`${alt}`} fill sizes='550' />
           </div>
         )}
         <div className={styles.textWrapper}>

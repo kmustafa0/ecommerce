@@ -14,7 +14,7 @@ import {
   FaGithubSquare,
   FaDollarSign,
   FaGlobe,
-  FaHashtag,
+  FaCubes,
 } from 'react-icons/fa';
 
 export const HEADERLINKS = [
@@ -445,5 +445,10 @@ export const ADMIN_DASHBOARD_LINKS = [
     href: '/admin/hero',
     label: 'Hero Images',
     icon: <IoImages size={20} />,
+  },
+  {
+    href: '/admin/products',
+    label: 'Products',
+    icon: <FaCubes size={20} />,
   },
 ];

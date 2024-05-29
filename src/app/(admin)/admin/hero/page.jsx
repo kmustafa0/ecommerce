@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from './index.module.scss';
 import Dropzone from '@/components/Dropzone/Dropzone';
 import CurrentImages from '@/components/CurrentImages/CurrentImages';
 
@@ -10,11 +9,11 @@ export const metadata = {
 const HeroImages = () => {
   return (
     <>
-      <h1 className={styles.heading}>Manage Hero Slider Images</h1>
-      <section className={styles.section}>
+      <h1>Manage Hero Slider Images</h1>
+      <section>
         <CurrentImages />
       </section>
-      <section className={styles.section}>
+      <section>
         <Dropzone />
       </section>
     </>

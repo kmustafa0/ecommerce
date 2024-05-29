@@ -3,10 +3,10 @@ import React from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { NextButton, PrevButton, usePrevNextButtons } from '@/components/Slider/ArrowButtons';
 import { DotButton, useDotButton } from '@/components/Slider/DotButtons';
-import { PRODUCT_CAROUSEL_IMAGES } from '@/lib/contstants';
 import ProductCard from '../Card';
 import './slider.scss';
 import { WheelGesturesPlugin } from 'embla-carousel-wheel-gestures';
+import { useFetchProducts } from '@/hooks';
 
 const PopularProductsSlider = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, dragFree: true }, [
@@ -18,22 +18,26 @@ const PopularProductsSlider = () => {
   const { prevBtnDisabled, nextBtnDisabled, onPrevButtonClick, onNextButtonClick } =
     usePrevNextButtons(emblaApi);
 
+  const { data: products, isLoading, error } = useFetchProducts();
+  if (isLoading) return <h3>Loading...</h3>;
+  if (error) return <h3>Error: {error}</h3>;
   return (
     <div className={'popularProducts'}>
       <div className={'popularProductsViewport'} ref={emblaRef}>
         <div className={'popularProductsContainer'}>
-          {PRODUCT_CAROUSEL_IMAGES.map((item, index) => (
-            <div className={'popularProductsSlide'} key={index}>
-              <ProductCard
-                title={item.title}
-                link={item.link}
-                alt={item.alt}
-                img={item.path}
-                price={item.price}
-                discountedPrice={item.discountedPrice}
-              />
-            </div>
-          ))}
+          {products &&
+            products.map((product, index) => (
+              <div className={'popularProductsSlide'} key={index}>
+                <ProductCard
+                  title={product.name}
+                  link={product.id}
+                  alt={product.name}
+                  img={product.images[0].imageSrc}
+                  price={product.price}
+                  discountedPrice={product.discountedPrice}
+                />
+              </div>
+            ))}
         </div>
         <div className={'popularProductsControls'}>
           <div className={'popularProductsButtons'}>

@@ -1,20 +1,21 @@
-import axios from 'axios';
+import { fetcher } from './axios';
 
 export const getImages = async () => {
   try {
-    const baseURL = process.env.NEXT_PUBLIC_BASE_URL;
-    console.log('baseURL: ', baseURL);
-    const response = await axios.get(`${baseURL}/api/heroImages`, {
-      cache: 'no-store',
-    });
-
-    if (response.status !== 200) {
-      throw new Error('Failed');
-    }
-
-    return response.data;
+    const data = await fetcher('/api/heroImages');
+    return data.images;
   } catch (error) {
     console.error(error);
     throw new Error('Failed to fetch images');
+  }
+};
+
+export const getProducts = async () => {
+  try {
+    const data = await fetcher('/api/products');
+    return data.products;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Failed to fetch products');
   }
 };

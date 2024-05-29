@@ -5,12 +5,12 @@ import { IoStar } from 'react-icons/io5';
 import styles from './index.module.scss';
 import { PRODUCT, REVIEWS } from '@/lib/contstants';
 
-const ProductInfo = () => {
+const ProductInfo = ({ productName, productPrice }) => {
   return (
     <>
       <div className={styles.infoContainer}>
-        <h1>{PRODUCT.name}</h1>
-        <p>{PRODUCT.price}</p>
+        <h1>{productName}</h1>
+        <p>${productPrice}</p>
       </div>
       <div className={styles.reviewsContainer}>
         <h2>Reviews</h2>
