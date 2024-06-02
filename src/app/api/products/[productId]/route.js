@@ -3,9 +3,17 @@ import prisma from '@/utils/connect';
 
 export const GET = async (req, { params }) => {
   try {
-    const product = await prisma.Product.findUnique({
+    const product = await prisma.product.findUnique({
       where: { id: params.productId },
-      include: { images: true, colors: true, sizes: true, category: true },
+      include: {
+        colors: {
+          include: {
+            images: true,
+          },
+        },
+        sizes: true,
+        category: true,
+      },
     });
 
     if (!product) {

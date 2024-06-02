@@ -80,12 +80,14 @@ model Product {
 }
 
 model Image {
-  id        String  @id @default(auto()) @map("_id") @db.ObjectId
-  productId String  @db.ObjectId
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  productId String?  @db.ObjectId
+  colorId   String?  @db.ObjectId
   imageSrc  String
   imageAlt  String
-  primary   Boolean @default(false)
-  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  primary   Boolean  @default(false)
+  product   Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
+  color     Color?   @relation(fields: [colorId], references: [id], onDelete: Cascade)
 }
 
 model Color {
@@ -93,6 +95,7 @@ model Color {
   productId String  @db.ObjectId
   name      String
   color     String
+  images    Image[]
   product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 }
 

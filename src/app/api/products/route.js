@@ -6,7 +6,11 @@ export const GET = async () => {
     const products = await prisma.Product.findMany({
       include: {
         images: true,
-        colors: true,
+        colors: {
+          include: {
+            images: true,
+          },
+        },
         sizes: true,
         category: true,
       },
