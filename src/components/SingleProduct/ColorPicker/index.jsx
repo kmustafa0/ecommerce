@@ -1,12 +1,8 @@
-'use client';
-//import { PRODUCT } from '@/lib/contstants';
 import styles from './index.module.scss';
-import { useState } from 'react';
 
-const ColorPicker = ({ productColors }) => {
-  const [selectedColor, setSelectedColor] = useState(productColors[0].name.toLowerCase());
+const ColorPicker = ({ productColors, selectedColor, onColorChange }) => {
   const handleColorClick = (color) => {
-    setSelectedColor(color);
+    onColorChange(color);
   };
 
   return (

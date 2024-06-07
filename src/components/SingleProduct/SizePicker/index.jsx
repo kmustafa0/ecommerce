@@ -3,14 +3,11 @@ import React, { useState } from 'react';
 import styles from './index.module.scss';
 //import { PRODUCT } from '@/lib/contstants';
 
-const SizePicker = ({ productSizes }) => {
-  const [selectedSize, setSelectedSize] = useState(
-    productSizes.find((size) => size.inStock)?.name || ''
-  );
-
+const SizePicker = ({ productSizes, selectedSize, onSizeChange }) => {
   const handleSizeClick = (size) => {
-    setSelectedSize(size);
+    onSizeChange(size);
   };
+
   return (
     <div>
       <h2>Sizes</h2>
