@@ -86,6 +86,7 @@ model Image {
   imageSrc  String
   imageAlt  String
   primary   Boolean @default(false)
+  color     String?
   product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 }
 
@@ -99,8 +100,8 @@ model Color {
 
 model Size {
   id        String  @id @default(auto()) @map("_id") @db.ObjectId
-  productId String  @db.ObjectId
   name      String
   inStock   Boolean
+  productId String  @db.ObjectId
   product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
 }

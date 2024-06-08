@@ -14,7 +14,6 @@ import { useFetchProduct } from '@/hooks';
 
 const ProductPage = ({ params }) => {
   const { slug } = params;
-  const { data: product, isLoading, error } = useFetchProduct(slug);
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -24,6 +23,8 @@ const ProductPage = ({ params }) => {
 
   const [selectedColor, setSelectedColor] = useState(queryColor || '');
   const [selectedSize, setSelectedSize] = useState(querySize || '');
+
+  const { data: product, isLoading, error } = useFetchProduct(slug, selectedColor);
 
   useEffect(() => {
     if (product && !queryColor) {
@@ -41,7 +42,7 @@ const ProductPage = ({ params }) => {
     if (!params.get('size')) {
       params.set('size', product.sizes[0]?.name.toLowerCase());
     }
-    router.replace(`${pathname}?${params.toString()}`);
+    router.push(`${pathname}?${params.toString()}`);
   };
 
   const handleSizeChange = (size) => {
@@ -51,7 +52,7 @@ const ProductPage = ({ params }) => {
     if (!params.get('color')) {
       params.set('color', product.colors[0]?.name.toLowerCase());
     }
-    router.replace(`${pathname}?${params.toString()}`);
+    router.push(`${pathname}?${params.toString()}`);
   };
 
   if (error) return <div>Error: {error.message}</div>;

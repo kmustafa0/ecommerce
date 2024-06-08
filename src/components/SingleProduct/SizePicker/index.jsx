@@ -1,9 +1,9 @@
-'use client';
-import React, { useState } from 'react';
+import React from 'react';
 import styles from './index.module.scss';
-//import { PRODUCT } from '@/lib/contstants';
 
 const SizePicker = ({ productSizes, selectedSize, onSizeChange }) => {
+  const sortedSizes = productSizes.sort((a, b) => a.name.localeCompare(b.name));
+
   const handleSizeClick = (size) => {
     onSizeChange(size);
   };
@@ -12,8 +12,8 @@ const SizePicker = ({ productSizes, selectedSize, onSizeChange }) => {
     <div>
       <h2>Sizes</h2>
       <div className={styles.sizeContainer}>
-        {productSizes.length > 0 ? (
-          productSizes.map((size) => (
+        {sortedSizes.length > 0 ? (
+          sortedSizes.map((size) => (
             <button
               key={size.name}
               className={`${selectedSize === size.name ? styles.selected : ''} ${

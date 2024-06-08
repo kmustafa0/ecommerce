@@ -20,9 +20,10 @@ export const getProducts = async () => {
   }
 };
 
-export const getProduct = async (slug) => {
+export const getProduct = async (slug, color) => {
   try {
-    const data = await fetcher(`/api/products/${slug}`);
+    const url = color ? `/api/products/${slug}?color=${color}` : `/api/products/${slug}`;
+    const data = await fetcher(url);
     return data;
   } catch (error) {
     console.error(error);
