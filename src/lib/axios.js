@@ -8,7 +8,7 @@ const apiClient = axios.create({
 });
 
 export const fetcher = async (url) => {
-  const response = await apiClient.get(url, { cache: 'no-store' });
+  const response = await apiClient.get(url, { cache: 'force-cache' });
 
   if (response.status !== 200) {
     throw new Error('Failed to fetch data');

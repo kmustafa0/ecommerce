@@ -26,7 +26,7 @@ export const GET = async (req, { params }) => {
         (image) => image.color.toLowerCase() === color.toLowerCase()
       );
     }
-
+    product.images.sort((a, b) => (b.primary === true ? 1 : -1));
     return new NextResponse(JSON.stringify(product), { status: 200 });
   } catch (error) {
     console.error(error);

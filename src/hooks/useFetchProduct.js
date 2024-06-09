@@ -6,8 +6,8 @@ const useFetchProduct = (slug, color) => {
   return useQuery({
     queryKey: ['get-product', slug, color],
     queryFn: () => getProduct(slug, color),
-    staleTime: 5 * 60 * 1000,
-    cacheTime: 30 * 60 * 1000,
+    staleTime: 60 * 1000 * 5,
+    gcTime: 1000 * 60 * 30,
   });
 };
 

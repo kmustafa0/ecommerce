@@ -17,7 +17,7 @@ const ImageGallery = ({ productImages }) => {
                 src={image.imageSrc}
                 alt={image.imageAlt}
                 layout='responsive'
-                loading='eager'
+                loading='lazy'
                 width={500}
                 height={500}
                 className={styles.img}
