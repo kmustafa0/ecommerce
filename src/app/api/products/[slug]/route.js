@@ -4,7 +4,7 @@ import prisma from '@/utils/connect';
 export const GET = async (req, { params }) => {
   try {
     const product = await prisma.product.findUnique({
-      where: { id: params.productId },
+      where: { slug: params.slug },
       include: {
         colors: {
           include: {

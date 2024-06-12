@@ -7,6 +7,7 @@ const SizePicker = ({ productSizes }) => {
   const [selectedSize, setSelectedSize] = useState(
     productSizes.find((size) => size.inStock)?.name || ''
   );
+  const sortedSizes = productSizes.sort((a, b) => a.name.localeCompare(b.name));
 
   const handleSizeClick = (size) => {
     setSelectedSize(size);
@@ -15,8 +16,8 @@ const SizePicker = ({ productSizes }) => {
     <div>
       <h2>Sizes</h2>
       <div className={styles.sizeContainer}>
-        {productSizes.length > 0 ? (
-          productSizes.map((size) => (
+        {sortedSizes.length > 0 ? (
+          sortedSizes.map((size) => (
             <button
               key={size.name}
               className={`${selectedSize === size.name ? styles.selected : ''} ${

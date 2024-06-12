@@ -13,7 +13,7 @@ import NotFound from '@/app/not-found';
 import styles from './productPage.module.scss';
 
 const ProductPage = ({ params }) => {
-  const productId = params.id;
+  const { slug } = params;
   const router = useRouter();
   const searchParams = useSearchParams();
   const initialColor = searchParams.get('color');
@@ -25,10 +25,10 @@ const ProductPage = ({ params }) => {
     isLoading,
     error,
   } = useFetchProducts({
-    enabled: !!productId,
+    enabled: !!slug,
   });
 
-  const product = products ? products.find((product) => product.id === productId) : null;
+  const product = products ? products.find((product) => product.slug === slug) : null;
 
   useEffect(() => {
     if (product) {
@@ -43,7 +43,7 @@ const ProductPage = ({ params }) => {
 
   const handleColorChange = (color) => {
     setSelectedColor(color);
-    router.push(`/products/${productId}?color=${color}`, undefined, { shallow: true });
+    router.push(`?color=${color}`, undefined, { shallow: true });
   };
 
   if (error) return <div>Error: {error.message}</div>;
