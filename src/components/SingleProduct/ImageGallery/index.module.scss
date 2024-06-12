@@ -23,7 +23,6 @@
     grid-template-columns: repeat(1, minmax(0, 1fr));
     @media (min-width: 1024px) {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      //grid-template-rows: repeat(3, minmax(0, 1fr));
       gap: 2rem;
     }
     .imagePrimary {
@@ -38,8 +37,15 @@
         display: block;
       }
     }
-    img {
-      border-radius: 0.5rem;
+    .imgWrapper {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      .img {
+        border-radius: 0.5rem;
+        object-fit: cover;
+      }
     }
   }
 }
