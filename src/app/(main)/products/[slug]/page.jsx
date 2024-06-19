@@ -43,7 +43,7 @@ const ProductPage = ({ params }) => {
 
   const handleColorChange = (color) => {
     setSelectedColor(color);
-    router.push(`?color=${color}`, undefined, { shallow: true });
+    router.push(`?color=${color}`, undefined, { shallow: true, scroll: false });
   };
 
   if (error) return <div>Error: {error.message}</div>;
