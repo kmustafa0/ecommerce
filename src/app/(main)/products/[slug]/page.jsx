@@ -1,6 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import ProductInfo from '@/components/SingleProduct/ProducInfo';
 import ImageGallery from '@/components/SingleProduct/ImageGallery';
 import ColorPicker from '@/components/SingleProduct/ColorPicker';
@@ -14,7 +14,6 @@ import styles from './productPage.module.scss';
 
 const ProductPage = ({ params }) => {
   const { slug } = params;
-  const router = useRouter();
   const searchParams = useSearchParams();
   const initialColor = searchParams.get('color');
 
@@ -32,18 +31,18 @@ const ProductPage = ({ params }) => {
 
   useEffect(() => {
     if (product) {
+      let images = product.images;
       if (selectedColor) {
         const color = product.colors.find((color) => color.name.toLowerCase() === selectedColor);
-        setFilteredImages(color ? color.images : product.images);
-      } else {
-        setFilteredImages(product.images);
+        images = color ? color.images : product.images;
       }
+      images = images.sort((a, b) => b.primary - a.primary);
+      setFilteredImages(images);
     }
   }, [selectedColor, product]);
 
   const handleColorChange = (color) => {
     setSelectedColor(color);
-    router.push(`?color=${color}`, undefined, { shallow: true, scroll: false });
   };
 
   if (error) return <div>Error: {error.message}</div>;

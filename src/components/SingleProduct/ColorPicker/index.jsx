@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
 import styles from './index.module.scss';
 
 const ColorPicker = ({ productColors, selectedColor, onColorChange }) => {
@@ -23,17 +24,20 @@ const ColorPicker = ({ productColors, selectedColor, onColorChange }) => {
       <h2>Colors</h2>
       <div className={styles.colorsContainer}>
         {productColors.map((color) => (
-          <div
+          <Link
             key={color.name}
-            className={`${styles.radioOption}`}
+            href={`?color=${color.name.toLowerCase()}`}
+            shallow
+            scroll={false}
             onClick={() => handleColorClick(color.name.toLowerCase())}
+            className={styles.radioOption}
             style={{
               borderColor:
                 localSelectedColor === color.name.toLowerCase() ? color.color : 'transparent',
             }}>
             <span className={styles.srOnly}>{color.name}</span>
             <span className={styles.radioButton} style={{ backgroundColor: color.color }}></span>
-          </div>
+          </Link>
         ))}
       </div>
     </div>
