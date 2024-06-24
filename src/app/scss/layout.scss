@@ -41,7 +41,7 @@
   }
 
   @include media('>=600px', '<=tablet') {
-    padding: 0.5rem 0 !important;
+    padding: 0.5rem 1rem !important;
   }
 
   @include media('>=tablet') {

@@ -1,3 +1,8 @@
+@import '../../../app/scss/mixins.scss';
+
+$embla-dot-size: 1.3rem;
+$embla-dot-selected-size: 1rem;
+
 .imageContainer {
   margin-top: 2rem;
   @media (min-width: 1024px) {
@@ -19,9 +24,9 @@
     border-width: 0;
   }
   .imageGrid {
-    display: grid;
-    grid-template-columns: repeat(1, minmax(0, 1fr));
+    display: none;
     @media (min-width: 1024px) {
+      display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 2rem;
     }
@@ -31,12 +36,66 @@
         grid-row: span 2 / span 2;
       }
     }
-    .image {
-      display: none;
-      @media (min-width: 1024px) {
-        display: block;
+    .imageItem {
+      display: block;
+    }
+    .imgWrapper {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      .img {
+        border-radius: 0.5rem;
+        object-fit: cover;
       }
     }
+  }
+  .embla {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    @media (min-width: 1024px) {
+      display: none;
+    }
+  }
+  .embla__container {
+    display: flex;
+  }
+  .imageGalleryDots {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: -0.6rem;
+    .embla__dot {
+      @include embla-button;
+      width: $embla-dot-size;
+      height: $embla-dot-size;
+      position: relative;
+
+      &:before {
+        content: '';
+        width: 4px;
+        height: 4px;
+        background-color: #333;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 100px;
+        transition: width 0.3s ease;
+      }
+
+      &--selected:before {
+        width: $embla-dot-selected-size;
+        background-color: #333;
+      }
+    }
+  }
+  .embla__slide {
+    min-width: 100%;
+    padding: 1rem;
+    flex: 0 0 100%;
     .imgWrapper {
       position: relative;
       width: 100%;
