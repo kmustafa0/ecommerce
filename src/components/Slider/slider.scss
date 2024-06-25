@@ -1,26 +1,7 @@
 @use 'sass:map';
 @import 'src/app/scss/breakpoints.scss';
 @import 'src/app/scss/layout.scss';
-
-$embla-dot-size: 1.3rem;
-$embla-dot-selected-size: 1rem;
-
-@mixin embla-button {
-  -webkit-tap-highlight-color: rgba(49, 49, 49, 0.5);
-  -webkit-appearance: none;
-  appearance: none;
-  background-color: transparent;
-  touch-action: manipulation;
-  text-decoration: none;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease-out;
-  border: none;
-  outline: none;
-}
+@import 'src/app/scss/common-styles.scss';
 
 .wrapper {
   @extend %section;
@@ -85,31 +66,6 @@ $embla-dot-selected-size: 1rem;
           align-items: center;
           margin-right: calc((2.6rem - 1.4rem) / 2 * -1);
           gap: 0.5rem;
-
-          .embla__dot {
-            @include embla-button;
-            width: $embla-dot-size;
-            height: $embla-dot-size;
-            position: relative;
-
-            &:before {
-              content: '';
-              width: 4px;
-              height: 4px;
-              background-color: #333;
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              border-radius: 100px;
-              transition: width 0.3s ease;
-            }
-
-            &--selected:before {
-              width: $embla-dot-selected-size;
-              background-color: #333;
-            }
-          }
         }
       }
     }

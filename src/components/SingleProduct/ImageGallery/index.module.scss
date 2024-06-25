@@ -1,7 +1,5 @@
 @import '../../../app/scss/mixins.scss';
-
-$embla-dot-size: 1.3rem;
-$embla-dot-selected-size: 1rem;
+@import '../../../app/scss/common-styles.scss';
 
 .imageContainer {
   margin-top: 2rem;
@@ -66,31 +64,7 @@ $embla-dot-selected-size: 1rem;
     flex-wrap: wrap;
     justify-content: flex-end;
     align-items: center;
-    margin-right: -0.6rem;
-    .embla__dot {
-      @include embla-button;
-      width: $embla-dot-size;
-      height: $embla-dot-size;
-      position: relative;
-
-      &:before {
-        content: '';
-        width: 4px;
-        height: 4px;
-        background-color: #333;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        border-radius: 100px;
-        transition: width 0.3s ease;
-      }
-
-      &--selected:before {
-        width: $embla-dot-selected-size;
-        background-color: #333;
-      }
-    }
+    padding-right: 1rem;
   }
   .embla__slide {
     min-width: 100%;
