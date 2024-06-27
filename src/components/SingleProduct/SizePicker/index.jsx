@@ -1,13 +1,20 @@
 'use client';
 import React, { useState } from 'react';
 import styles from './index.module.scss';
-//import { PRODUCT } from '@/lib/contstants';
 
-const SizePicker = ({ productSizes }) => {
+const SizePicker = ({ productSizes, selectedColor, productColors }) => {
+  const filteredSizes =
+    productColors.length > 0 && selectedColor
+      ? productColors.find((color) => color.name.toLowerCase() === selectedColor.toLowerCase())
+          ?.sizes
+      : productSizes;
+
   const [selectedSize, setSelectedSize] = useState(
     productSizes.find((size) => size.inStock)?.name || ''
   );
-  const sortedSizes = productSizes.sort((a, b) => a.name.localeCompare(b.name));
+  const sortedSizes = filteredSizes
+    ? filteredSizes.sort((a, b) => a.name.localeCompare(b.name))
+    : productSizes.sort((a, b) => a.name.localeCompare(b.name));
 
   const handleSizeClick = (size) => {
     setSelectedSize(size);

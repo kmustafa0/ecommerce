@@ -63,7 +63,11 @@ const ProductPage = ({ params }) => {
               selectedColor={selectedColor}
               onColorChange={handleColorChange}
             />
-            <SizePicker productSizes={product.sizes} />
+            <SizePicker
+              productSizes={product.sizes}
+              productColors={product.colors}
+              selectedColor={selectedColor}
+            />
             <AddToCart />
           </div>
           <ProductDetails description={product.description} productDetails={product.details} />

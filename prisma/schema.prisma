@@ -98,6 +98,7 @@ model Color {
   color     String
   images    Image[]
   product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  sizes     Size[]
 }
 
 model Size {
@@ -106,4 +107,6 @@ model Size {
   name      String
   inStock   Boolean
   product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  Color     Color?  @relation(fields: [colorId], references: [id])
+  colorId   String? @db.ObjectId
 }

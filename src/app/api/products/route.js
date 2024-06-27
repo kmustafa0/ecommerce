@@ -9,6 +9,7 @@ export const GET = async () => {
         colors: {
           include: {
             images: true,
+            sizes: true,
           },
         },
         sizes: true,
