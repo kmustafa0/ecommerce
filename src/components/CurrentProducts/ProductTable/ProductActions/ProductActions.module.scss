@@ -1,0 +1,23 @@
+.actionIcons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+
+  svg {
+    cursor: pointer;
+  }
+
+  .editIcon {
+    color: black;
+    &:hover {
+      color: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  .deleteIcon {
+    color: #787878;
+    &:hover {
+      color: rgba(255, 0, 0, 0.6);
+    }
+  }
+}

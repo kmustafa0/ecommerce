@@ -1,12 +1,12 @@
-'use client';
 import React from 'react';
 import Image from 'next/image';
 import styles from './ProductTableBody.module.scss';
+import ProductActions from '../ProductActions/ProductActions';
 
-const ProductTableBody = ({ products, handleSelectRow, selectedRows }) => (
+const ProductTableBody = ({ products, handleSelectRow, selectedRows, onDelete }) => (
   <tbody>
     {products.map((product) => (
-      <tr key={product.id}>
+      <tr key={product.id} className={selectedRows.includes(product.id) ? styles.selectedRow : ''}>
         <td>
           <input
             type='checkbox'
@@ -29,6 +29,9 @@ const ProductTableBody = ({ products, handleSelectRow, selectedRows }) => (
               className={styles.productImage}
             />
           )}
+        </td>
+        <td>
+          <ProductActions product={product} onDelete={onDelete} />
         </td>
       </tr>
     ))}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaTrash } from 'react-icons/fa';
+import { AiOutlineDelete } from 'react-icons/ai';
 import styles from './FilePreviewList.module.scss';
 import ImagePreview from '@/components/shared/ImagePreview/ImagePreview';
 import InputField from '@/components/shared/InputField/InputField';
@@ -34,7 +34,7 @@ const FilePreviewList = ({ files, fileInputs, handleInputChange, removeFile }) =
             type='button'
             className={styles.singleRemoveBtn}
             onClick={() => removeFile(file.name)}>
-            <FaTrash />
+            <AiOutlineDelete size={20} />
           </button>
         </li>
       ))}

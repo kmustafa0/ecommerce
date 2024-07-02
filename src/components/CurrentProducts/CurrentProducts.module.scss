@@ -1,15 +1,23 @@
 .tableContainer {
-  width: 100%;
-  overflow-x: auto;
   margin-top: 20px;
+}
+
+.productImage {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+  border-radius: 8px;
 }
 
 .inputWrapper {
   position: relative;
   input {
     max-width: 550px;
+    padding-right: 30px;
   }
-  svg {
+  .searchIcon {
     width: 20px;
     height: 20px;
     position: absolute;
@@ -17,6 +25,39 @@
     left: 18px;
     fill: #787878;
     overflow: hidden;
+  }
+}
+
+.checkboxInput {
+  height: 1rem;
+}
+
+.sortIcon {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.activeSortIcon {
+  color: #000;
+}
+
+.inactiveSortIcon {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.bulkDeleteIcon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 20px;
+  height: 20px;
+  fill: #787878;
+  cursor: pointer;
+
+  &.inactive {
+    cursor: not-allowed;
+    fill: #d3d3d3;
   }
 }
 
@@ -37,5 +78,9 @@
   .productImage {
     max-width: 50px;
     max-height: 50px;
+  }
+
+  .inputWrapper input {
+    width: 100%;
   }
 }

@@ -3,9 +3,13 @@
   border-collapse: collapse;
   margin-top: 10px;
 
+  input[type='checkbox'] {
+    cursor: pointer;
+  }
+
   th,
   td {
-    padding: 16px;
+    padding: 1rem;
     text-align: left;
   }
 
@@ -19,17 +23,9 @@
     &:hover {
       background-color: #e0e0e0;
     }
-
-    input[type='checkbox'] {
-      cursor: pointer;
-    }
   }
 
   td {
     text-align: center;
-  }
-
-  tr {
-    height: 60px;
   }
 }

@@ -12,6 +12,7 @@ const ProductTable = ({
   handleSelectAll,
   handleSelectRow,
   selectedRows,
+  onDelete,
 }) => (
   <table className={styles.table}>
     <ProductTableHeader
@@ -24,6 +25,7 @@ const ProductTable = ({
       products={products}
       handleSelectRow={handleSelectRow}
       selectedRows={selectedRows}
+      onDelete={onDelete}
     />
   </table>
 );

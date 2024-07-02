@@ -1,9 +1,11 @@
 'use client';
 import React, { useMemo, useState } from 'react';
-import styles from './CurrentProducts.module.scss';
 import { useFetchProducts } from '@/hooks';
-import { IoSearchOutline } from 'react-icons/io5';
 import ProductTable from './ProductTable/ProductTable';
+import Modal from '../Modal/Modal';
+import { IoSearchOutline } from 'react-icons/io5';
+import styles from './CurrentProducts.module.scss';
+import { AiOutlineDelete } from 'react-icons/ai';
 
 const CurrentProducts = () => {
   const { data: products, isLoading, error } = useFetchProducts();
@@ -11,6 +13,9 @@ const CurrentProducts = () => {
   const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
   const [selectedRows, setSelectedRows] = useState([]);
   const [selectAll, setSelectAll] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalContent, setModalContent] = useState('');
+  const [modalConfirmAction, setModalConfirmAction] = useState(null);
 
   const sortedProducts = useMemo(() => {
     if (!products) return [];
@@ -62,6 +67,31 @@ const CurrentProducts = () => {
     setSelectAll(!selectAll);
   };
 
+  const handleDelete = (product) => {
+    setModalContent(
+      ` You will permanently delete ${product.name}. Do you want to continue with this process`
+    );
+    setModalConfirmAction(() => () => {
+      setIsModalOpen(false);
+    });
+    setIsModalOpen(true);
+  };
+
+  const handleBulkDelete = () => {
+    const selectedProductNames = products
+      .filter((product) => selectedRows.includes(product.id))
+      .map((product) => product.name)
+      .join(', ');
+
+    setModalContent(
+      `You will permanently delete the products ${selectedProductNames}. Do you want to continue with this process?`
+    );
+    setModalConfirmAction(() => () => {
+      setIsModalOpen(false);
+    });
+    setIsModalOpen(true);
+  };
+
   return (
     <div className={styles.currentProducts}>
       <h3>Current Products</h3>
@@ -77,7 +107,10 @@ const CurrentProducts = () => {
               onChange={(e) => setFilterInput(e.target.value)}
               placeholder='Search products by name'
             />
-            <IoSearchOutline />
+            <IoSearchOutline className={styles.searchIcon} />
+            {selectedRows.length > 0 && (
+              <AiOutlineDelete className={styles.bulkDeleteIcon} onClick={handleBulkDelete} />
+            )}
           </div>
           <ProductTable
             products={sortedProducts}
@@ -87,9 +120,16 @@ const CurrentProducts = () => {
             handleSelectAll={handleSelectAll}
             handleSelectRow={handleSelectRow}
             selectedRows={selectedRows}
+            onDelete={handleDelete}
           />
         </div>
       )}
+      <Modal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={modalConfirmAction}>
+        {modalContent}
+      </Modal>
     </div>
   );
 };

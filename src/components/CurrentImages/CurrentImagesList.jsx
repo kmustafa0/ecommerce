@@ -1,6 +1,6 @@
 'use client';
 import React, { useState } from 'react';
-import { FaTrash } from 'react-icons/fa';
+import { AiOutlineDelete } from 'react-icons/ai';
 import styles from './CurrentImages.module.scss';
 import ConfirmationModal from '../ConfirmationModal/ConfirmationModal';
 import ImagePreview from '../shared/ImagePreview/ImagePreview';
@@ -84,7 +84,7 @@ const CurrentImagesList = ({ image, deleteImage }) => {
           placeholder='Enter link'
         />
         <button type='button' className={styles.singleRemoveBtn} onClick={handleDelete}>
-          <FaTrash />
+          <AiOutlineDelete size={20} />
         </button>
         <button
           type='button'

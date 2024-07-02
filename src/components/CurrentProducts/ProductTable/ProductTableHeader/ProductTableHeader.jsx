@@ -1,4 +1,3 @@
-'use client';
 import React from 'react';
 import { RiArrowUpWideLine, RiArrowDownWideLine } from 'react-icons/ri';
 import styles from './ProductTableHeader.module.scss';
@@ -14,23 +13,64 @@ const ProductTableHeader = ({ sortConfig, requestSort, selectAll, handleSelectAl
           className={styles.checkboxInput}
         />
       </th>
-      {['name', 'description', 'price', 'category.name'].map((key) => (
-        <th key={key} onClick={() => requestSort(key)}>
-          {key.charAt(0).toUpperCase() + key.slice(1).replace('.', ' ')}
-          <span className={styles.sortIcon}>
-            {sortConfig.key === key ? (
-              sortConfig.direction === 'ascending' ? (
-                <RiArrowUpWideLine className={styles.activeSortIcon} />
-              ) : (
-                <RiArrowDownWideLine className={styles.activeSortIcon} />
-              )
+      <th onClick={() => requestSort('name')}>
+        Name
+        <span className={styles.sortIcon}>
+          {sortConfig.key === 'name' ? (
+            sortConfig.direction === 'ascending' ? (
+              <RiArrowUpWideLine className={styles.activeSortIcon} />
             ) : (
-              <RiArrowUpWideLine className={styles.inactiveSortIcon} />
-            )}
-          </span>
-        </th>
-      ))}
+              <RiArrowDownWideLine className={styles.activeSortIcon} />
+            )
+          ) : (
+            <RiArrowUpWideLine className={styles.inactiveSortIcon} />
+          )}
+        </span>
+      </th>
+      <th onClick={() => requestSort('description')}>
+        Description
+        <span className={styles.sortIcon}>
+          {sortConfig.key === 'description' ? (
+            sortConfig.direction === 'ascending' ? (
+              <RiArrowUpWideLine className={styles.activeSortIcon} />
+            ) : (
+              <RiArrowDownWideLine className={styles.activeSortIcon} />
+            )
+          ) : (
+            <RiArrowUpWideLine className={styles.inactiveSortIcon} />
+          )}
+        </span>
+      </th>
+      <th onClick={() => requestSort('price')}>
+        Price
+        <span className={styles.sortIcon}>
+          {sortConfig.key === 'price' ? (
+            sortConfig.direction === 'ascending' ? (
+              <RiArrowUpWideLine className={styles.activeSortIcon} />
+            ) : (
+              <RiArrowDownWideLine className={styles.activeSortIcon} />
+            )
+          ) : (
+            <RiArrowUpWideLine className={styles.inactiveSortIcon} />
+          )}
+        </span>
+      </th>
+      <th onClick={() => requestSort('category.name')}>
+        Category
+        <span className={styles.sortIcon}>
+          {sortConfig.key === 'category.name' ? (
+            sortConfig.direction === 'ascending' ? (
+              <RiArrowUpWideLine className={styles.activeSortIcon} />
+            ) : (
+              <RiArrowDownWideLine className={styles.activeSortIcon} />
+            )
+          ) : (
+            <RiArrowUpWideLine className={styles.inactiveSortIcon} />
+          )}
+        </span>
+      </th>
       <th>Image</th>
+      <th>Actions</th>
     </tr>
   </thead>
 );
