@@ -3,33 +3,93 @@ import React, { useMemo, useState } from 'react';
 import styles from './CurrentProducts.module.scss';
 import { useFetchProducts } from '@/hooks';
 import Image from 'next/image';
+import { RiArrowUpWideLine, RiArrowDownWideLine } from 'react-icons/ri';
+import { IoSearchOutline } from 'react-icons/io5';
 
-const ProductTableHeader = ({ sortConfig, requestSort }) => (
+const ProductTableHeader = ({ sortConfig, requestSort, selectAll, handleSelectAll }) => (
   <thead>
     <tr>
+      <th>
+        <input
+          type='checkbox'
+          checked={selectAll}
+          onChange={handleSelectAll}
+          className={styles.checkboxInput}
+        />
+      </th>
       <th onClick={() => requestSort('name')}>
-        Name {sortConfig.key === 'name' && (sortConfig.direction === 'ascending' ? '🔼' : '🔽')}
+        Name
+        <span className={styles.sortIcon}>
+          {sortConfig.key === 'name' ? (
+            sortConfig.direction === 'ascending' ? (
+              <RiArrowUpWideLine className={styles.activeSortIcon} />
+            ) : (
+              <RiArrowDownWideLine className={styles.activeSortIcon} />
+            )
+          ) : (
+            <RiArrowUpWideLine className={styles.inactiveSortIcon} />
+          )}
+        </span>
       </th>
       <th onClick={() => requestSort('description')}>
-        Description{' '}
-        {sortConfig.key === 'description' && (sortConfig.direction === 'ascending' ? '🔼' : '🔽')}
+        Description
+        <span className={styles.sortIcon}>
+          {sortConfig.key === 'description' ? (
+            sortConfig.direction === 'ascending' ? (
+              <RiArrowUpWideLine className={styles.activeSortIcon} />
+            ) : (
+              <RiArrowDownWideLine className={styles.activeSortIcon} />
+            )
+          ) : (
+            <RiArrowUpWideLine className={styles.inactiveSortIcon} />
+          )}
+        </span>
       </th>
       <th onClick={() => requestSort('price')}>
-        Price {sortConfig.key === 'price' && (sortConfig.direction === 'ascending' ? '🔼' : '🔽')}
+        Price
+        <span className={styles.sortIcon}>
+          {sortConfig.key === 'price' ? (
+            sortConfig.direction === 'ascending' ? (
+              <RiArrowUpWideLine className={styles.activeSortIcon} />
+            ) : (
+              <RiArrowDownWideLine className={styles.activeSortIcon} />
+            )
+          ) : (
+            <RiArrowUpWideLine className={styles.inactiveSortIcon} />
+          )}
+        </span>
       </th>
       <th onClick={() => requestSort('category.name')}>
-        Category{' '}
-        {sortConfig.key === 'category.name' && (sortConfig.direction === 'ascending' ? '🔼' : '🔽')}
+        Category
+        <span className={styles.sortIcon}>
+          {sortConfig.key === 'category.name' ? (
+            sortConfig.direction === 'ascending' ? (
+              <RiArrowUpWideLine className={styles.activeSortIcon} />
+            ) : (
+              <RiArrowDownWideLine className={styles.activeSortIcon} />
+            )
+          ) : (
+            <RiArrowUpWideLine className={styles.inactiveSortIcon} />
+          )}
+        </span>
       </th>
       <th>Image</th>
     </tr>
   </thead>
 );
 
-const ProductTableBody = ({ products }) => (
+const ProductTableBody = ({ products, handleSelectRow, selectedRows }) => (
   <tbody>
     {products.map((product) => (
       <tr key={product.id}>
+        <td>
+          <input
+            type='checkbox'
+            checked={selectedRows.includes(product.id)}
+            onChange={() => handleSelectRow(product.id)}
+            className={styles.checkboxInput}
+          />
+        </td>
         <td>{product.name}</td>
         <td>{product.description}</td>
         <td>${product.price}</td>
@@ -50,10 +110,27 @@ const ProductTableBody = ({ products }) => (
   </tbody>
 );
 
-const ProductTable = ({ products, sortConfig, requestSort }) => (
+const ProductTable = ({
+  products,
+  sortConfig,
+  requestSort,
+  selectAll,
+  handleSelectAll,
+  handleSelectRow,
+  selectedRows,
+}) => (
   <table className={styles.table}>
-    <ProductTableHeader sortConfig={sortConfig} requestSort={requestSort} />
-    <ProductTableBody products={products} />
+    <ProductTableHeader
+      sortConfig={sortConfig}
+      requestSort={requestSort}
+      selectAll={selectAll}
+      handleSelectAll={handleSelectAll}
+    />
+    <ProductTableBody
+      products={products}
+      handleSelectRow={handleSelectRow}
+      selectedRows={selectedRows}
+    />
   </table>
 );
 
@@ -61,6 +138,8 @@ const CurrentProducts = () => {
   const { data: products, isLoading, error } = useFetchProducts();
   const [filterInput, setFilterInput] = useState('');
   const [sortConfig, setSortConfig] = useState({ key: '', direction: '' });
+  const [selectedRows, setSelectedRows] = useState([]);
+  const [selectAll, setSelectAll] = useState(false);
 
   const sortedProducts = useMemo(() => {
     if (!products) return [];
@@ -95,6 +174,23 @@ const CurrentProducts = () => {
     setSortConfig({ key, direction });
   };
 
+  const handleSelectRow = (id) => {
+    if (selectedRows.includes(id)) {
+      setSelectedRows(selectedRows.filter((rowId) => rowId !== id));
+    } else {
+      setSelectedRows([...selectedRows, id]);
+    }
+  };
+
+  const handleSelectAll = () => {
+    if (selectAll) {
+      setSelectedRows([]);
+    } else {
+      setSelectedRows(products.map((product) => product.id));
+    }
+    setSelectAll(!selectAll);
+  };
+
   return (
     <div className={styles.currentProducts}>
       <h3>Current Products</h3>
@@ -104,16 +200,22 @@ const CurrentProducts = () => {
         <h4>Error: {error}</h4>
       ) : (
         <div className={styles.tableContainer}>
-          <input
-            value={filterInput}
-            onChange={(e) => setFilterInput(e.target.value)}
-            placeholder='Search products'
-            className={styles.searchInput}
-          />
+          <div className={styles.inputWrapper}>
+            <input
+              value={filterInput}
+              onChange={(e) => setFilterInput(e.target.value)}
+              placeholder='Search products by name'
+            />
+            <IoSearchOutline />
+          </div>
           <ProductTable
             products={sortedProducts}
             sortConfig={sortConfig}
             requestSort={requestSort}
+            selectAll={selectAll}
+            handleSelectAll={handleSelectAll}
+            handleSelectRow={handleSelectRow}
+            selectedRows={selectedRows}
           />
         </div>
       )}
