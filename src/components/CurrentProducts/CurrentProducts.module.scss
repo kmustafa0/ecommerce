@@ -4,51 +4,6 @@
   margin-top: 20px;
 }
 
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
-
-  th,
-  td {
-    padding: 16px;
-    text-align: left;
-  }
-
-  th {
-    background-color: #e6e6e6;
-    cursor: pointer;
-    position: relative;
-    text-align: center;
-    user-select: none;
-
-    &:hover {
-      background-color: #e0e0e0;
-    }
-
-    input[type='checkbox'] {
-      cursor: pointer;
-    }
-  }
-
-  td {
-    text-align: center;
-  }
-
-  tr {
-    height: 70px;
-  }
-}
-
-.productImage {
-  width: 70px;
-  height: 70px;
-  object-fit: cover;
-  display: block;
-  margin: 0 auto;
-  border-radius: 8px;
-}
-
 .inputWrapper {
   position: relative;
   input {
@@ -63,24 +18,6 @@
     fill: #787878;
     overflow: hidden;
   }
-}
-
-.checkboxInput {
-  height: 1rem;
-}
-
-.sortIcon {
-  display: inline-flex;
-  align-items: center;
-  margin-left: 5px;
-}
-
-.activeSortIcon {
-  color: #000;
-}
-
-.inactiveSortIcon {
-  color: rgba(0, 0, 0, 0.6);
 }
 
 @media (max-width: 600px) {

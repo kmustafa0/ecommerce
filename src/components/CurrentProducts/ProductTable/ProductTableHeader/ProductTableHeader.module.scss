@@ -1,0 +1,17 @@
+.checkboxInput {
+  height: 1rem;
+}
+
+.sortIcon {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.activeSortIcon {
+  color: #000;
+}
+
+.inactiveSortIcon {
+  color: rgba(0, 0, 0, 0.6);
+}

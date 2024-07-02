@@ -1,0 +1,35 @@
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+
+  th,
+  td {
+    padding: 16px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #e6e6e6;
+    cursor: pointer;
+    position: relative;
+    text-align: center;
+    user-select: none;
+
+    &:hover {
+      background-color: #e0e0e0;
+    }
+
+    input[type='checkbox'] {
+      cursor: pointer;
+    }
+  }
+
+  td {
+    text-align: center;
+  }
+
+  tr {
+    height: 60px;
+  }
+}
