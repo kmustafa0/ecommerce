@@ -1,6 +1,6 @@
 'use client';
 import React, { useMemo, useState } from 'react';
-import { useFetchProducts } from '@/hooks';
+import { useDeleteProduct, useFetchProducts } from '@/hooks';
 import ProductTable from './ProductTable/ProductTable';
 import { IoSearchOutline } from 'react-icons/io5';
 import styles from './CurrentProducts.module.scss';
@@ -16,6 +16,7 @@ const CurrentProducts = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState('');
   const [modalConfirmAction, setModalConfirmAction] = useState(null);
+  const { mutate: deleteProduct } = useDeleteProduct();
 
   const sortedProducts = useMemo(() => {
     if (!products) return [];
@@ -69,24 +70,25 @@ const CurrentProducts = () => {
 
   const handleDelete = (product) => {
     setModalContent(
-      ` You will permanently delete ${product.name}. Do you want to continue with this process`
+      `You will permanently delete ${product.name}. Do you want to continue with this process?`
     );
     setModalConfirmAction(() => () => {
+      deleteProduct({ id: product.id });
       setIsModalOpen(false);
     });
     setIsModalOpen(true);
   };
 
   const handleBulkDelete = () => {
-    const selectedProductNames = products
+    const selectedProductIds = products
       .filter((product) => selectedRows.includes(product.id))
-      .map((product) => product.name)
-      .join(', ');
+      .map((product) => product.id);
 
     setModalContent(
-      `You will permanently delete the products ${selectedProductNames}. Do you want to continue with this process?`
+      `You will permanently delete the selected products. Do you want to continue with this process?`
     );
     setModalConfirmAction(() => () => {
+      selectedProductIds.forEach((id) => deleteProduct({ id }));
       setIsModalOpen(false);
     });
     setIsModalOpen(true);

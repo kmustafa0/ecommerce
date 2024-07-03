@@ -19,3 +19,13 @@ export const getProducts = async () => {
     throw new Error('Failed to fetch products');
   }
 };
+
+export const getProduct = async (slug) => {
+  try {
+    const data = await fetcher(`/api/products/${slug}`);
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Failed to fetch products');
+  }
+};
