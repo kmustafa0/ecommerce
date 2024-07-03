@@ -6,15 +6,19 @@ import { useDeleteImage, useFetchImages } from '@/hooks';
 
 const CurrentImages = () => {
   const { mutate: deleteImage } = useDeleteImage();
-  const { data: images = [] } = useFetchImages();
+  const { data: images, isLoading = [] } = useFetchImages();
 
   return (
     <>
       <h3>Current Images</h3>
       <ul className={styles.currentImagesList}>
-        {images.map((image) => (
-          <CurrentImagesList key={image.id} image={image} deleteImage={deleteImage} />
-        ))}
+        {isLoading ? (
+          <h4>Loading...</h4>
+        ) : (
+          images?.map((image) => (
+            <CurrentImagesList key={image.id} image={image} deleteImage={deleteImage} />
+          ))
+        )}
       </ul>
     </>
   );

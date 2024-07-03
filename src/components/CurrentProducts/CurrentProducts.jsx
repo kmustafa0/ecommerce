@@ -2,10 +2,10 @@
 import React, { useMemo, useState } from 'react';
 import { useFetchProducts } from '@/hooks';
 import ProductTable from './ProductTable/ProductTable';
-import Modal from '../Modal/Modal';
 import { IoSearchOutline } from 'react-icons/io5';
 import styles from './CurrentProducts.module.scss';
 import { AiOutlineDelete } from 'react-icons/ai';
+import ConfirmationModal from '../ConfirmationModal/ConfirmationModal';
 
 const CurrentProducts = () => {
   const { data: products, isLoading, error } = useFetchProducts();
@@ -124,12 +124,15 @@ const CurrentProducts = () => {
           />
         </div>
       )}
-      <Modal
+      <ConfirmationModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        onConfirm={modalConfirmAction}>
-        {modalContent}
-      </Modal>
+        onConfirm={modalConfirmAction}
+        title='Confirmation'
+        message={modalContent}
+        confirmText='Delete'
+        cancelText='Cancel'
+      />
     </div>
   );
 };

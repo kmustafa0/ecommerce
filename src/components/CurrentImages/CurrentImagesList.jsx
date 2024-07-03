@@ -96,8 +96,12 @@ const CurrentImagesList = ({ image, deleteImage }) => {
       </li>
       <ConfirmationModal
         isOpen={showConfirmation}
-        onCancel={() => setShowConfirmation(false)}
+        onClose={() => setShowConfirmation(false)}
         onConfirm={handleDelete}
+        title='Are you sure?'
+        message='Are you sure you want to delete this item? This action cannot be undone.'
+        confirmText='Delete'
+        cancelText='Cancel'
       />
     </>
   );
