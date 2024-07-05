@@ -1,0 +1,13 @@
+.productEdit {
+  .contentHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .goBackButton {
+      fill: #0040ff;
+    }
+  }
+  input {
+    padding: 1rem;
+  }
+}
