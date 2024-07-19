@@ -3,15 +3,17 @@ import React, { useState } from 'react';
 import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri';
 import styles from './index.module.scss';
 
-const HamburgerMenu = ({ label, href, subItems }) => {
+const HamburgerMenu = ({ label, subItems, onCloseMenu }) => {
   const [isSubMenuVisible, setSubMenuVisible] = useState(false);
 
   const handleCategoryClick = () => {
     if (subItems && subItems.length > 0) {
       setSubMenuVisible(!isSubMenuVisible);
-    } else {
-      window.location.href = href;
     }
+  };
+
+  const handleSubItemClick = () => {
+    onCloseMenu();
   };
 
   const renderSubItems = () => {
@@ -24,7 +26,8 @@ const HamburgerMenu = ({ label, href, subItems }) => {
                 href={subItem.href}
                 key={subItem.label}
                 className={styles.subMenuItem}
-                aria-label={subItem.label}>
+                aria-label={subItem.label}
+                onClick={handleSubItemClick}>
                 <p className={styles.subItem}>{subItem.label}</p>
               </Link>
             ))}

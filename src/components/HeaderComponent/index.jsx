@@ -105,7 +105,12 @@ const Header = () => {
           <ul>
             {HAMBURGER_MENU_LINKS.map((item) => (
               <li key={item.href}>
-                <HamburgerMenu label={item.label} href={item.href} subItems={item.subItems} />
+                <HamburgerMenu
+                  label={item.label}
+                  href={item.href}
+                  subItems={item.subItems}
+                  onCloseMenu={() => setOpen(false)}
+                />
               </li>
             ))}
           </ul>
