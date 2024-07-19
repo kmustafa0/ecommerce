@@ -1,0 +1,10 @@
+.sidebar {
+  width: 18rem;
+}
+
+@media (max-width: 1024px) {
+  .sidebar {
+    max-height: 350px;
+    width: 100%;
+  }
+}
