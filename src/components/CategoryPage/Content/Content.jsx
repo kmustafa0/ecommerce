@@ -14,6 +14,7 @@ const Content = ({ products }) => {
           img={product.images[0].imageSrc}
           price={product.price}
           discountedPrice={product.discountedPrice}
+          customStyles={styles.imageWrapper}
         />
       ))}
     </section>

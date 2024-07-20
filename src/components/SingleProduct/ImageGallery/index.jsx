@@ -9,17 +9,22 @@ const ImageGallery = ({ productImages }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const { selectedIndex, scrollSnaps, onDotButtonClick } = useDotButton(emblaApi);
 
+  const imagesWithPrimary = productImages.map((image, index) => ({
+    ...image,
+    primary: image.primary || index === 0,
+  }));
+
   return (
     <div className={styles.imageContainer}>
       <h2>Images</h2>
       <div className={styles.imageGrid}>
-        {productImages.map((image) => (
+        {imagesWithPrimary.map((image) => (
           <ImageItem key={image.id} image={image} primary={image.primary} />
         ))}
       </div>
       <div className={styles.embla} ref={emblaRef}>
         <div className={styles.embla__container}>
-          {productImages.map((image) => (
+          {imagesWithPrimary.map((image) => (
             <EmblaSlide key={image.id} image={image} />
           ))}
         </div>

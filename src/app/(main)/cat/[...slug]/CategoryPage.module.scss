@@ -7,6 +7,8 @@
   .categoryPageContainer {
     @extend %container;
     display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
   }
 }
 
